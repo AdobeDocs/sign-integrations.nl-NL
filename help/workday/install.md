@@ -12,7 +12,7 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 8f12b524-2123-45d4-98d5-b2b23580a5ea
-source-git-commit: ba5e0fccfdb7cd278cc0ae57dc03da1e17b51577
+source-git-commit: 78d6cafa720b41bd638c2ef723b2d4a2def19cd5
 workflow-type: tm+mt
 source-wordcount: '1133'
 ht-degree: 25%
@@ -170,7 +170,7 @@ Adobe Sign is de integratiepartner en u dient contact op te nemen met Adobe Sign
 Klanten van Adobe Sign dienen contact op te nemen met hun CSM (Customer Success Manager) voor ondersteuning. U kunt ook de technische ondersteuning van Adobe bellen: 1-866-318-4100, wachten tot de lijst met producten wordt opgesomd en bij de aanwijzingen eerst op 4 en dan op 2 drukken.
 
 * [Adobe-tekstcodes toevoegen aan documenten](https://adobe.com/go/adobesign_text_tag_guide)
-* [Documentconfiguratie en voorbeelden bekijken](https://www.adobe.com/go/adobesign_workday_quick_start)
+* [Documentconfiguratie en voorbeelden bekijken](https://www.adobe.com//go/adobesign_workday_quick_start)
 
 ## Algemene vragen {#faq}
 
