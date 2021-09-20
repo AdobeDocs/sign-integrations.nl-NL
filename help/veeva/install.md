@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 63a34c2d77ba7a262670da624c86a3730de0fdc5
+source-git-commit: d8b7271cae9bcbe8b66311eba0317b8937ea855c
 workflow-type: tm+mt
-source-wordcount: '2772'
+source-wordcount: '2839'
 ht-degree: 2%
 
 ---
@@ -24,6 +24,16 @@ ht-degree: 2%
 ## Overzicht {#overview}
 
 In dit document wordt uitgelegd hoe u Adobe Sign integreert met het [!DNL Veeva Vault]-platform. [!DNL Veeva Vault] is een ECM-platform (Enterprise Content Management) dat is ontwikkeld voor biowetenschappen. Een &quot;Vault&quot; is een content- en dataopslagplaats met een typisch gebruik voor archivering van regelgeving, rapportering over onderzoek, subsidieaanvragen, algemene contracten en meer. Een enkele onderneming kan meerdere &#39;kluizen&#39; hebben die afzonderlijk moeten worden onderhouden.
+
+De stappen op hoog niveau om de integratie te voltooien zijn:
+
+* Activeer uw beheeraccount in Adobe Sign (alleen voor nieuwe klanten)
+* Maak objecten om de geschiedenis van een levenscyclus van een overeenkomst in een Vault bij te houden.
+* Maak een nieuw beveiligingsprofiel.
+* Configureer een groep in Adobe Sign om de integratiegebruiker [!DNL Veeva Vault] vast te houden.
+* Maak documentvelden en uitvoeringen.
+* Webacties configureren en de levenscyclus van het document bijwerken.
+* Documenttype instellen voor gebruiker en gebruikersrol.
 
 ## Configureer [!DNL Veeva Vault]
 
