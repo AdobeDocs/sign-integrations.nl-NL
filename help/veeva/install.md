@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: d8b7271cae9bcbe8b66311eba0317b8937ea855c
+source-git-commit: 3f826e88969562a69279a29dfdd98775ec01fd51
 workflow-type: tm+mt
-source-wordcount: '2839'
+source-wordcount: '3061'
 ht-degree: 2%
 
 ---
@@ -23,17 +23,21 @@ ht-degree: 2%
 
 ## Overzicht {#overview}
 
-In dit document wordt uitgelegd hoe u Adobe Sign integreert met het [!DNL Veeva Vault]-platform. [!DNL Veeva Vault] is een ECM-platform (Enterprise Content Management) dat is ontwikkeld voor biowetenschappen. Een &quot;Vault&quot; is een content- en dataopslagplaats met een typisch gebruik voor archivering van regelgeving, rapportering over onderzoek, subsidieaanvragen, algemene contracten en meer. Een enkele onderneming kan meerdere &#39;kluizen&#39; hebben die afzonderlijk moeten worden onderhouden.
+In dit document wordt uitgelegd hoe u Adobe Sign integreert met het [!DNL Veeva Vault]-platform. [!DNL Veeva Vault] is een ECM-platform (Enterprise Content Management) dat is ontwikkeld voor biowetenschappen. Een &quot;Vault&quot; is een content- en dataopslagplaats met een typisch gebruik voor archivering van regelgeving, rapportering over onderzoek, subsidieaanvragen, algemene contracten en meer. Een enkele onderneming kan meerdere &#39;waarden&#39; hebben die afzonderlijk moeten worden onderhouden.
 
 De stappen op hoog niveau om de integratie te voltooien zijn:
 
 * Activeer uw beheeraccount in Adobe Sign (alleen voor nieuwe klanten)
-* Maak objecten om de geschiedenis van een levenscyclus van een overeenkomst in een Vault bij te houden.
+* Maak objecten om de geschiedenis van een levenscyclus van een overeenkomst in de Vault bij te houden.
 * Maak een nieuw beveiligingsprofiel.
 * Configureer een groep in Adobe Sign om de integratiegebruiker [!DNL Veeva Vault] vast te houden.
 * Maak documentvelden en uitvoeringen.
 * Webacties configureren en de levenscyclus van het document bijwerken.
 * Documenttype instellen voor gebruiker en gebruikersrol.
+
+>[!NOTE]
+>
+>Adobe Sign-beheerder moet de Adobe Sign-installatiestappen uitvoeren in Adobe Sign.
 
 ## Configureer [!DNL Veeva Vault]
 
@@ -46,7 +50,7 @@ Om [!DNL Veeva Vault] te configureren voor integratie met Adobe Sign, maken we b
 
 ### Handtekeningobject maken  {#create-signature-object}
 
-Handtekeningobject wordt gemaakt om aan overeenkomsten gerelateerde informatie op te slaan. Een handtekeningobject is een database die informatie bevat in de volgende specifieke velden:
+Handtekeningobject wordt gemaakt voor het opslaan van informatie over overeenkomsten. Een handtekeningobject is een database die informatie bevat in de volgende specifieke velden:
 
 **Handtekeningobjectvelden**
 
@@ -86,7 +90,7 @@ Handtekeningobject wordt gemaakt om informatie op te slaan die betrekking heeft 
 
 ### Handtekeninggebeurtenisobject maken  {#create-signature-event}
 
-Er wordt een handtekeninggebeurtenisobject gemaakt waarin de gebeurtenisgerelateerde informatie van een overeenkomst wordt opgeslagen. Het bevat informatie onder de volgende specifieke gebieden:
+Handtekeninggebeurtenisobject wordt gemaakt om gebeurtenisgerelateerde informatie van een overeenkomst op te slaan. Het bevat informatie onder de volgende specifieke gebieden:
 
 | Veld  | Label | Type | Beschrijving |
 | --- | --- | ---| --- | 
@@ -277,6 +281,53 @@ Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zo
 >
 >Als het instellingsobject voor gebruikersrollen niet het veld bevat dat verwijst naar het object Groep documenttype, moet dit veld worden toegevoegd.
 
+## [!DNL Veeva Vault] met middleware verbinden met Adobe Sign {#connect-middleware}
+
+Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om [!DNL Veeva Vault] met middleware te verbinden met Adobe Sign:
+
+1. [Ga naar de Adobe Sign  [!DNL Veeva Vault] for Home-pagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
+1. Selecteer **[!UICONTROL Aanmelden]** in de rechterbovenhoek.
+
+   ![Afbeelding van aanmeldingsgegevens voor middleware](images/middleware_login.png)
+
+1. Geef op de Adobe Sign-aanmeldingspagina die wordt geopend de e-mail en het wachtwoord van de accountbeheerder op en selecteer **[!UICONTROL Aanmelden]**.
+
+   ![Afbeelding](images/middleware-signin.png)
+
+   Zodra de gebruiker is aangemeld, wordt de bijbehorende e-mail-ID in de rechterbovenhoek en een extra tabblad Instellingen weergegeven, zoals hieronder wordt weergegeven.
+
+   ![Afbeelding](images/middleware_settings.png)
+
+1. Selecteer het tabblad **[!UICONTROL Instellingen]**.
+
+   Op de pagina Instellingen worden de beschikbare verbindingen weergegeven en geen verbindingen in het geval van de eerste verbindingsinstellingen, zoals hieronder wordt weergegeven.
+
+   ![Afbeelding](images/middleware_newconnection.png)
+
+1. Selecteer **[!UICONTROL Verbinding toevoegen]** om een nieuwe verbinding toe te voegen.
+
+1. Geef in het dialoogvenster Verbinding toevoegen dat wordt geopend, de vereiste gegevens op, inclusief de [!DNL Veeva Vault]-referenties.
+
+   De Adobe Sign-referenties worden automatisch ingevuld vanaf de eerste Adobe Sign-aanmelding.
+
+   ![Afbeelding](images/middleware_addconnection.png)
+
+1. Selecteer **[!UICONTROL Valideren]** om de accountgegevens te valideren.
+
+   Bij succesvolle validatie ziet u een melding &#39;Met succes gevalideerd door gebruiker&#39;, zoals hieronder weergegeven.
+
+   ![Afbeelding](images/middleware_validated.png)
+
+1. Als u het gebruik wilt beperken tot een bepaalde Adobe Sign-groep, vouwt u de vervolgkeuzelijst **[!UICONTROL Groep]** uit en selecteert u een van de beschikbare groepen.
+
+   ![Afbeelding](images/middleware_group.png)
+
+1. Selecteer **[!UICONTROL Opslaan]** om uw nieuwe verbinding op te slaan.
+
+   De nieuwe verbinding wordt weergegeven op het tabblad Instellingen, waarin de integratie tussen [!DNL Veeva Vault] en Adobe Sign is gelukt.
+
+   ![Afbeelding](images/middleware_setup.png)
+
 ## Levenscyclus pakketimplementatie {#deployment-lifecycle}
 
 ### Algemene levenscyclus van implementatie {#general-deployment}
@@ -287,7 +338,7 @@ Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zo
 
 **Stap 3.** Implementeer het pakket.
 
-**Stap 4.** Maak een nieuwe door gebruiker beheerde groep met de naam &#39;Adobe Sign Admin Group&#39;.
+**Stap 4.** Maak een nieuwe door de gebruiker beheerde groep met de naam &#39;Adobe Sign Admin Group&#39;.
 
 **Stap 5.** Maak een integratiegebruikersprofiel met het beveiligingsprofiel &quot;Adobe Sign Integration Profile&quot; en wijs dit toe aan de Adobe Sign Admin Group.
 
