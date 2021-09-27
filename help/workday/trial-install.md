@@ -12,9 +12,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: beafe6c0-262f-4f5b-9315-a023a4eef4a2
-source-git-commit: 3f826e88969562a69279a29dfdd98775ec01fd51
+source-git-commit: c25be043b404e9bf7a90496d4e47c1f22069313d
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '995'
 ht-degree: 38%
 
 ---
@@ -29,7 +29,7 @@ Dit document is ontworpen om klanten van [!DNL Workday] te helpen bij het active
 * Instelling en configuratie van de tenant
 * Rapportage en integratie van [!DNL Workday] Studio
 
-**Opmerking**: Als u een bestaand Adobe Sign-account hebt, hoeft u geen proefversie te starten. U kunt contact opnemen met uw Client Success Manager om [!DNL Workday]-integratie aan te vragen.
+**Opmerking**: Als u een bestaand Adobe Sign-account hebt, hoeft u niet een proefversie te starten. U kunt contact opnemen met uw Client Success Manager om [!DNL Workday]-integratie aan te vragen.
 
 Dit zijn de geavanceerde stappen voor het voltooien van de integratie:
 
@@ -49,7 +49,7 @@ Binnen één werkdag kan een Adobe Sign on-boarding specialist uw account (in Ad
 
 ![De welkomste-mail van Adobe Sign](images/welcome-email-2020.png)
 
-Volg de aanwijzingen in de e-mail om uw account te initialiseren en toegang te krijgen tot uw Adobe Sign-pagina [!UICONTROL Home].
+Volg de aanwijzingen in de e-mail om uw account te initialiseren en toegang te krijgen tot uw Adobe Sign [!UICONTROL startpagina].
 
 ![Het Adobe Sign-dashboard](images/classic-home.png)
 
@@ -165,4 +165,4 @@ Klanten van Adobe Sign dienen contact op te nemen met hun CSM (Customer Success 
 
 * [Documentconfiguratie en voorbeelden](https://www.adobe.com//go/adobesign_workday_quick_start) bekijken{target=&quot;_blank&quot;}
 
-[**Contact opnemen met de ondersteuning van Adobe Sign**](https://adobe.com/go/adobesign-support-center_nl)
+[**Contact opnemen met de ondersteuning van Adobe Sign**](https://www.adobe.com/go/adobesign-support-center)
