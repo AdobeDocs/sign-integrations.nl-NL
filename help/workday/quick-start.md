@@ -11,32 +11,32 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 8b6fa8b4-e240-4ebe-ae2a-8807d75a6c69
-source-git-commit: d462ccf41fa5483cfa02f5eaf154c23f26157a1e
+source-git-commit: 5ac9dc27dcdb6cab19281e6aafd4ea0524cc01d6
 workflow-type: tm+mt
-source-wordcount: '1352'
-ht-degree: 36%
+source-wordcount: '1348'
+ht-degree: 30%
 
 ---
 
 # [!DNL Workday] Gids Aan de slag{#workday-quick-start-guide}
 
-[**Contact opnemen met de ondersteuning van Adobe Sign**](https://adobe.com/go/adobesign-support-center_nl)
+[**Contact opnemen met de ondersteuning van Adobe Sign**](https://www.adobe.com/go/adobesign-support-center)
 
 ## Overzicht {#overview}
 
 Dit document is ontworpen om beheerders van [!DNL Workday] te helpen begrijpen hoe ze de [!DNL Workday] bedrijfsprocessen kunnen aanpassen en Adobe Sign kunnen opnemen voor het verkrijgen van elektronische handtekeningen. Als u Adobe Sign wilt gebruiken binnen [!DNL Workday], moet u weten hoe u [!DNL Workday]-items kunt maken en wijzigen, zoals:
 
-* Business Process Framework
+* [!UICONTROL Business Process Framework]
 * Instelling en configuratie van de tenant
 * Rapportage en integratie van [!DNL Workday] Studio
 
 ## Toegang tot Adobe Sign vanuit [!DNL Workday] {#access-adobe-sign}
 
-De elektronische ondertekeningsfunctie van Adobe Sign wordt weergegeven als [!UICONTROL stap Document Review]-handeling in het BPF (Business Process Framework) en als taak Distribute Documents.
+[!UICONTROL De elektronische ondertekeningsmogelijkheden van Adobe Sign ] worden weergegeven als  [!UICONTROL Review Document ] Stepaction binnen het BPF ( [!UICONTROL Business Process Framework) ] en als Distribute Documents-taak.
 
 ## [!UICONTROL De stap Review Document (Document bekijken)] {#review-document-step}
 
-Adobe Sign for [!DNL Workday] wordt weergegeven via de [!UICONTROL stap Document reviewen] die u kunt toevoegen aan elk van de meer dan 400 bedrijfsprocessen binnen [!DNL Workday], inclusief Aanbieding, Documenten en taken distribueren, Compenseren voorstellen en meer.
+Adobe Sign for [!DNL Workday] wordt weergegeven via de [!UICONTROL stap Document reviewen] die u kunt toevoegen aan elk van de meer dan 400 bedrijfsprocessen binnen [!DNL Workday], inclusief [!UICONTROL Offer], [!UICONTROL Documenten en taken distribueren], [!UICONTROL Compenseren] en meer.
 
 U kunt verwijzen naar de [[!DNL Workday] communityartikelen op [!UICONTROL Documentstap reviseren]](https://doc.workday.com/#/reader/3DMnG~27o049IYFWETFtTQ/TboWWKQemecNipWgxLAjqg).
 
@@ -62,7 +62,7 @@ De [!UICONTROL stap Document controleren] configureren:
    * Als één persoon met de desbetreffende functie zijn handtekening zet, is de die stap van de rij voltooid en wordt het document verplaatst naar de volgende stap in de rij.
    * Wanneer alle rijen zijn ondertekend, is de [!UICONTROL stap Document controleren] voltooid.
 
-1. Geef het document op dat moet worden ondertekend. Als dit een Offer BP (Bedrijfsproces Aanbod) is, kunt u het document van een stap Generate Document (Document genereren) gebruiken. Als dat niet het geval is, kiest u een bestaand document of rapport.
+1. Geef het document op dat moet worden ondertekend. Als het document een [!UICONTROL Aanbieding BP] is, kunt u het van een Generate stap van het Document gebruiken. Als dat niet het geval is, kiest u een bestaand document of rapport.
 
 1. Herhaal stap 3 voor zoveel documenten als nodig is.
 
@@ -78,11 +78,11 @@ Selecteer **[!UICONTROL Bedrijfsproces]** > **[!UICONTROL Omleiding behouden]** 
 
 ## Opmerkingen bij de stappen in het bedrijfsproces {#business-process-step-notes}
 
-Het Business Process Framework is krachtig; u moet er echter voor zorgen dat :
+[!UICONTROL Het ] framework voor bedrijfsprocessen is krachtig; u moet er echter voor zorgen dat :
 
 * Elk bedrijfsproces moet een voltooiingsstap hebben, die idealiter aan het eind van het bedrijfsproces is.
 
-* Er wordt een voltooiingsstap ingesteld van het menu met verwante handelingen van het zoekpictogram. Dit is alleen mogelijk tijdens het &quot;weergeven&quot; van het BP en niet tijdens het &quot;bewerken&quot; ervan.
+* Er wordt een voltooiingsstap ingesteld in het menu met verwante handelingen van het zoekpictogram. Dit is alleen mogelijk tijdens het &quot;weergeven&quot; van het BP en niet tijdens het &quot;bewerken&quot; ervan.
 
 * Elke stap van het bedrijfsproces wordt achtereenvolgens uitgevoerd.
 
@@ -90,7 +90,7 @@ Het Business Process Framework is krachtig; u moet er echter voor zorgen dat :
 
 ### Voorbeeld: aanbieden {#example-offer}
 
-De BP van de Aanbieding is een subproces van de Dynamische BP van de Toepassing van de Taak die moet worden gevormd om BP van de Aanbieding uit te voeren. Dit wordt geactiveerd wanneer de status Job Application (Sollicitatie) wordt verplaatst van Offer naar Make Offer (Aanbieden).
+BP van de Aanbieding is een subproces van [!UICONTROL Dynamische BP van de Toepassing van de Taak] dat moet worden gevormd om BP van de Aanbieding uit te voeren. Deze wordt geactiveerd wanneer de status Taaktoepassing wordt verplaatst naar &quot;[!UICONTROL Aanbieding]&quot; of &quot;[!UICONTROL Aanbieding maken]&quot;.
 
 In het onderstaande voorbeeld gebruikt een [!UICONTROL Review Document Step] een stap Dynamic Document voor zowel Noord-Amerika als Japan.
 
@@ -120,7 +120,7 @@ Items in {{brackets}} zijn [Adobe-tekstlabels](https://adobe.com/go/adobesign_te
 
 In de [!UICONTROL Documentstap controleren] wordt vanuit de vorige stap naar het dynamische document verwezen en wordt het opeenvolgende ondertekeningsproces via twee ondertekeningsgroepen gedefinieerd.
 
-Het hieronder geïllustreerde gedrag zal het dynamisch geproduceerde document eerst aan de Manager van de Huur, en dan aan de Kandidaat leiden.
+Het gedrag dat hieronder wordt geïllustreerd leidt het dynamisch geproduceerde document eerst aan de Manager van de Helling, en dan aan de Kandidaat.
 
 ![[!DNL Workday] ondertekeningsgroepen die worden gedefinieerd](images/configure-rd-stepsmaller-575.png)
 
@@ -128,7 +128,7 @@ Het hieronder geïllustreerde gedrag zal het dynamisch geproduceerde document ee
 
 De taak Mass Distribute Documents or Tasks is geïntroduceerd in [!DNL Workday] 30 en kan worden gebruikt om één document te verzenden naar een grote groep (&lt;20K) afzonderlijke ondertekenaars. Dit is beperkt tot één handtekening per document. U kunt een distributie maken door de handeling &#39;[!UICONTROL Distribute documenten of taken maken]&#39; in de zoekbalk te openen.
 
-Voorbeeld: Stuur een formulier voor werknemersopties naar alle managers bij Global Modern Services. Desgewenst kunt u het filter verder filteren op individuele managers.
+Voorbeeld: Verzend een formulier voor de aandelenkeuze voor werknemers naar alle managers met [!UICONTROL Global Modern Services]. Desgewenst kunt u het filter verder filteren op individuele managers.
 
 U kunt ook het rapport **View Distribute Documents or Tasks** openen om de voortgang van de distributie te volgen.
 
@@ -158,7 +158,7 @@ De handtekeningencyclus [!DNL Workday] onderdrukt alle e-mailmeldingen van Adobe
 
 Zodra een document is ondertekend door alle handtekeninggroepen, wordt een kopie van het ondertekende document via e-mail verspreid onder alle leden van de handtekeninggroep.
 
-Als u dit gedrag wilt onderdrukken, kunt u contact opnemen met uw Adobe Sign Success Manager of het [Adobe Sign Support team](https://adobe.com/go/adobesign-support-center).
+Als u dit gedrag wilt onderdrukken, kunt u contact opnemen met uw [!UICONTROL Adobe Sign Success Manager] of het [Adobe Sign Support team](https://adobe.com/go/adobesign-support-center).
 
 Binnen [!DNL Workday] hebt u toegang tot de ondertekende documenten in de volledige procesrecord. U kunt vinden:
 
@@ -186,9 +186,9 @@ De [!DNL Workday]-community heeft verschillende goede artikelen over het oplosse
 
 Adobe Sign is de integratiepartner en u dient contact op te nemen met Adobe Sign als de integratie geen handtekeningen kan verkrijgen of als de kennisgeving voor handtekeningen in de wachtrij mislukt.
 
-Klanten van Adobe Sign dienen contact op te nemen met hun CSM (Customer Success Manager) voor ondersteuning. U kunt ook de technische ondersteuning van Adobe bellen: 1-866-318-4100, wachten tot de lijst met producten wordt opgesomd en bij de aanwijzingen eerst op 4 en dan op 2 drukken.
+Adobe Sign-klanten moeten contact opnemen met hun Customer Success-manager voor ondersteuning. U kunt ook [!UICONTROL Technische ondersteuning voor Adobe] telefonisch bereiken: 1-866-318-4100, wacht op productlijst dan ga binnen: 4 en vervolgens 2 (naar wens).
 
-* [Adobe-tekstlabels toevoegen aan documenten](https://adobe.com/go/adobesign_text_tag_guide)
+* [Adobe-tekstlabels toevoegen aan documenten](https://www.adobe.com/go/adobesign_text_tag_guide)
 
 <!--
 [Download PDF](images/adobe-sign-for-workday-quick-start-guide-2016.pdf)

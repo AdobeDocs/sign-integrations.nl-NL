@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 2a8cd053744fdd5dbb4b97a861e7d29e0722779f
+source-git-commit: a262c45fa21bf5d7d0536588d2a621c50d1e8fa0
 workflow-type: tm+mt
-source-wordcount: '3039'
+source-wordcount: '3090'
 ht-degree: 2%
 
 ---
@@ -283,9 +283,9 @@ Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zo
 
 ## [!DNL Veeva Vault] met middleware verbinden met Adobe Sign {#connect-middleware}
 
-Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om [!DNL Veeva Vault] met middleware te verbinden met Adobe Sign:
+Nadat u de installatie voor [!DNL Veeva Vault] en het Adobe Sign-beheerdersaccount hebt voltooid, moet de beheerder een verbinding tussen de twee accounts maken met behulp van de middleware. De [!DNL Veeva Vault]- en Adobe Sign-accountverbinding wordt geïnitieerd door Adobe Sign Identity en wordt vervolgens gebruikt om de Veva Vault-identiteit op te slaan. Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om [!DNL Veeva Vault] met middleware te verbinden met Adobe Sign:
 
-1. Ga naar de startpagina van Adobe Sign voor [!DNL Veeva Vault].
+1. Ga naar de [Adobe Sign for [!DNL Veeva Vault] startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
 1. Selecteer **[!UICONTROL Aanmelden]** in de rechterbovenhoek.
 
    ![Afbeelding van aanmeldingsgegevens voor middleware](images/middleware_login.png)
