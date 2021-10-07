@@ -7,9 +7,9 @@ type: Documentation
 solution: Adobe Sign
 role: User, Developer
 topic: Integrations
-source-git-commit: 27610773d47a947dbfa1deb3f594667406a9aefb
+source-git-commit: 40fe3649aab0499ce8e5fbd1b11308ffbd759a44
 workflow-type: tm+mt
-source-wordcount: '2336'
+source-wordcount: '2354'
 ht-degree: 1%
 
 ---
@@ -247,6 +247,10 @@ Opmerking: Als een [!DNL EchoSign]-overeenkomst ter ondertekening wordt verzonde
 In het subdeelvenster [!UICONTROL Gebeurtenissen] van een [!DNL EchoSign]-overeenkomst wordt de status bijgehouden van overeenkomsten die ter ondertekening worden verzonden. Selecteer **[!UICONTROL Status bijwerken]** om de laatste updates van een [!DNL EchoSign]-overeenkomst te bekijken. De knop [!UICONTROL Status bijwerken] is alleen beschikbaar nadat een overeenkomst ter ondertekening is verzonden.
 
 ![Afbeelding](images/update-cancel-status.png)
+
+Nadat een overeenkomst ter ondertekening is verzonden, selecteert u **[!UICONTROL Status bijwerken]** om de laatste status op te halen.
+
+![Afbeelding](images/events-subpanel.png)
 
 ### Herinneringen verzenden {#send-reminders}
 
