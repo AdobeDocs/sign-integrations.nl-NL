@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: d8071d9aa23351e31a9360d3c4d17f6297d0e2f1
+source-git-commit: 45bc2d698396bb07c4a246930d34b7e2ad0f6648
 workflow-type: tm+mt
-source-wordcount: '3115'
+source-wordcount: '3113'
 ht-degree: 2%
 
 ---
@@ -41,7 +41,7 @@ De stappen op hoog niveau om de integratie te voltooien zijn:
 
 ## Configureer [!DNL Veeva Vault]
 
-Om [!DNL Veeva Vault] te configureren voor integratie met Adobe Sign, maken we bepaalde objecten die helpen de geschiedenis van een levenscyclus van een overeenkomst in de vault bij te houden. Beheerders moeten de volgende objecten maken:
+Als u [!DNL Veeva Vault] wilt configureren voor integratie met Adobe Sign, maakt u bepaalde objecten waarmee u de geschiedenis van een levenscyclus van een overeenkomst in de vault kunt volgen. Beheerders moeten de volgende objecten maken:
 
 * Handtekening
 * Handtekening
@@ -122,7 +122,7 @@ Voor een geslaagde integratie van de Vault wordt een nieuw beveiligingsprofiel m
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/security-profiles.png)
 
-Beveiligingsprofielen van gebruikers die toegang tot de geschiedenis van Adobe Sign in de Vault nodig hebben, moeten beschikken over Leesmachtigingen voor objecten Handtekening, Handtekening en Handtekeninggebeurtenis.
+Voor beveiligingsprofielen van gebruikers die toegang tot de geschiedenis van Adobe Sign in de Vault nodig hebben, moeten leesmachtigingen gelden voor de objecten Handtekening, Handtekening en Handtekeninggebeurtenis.
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/set-permissions.png)
 
@@ -223,7 +223,7 @@ Wanneer een Vault-document naar Adobe Sign wordt verzonden, moet de status overe
 
    ![Afbeelding van levenscyclusstatus 1](images/lifecycle-state1.png)
 
-* **In Adobe Sign Draft**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document al is geüpload naar Adobe Sign en dat de overeenkomst de status DRAFT. Het is een vereiste staat. Deze status moet de volgende vijf gebruikersacties weigeren:
+* **In Adobe Sign Draft**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document al is geüpload naar Adobe Sign en dat de overeenkomst de status DRAFT. Het is een vereiste staat. Deze status moet de volgende vijf gebruikersacties definiëren:
 
    * Handeling die de status van het document wijzigt in *In Adobe Sign Authoring* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
    * Handeling die de status van het document wijzigt in *Status van Adobe ondertekenen*. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
