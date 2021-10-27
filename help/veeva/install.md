@@ -10,7 +10,7 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 45bc2d698396bb07c4a246930d34b7e2ad0f6648
+source-git-commit: 1c95f3eb0ddb077cad53a82b1a56358637839b16
 workflow-type: tm+mt
 source-wordcount: '3113'
 ht-degree: 2%
@@ -23,14 +23,14 @@ ht-degree: 2%
 
 ## Overzicht {#overview}
 
-In dit document wordt uitgelegd hoe u Adobe Sign integreert met het [!DNL Veeva Vault]-platform. [!DNL Veeva Vault] is een ECM-platform (Enterprise Content Management) dat is ontwikkeld voor biowetenschappen. Een &quot;Vault&quot; is een content- en dataopslagplaats met een typisch gebruik voor archivering van regelgeving, rapportering over onderzoek, subsidieaanvragen, algemene contracten en meer. Een enkele onderneming kan meerdere &#39;waarden&#39; hebben die afzonderlijk moeten worden onderhouden.
+In dit document wordt uitgelegd hoe u Adobe Sign kunt integreren met [!DNL Veeva Vault] platform. [!DNL Veeva Vault] is een ECM-platform (Enterprise Content Management) dat is ontwikkeld voor biowetenschappen. Een &quot;Vault&quot; is een content- en dataopslagplaats met een typisch gebruik voor archivering van regelgeving, rapportering over onderzoek, subsidieaanvragen, algemene contracten en meer. Een enkele onderneming kan meerdere &#39;waarden&#39; hebben die afzonderlijk moeten worden onderhouden.
 
 De stappen op hoog niveau om de integratie te voltooien zijn:
 
 * Activeer uw beheeraccount in Adobe Sign (alleen voor nieuwe klanten)
 * Maak objecten om de geschiedenis van een levenscyclus van een overeenkomst in de Vault bij te houden.
 * Maak een nieuw beveiligingsprofiel.
-* Configureer een groep in Adobe Sign om de integratiegebruiker [!DNL Veeva Vault] vast te houden.
+* Configureer een groep in Adobe Sign die de [!DNL Veeva Vault] integratiegebruiker.
 * Maak documentvelden en uitvoeringen.
 * Webacties configureren en de levenscyclus van het document bijwerken.
 * Documenttype instellen voor gebruiker en gebruikersrol.
@@ -41,7 +41,7 @@ De stappen op hoog niveau om de integratie te voltooien zijn:
 
 ## Configureer [!DNL Veeva Vault]
 
-Als u [!DNL Veeva Vault] wilt configureren voor integratie met Adobe Sign, maakt u bepaalde objecten waarmee u de geschiedenis van een levenscyclus van een overeenkomst in de vault kunt volgen. Beheerders moeten de volgende objecten maken:
+Om te configureren [!DNL Veeva Vault] voor integratie met Adobe Sign, maakt u bepaalde objecten waarmee u de geschiedenis van een levenscyclus van een overeenkomst in Vault kunt volgen. Beheerders moeten de volgende objecten maken:
 
 * Handtekening
 * Handtekening
@@ -115,7 +115,7 @@ Er wordt een Process Locker-object gemaakt om het Adobe Sign-integratieproces te
 
 ## Beveiligingsprofielen maken{#security-profiles}
 
-Voor een geslaagde integratie van de Vault wordt een nieuw beveiligingsprofiel met de naam *Adobe Sign Integration Profile* gemaakt en wordt de bijbehorende machtiging ingesteld voor *Adobe Sign Admin Actions*. Het Adobe Sign Integration Profile wordt toegewezen aan het systeemaccount en wordt door de integratie gebruikt bij het aanroepen van Vault API&#39;s. Dit profiel staat machtigingen toe voor:
+Voor een succesvolle integratie van de vault wordt een nieuw beveiligingsprofiel *Adobe Sign-integratieprofiel* wordt gemaakt en is ingesteld op *Adobe Sign-beheeracties*. Het Adobe Sign Integration Profile wordt toegewezen aan het systeemaccount en wordt door de integratie gebruikt bij het aanroepen van Vault API&#39;s. Dit profiel staat machtigingen toe voor:
 
 * Vault-API&#39;s
 * Lezen, maken, bewerken en verwijderen: Handtekening, handtekening, handtekeninggebeurtenissen en procesklubjecten
@@ -128,7 +128,7 @@ Voor beveiligingsprofielen van gebruikers die toegang tot de geschiedenis van Ad
 
 ## Groep maken {#create-group}
 
-Om Adobe Sign voor [!DNL Vault] te configureren, wordt een nieuwe groep gemaakt met de naam *Adobe Sign Admin Group*. Deze groep wordt gebruikt om de beveiliging op documentveldniveau in te stellen voor aan Adobe Sign gerelateerde velden en moet standaard *Adobe Sign Integration Profile* bevatten.
+Adobe Sign configureren voor [!DNL Vault], een nieuwe groep genaamd *Adobe Sign Admin Group* wordt gemaakt. Deze groep wordt gebruikt om de beveiliging op documentveldniveau in te stellen voor Adobe Sign-gerelateerde velden en moet *Adobe Sign-integratieprofiel* standaard.
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/create-admin-group.png)
 
@@ -145,7 +145,7 @@ Als u er zeker van wilt zijn dat de gebruiker van de systeemaccount behoort tot 
 
 ## Toepassingsrollen maken {#create-application-roles}
 
-U moet de toepassingsrol *Adobe Sign Admin Role* maken. Deze rol moet worden gedefinieerd in de levenscyclus van elk documenttype dat in aanmerking komt voor Adobe-ondertekening. Voor elke specifieke levenscyclusstatus van Adobe Sign wordt de Adobe Sign Admin Role toegevoegd en geconfigureerd met de juiste machtigingen.
+U moet de toepassingsrol creëren geroepen *Adobe Sign-beheerdersrol*. Deze rol moet worden gedefinieerd in de levenscyclus van elk documenttype dat in aanmerking komt voor Adobe-ondertekening. Voor elke specifieke levenscyclusstatus van Adobe Sign wordt de Adobe Sign Admin Role toegevoegd en geconfigureerd met de juiste machtigingen.
 
 ![Afbeelding van toepassingsrollen maken](images/create-application-roles.png)
 
@@ -162,13 +162,13 @@ Deze gedeelde velden moeten worden toegevoegd aan alle documenttypen die in aanm
 
 ![Afbeelding van details van handtekeningvelden](images/signature-field-details.png)
 
-Beheerders moeten het bestaande gedeelde veld *Vault-overlays uitschakelen (disable_vault_overlays__v)* toevoegen en dit op Actief instellen voor alle documenttypen die in aanmerking komen voor Adobe-ondertekening. Optioneel kan het veld een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign-beheerdersgroep hun waarde kunnen bijwerken.
+Beheerders moeten het bestaande gedeelde veld toevoegen *Vault-overlays uitschakelen (disable_vault_overlays__v)* en stel deze in op Actief voor alle documenttypen die in aanmerking komen voor Adobe-ondertekening. Optioneel kan het veld een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign-beheerdersgroep hun waarde kunnen bijwerken.
 
 ![Afbeelding van gebruikersacties voor Adobe Sign toestaan](images/allow-adobe-sign-user-actions.png)
 
 ## Documentuitvoeringen maken {#create-renditions}
 
-Beheerders moeten een nieuw weergavetype maken met de naam *Adobe Sign Rendition (adobe_sign_rendition__c)*. Dit type wordt door de Vault-integratie gebruikt om ondertekende PDF-documenten te uploaden naar Adobe Sign. De Adobe Sign-uitvoering moet worden gedeclareerd voor elk documenttype dat in aanmerking komt voor Adobe-ondertekening.
+Beheerders moeten een nieuw weergavetype maken met de naam *Adobe Sign Rendition (adobe_sign_rendition__c)*, die wordt gebruikt door Vault-integratie voor het uploaden van ondertekende PDF-documenten naar Adobe Sign. De Adobe Sign-uitvoering moet worden gedeclareerd voor elk documenttype dat in aanmerking komt voor Adobe-ondertekening.
 
 ![Afbeelding van weergavetypen](images/rendition-type.png)
 
@@ -178,17 +178,13 @@ Beheerders moeten een nieuw weergavetype maken met de naam *Adobe Sign Rendition
 
 Voor Adobe Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodig:
 
-* **Adobe Sign** maken: Er wordt een Adobe Sign-overeenkomst gemaakt of weergegeven.
+* **Adobe Sign maken**: Er wordt een Adobe Sign-overeenkomst gemaakt of weergegeven.
 
-   Type: Document
-Doel: Weergeven binnen vam
-URL: <https://{integrationDomain}/adobe-sign-int/signature?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&sessionId=${Session.id}&vaultId=${Vault.Id>
+   Type: Documentdoel: Weergeven binnen vault-URL: <https://{integrationDomain}/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultId=${Vault.Id>}
 
-* **Adobe Sign** annuleren: Hiermee wordt een bestaande overeenkomst in Adobe Sign geannuleerd en wordt de oorspronkelijke documentstatus hersteld.
+* **Adobe Sign annuleren**: Hiermee wordt een bestaande overeenkomst in Adobe Sign geannuleerd en wordt de oorspronkelijke documentstatus hersteld.
 
-   Type: Document
-Doel: Weergeven binnen vam
-URL: <https://{integrationDomain}/adobe-sign-int/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&sessionId=${Session.id}&vaultId=${Vault.Id>
+   Type: Documentdoel: Weergeven binnen vault-URL: <https://{integrationDomain}/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultId=${Vault.Id>}
 
 ## Documentlevenscyclus bijwerken {#document-lifecycle}
 
@@ -216,18 +212,18 @@ De levenscyclus van Adobe Sign-overeenkomsten heeft de volgende statussen:
 
 Wanneer een Vault-document naar Adobe Sign wordt verzonden, moet de status overeenkomen met de status van de overeenkomst. Hiervoor voegt u de volgende statussen toe in elke levenscyclus die wordt gebruikt door documenten die in aanmerking komen voor Adobe-ondertekening:
 
-* **Voor Adobe-handtekening**  (gecontroleerd): Dit is een plaatsaanduidingsnaam voor het frame van waaruit het document naar Adobe Sign kan worden verzonden. Afhankelijk van het documenttype kan de status Concept of Gecontroleerd zijn. Het label van de documentstatus kan worden aangepast aan de vereisten van de klant. Voordat de handtekeningstatus Adobe wordt ingesteld, moeten de volgende twee gebruikersacties worden gedefinieerd:
+* **Voor Adobe-handtekening** (Gereviseerd): Dit is een plaatsaanduidingsnaam voor het frame van waaruit het document naar Adobe Sign kan worden verzonden. Afhankelijk van het documenttype kan de status Concept of Gecontroleerd zijn. Het label van de documentstatus kan worden aangepast aan de vereisten van de klant. Voordat de handtekeningstatus Adobe wordt ingesteld, moeten de volgende twee gebruikersacties worden gedefinieerd:
 
-   * Handeling die de status van het document wijzigt in *In Adobe Sign Draft* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+   * Actie waarmee de status van het document wordt gewijzigd in *In Adobe Sign Draft* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
    * Actie die de webactie &quot;Adobe Sign&quot; noemt. Deze status moet zijn beveiligd zodat Adobe Sign Admin Role: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
 
    ![Afbeelding van levenscyclusstatus 1](images/lifecycle-state1.png)
 
 * **In Adobe Sign Draft**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document al is geüpload naar Adobe Sign en dat de overeenkomst de status DRAFT. Het is een vereiste staat. Deze status moet de volgende vijf gebruikersacties definiëren:
 
-   * Handeling die de status van het document wijzigt in *In Adobe Sign Authoring* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling die de status van het document wijzigt in *Status van Adobe ondertekenen*. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling die de status van het document wijzigt in *Adobe Sign Canceled* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+   * Actie waarmee de status van het document wordt gewijzigd in *In Adobe Sign Authoring* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+   * Actie waarmee de status van het document wordt gewijzigd in *In ondertekeningsstatus Adobe*. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+   * Actie waarmee de status van het document wordt gewijzigd in *Adobe Sign geannuleerd* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
    * Handeling die de webactie &quot;Adobe Sign&quot; noemt.
    * Handeling die de webhandeling ‘Adobe Sign annuleren’ aanroept. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
 
@@ -242,13 +238,13 @@ Wanneer een Vault-document naar Adobe Sign wordt verzonden, moet de status overe
 
    ![Afbeelding van levenscyclusstatus 3](images/lifecycle-state3.png)
 
-* **Bij Adobe-ondertekening**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document is geüpload naar Adobe Sign en dat de overeenkomst al is verzonden naar deelnemers (status OUT_FOR_SIGNATURE of OUT_FOR_APPROVAL). Het is een vereiste staat. Voor deze status moeten vijf gebruikersacties worden gedefinieerd:
+* **In Adobe-ondertekening**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document is geüpload naar Adobe Sign en dat de overeenkomst al is verzonden naar deelnemers (status OUT_FOR_SIGNATURE of OUT_FOR_APPROVAL). Het is een vereiste staat. Voor deze status moeten vijf gebruikersacties worden gedefinieerd:
 
    * Handeling die de status van het document wijzigt in Adobe Sign Canceled state. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
    * Handeling die de status van het document wijzigt in Adobe Sign Afgewezen status. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
    * Handeling waarmee de status van het document wordt gewijzigd in Adobe Signed state. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet echter gelijk zijn voor alle documenttypen, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling die de webhandeling *Adobe Sign* aanroept.
-   * Handeling die een webhandeling *Annuleer Adobe Sign* aanroept. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
+   * Handeling die de webhandeling aanroept *Adobe Sign*.
+   * Handeling die een webhandeling aanroept *Adobe Sign annuleren*. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
 
    ![Afbeelding van levenscyclusstatus 4](images/lifecycle-state4.png)
 
@@ -281,15 +277,15 @@ Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zo
 >
 >Als het instellingsobject voor gebruikersrollen niet het veld bevat dat verwijst naar het object Groep documenttype, moet dit veld worden toegevoegd.
 
-## [!DNL Veeva Vault] met middleware verbinden met Adobe Sign {#connect-middleware}
+## Verbinden [!DNL Veeva Vault] naar Adobe Sign met behulp van middleware {#connect-middleware}
 
-Nadat u de installatie voor [!DNL Veeva Vault] en het Adobe Sign-beheerdersaccount hebt voltooid, moet de beheerder een verbinding tussen de twee accounts maken met behulp van de middleware. De [!DNL Veeva Vault]- en Adobe Sign-accountverbinding wordt geïnitieerd door Adobe Sign Identity en wordt vervolgens gebruikt om de Veva Vault-identiteit op te slaan.
-Voor systeembeveiliging en -stabiliteit moet de beheerder een toegewijde [!DNL Veeva Vault] systeem-/service-/hulpprogrammaaccount gebruiken, zoals `adobe.for.veeva@xyz.com`, in plaats van een persoonlijke gebruikersaccount, zoals `bob.smith@xyz.com`.
+Nadat u de installatie voor [!DNL Veeva Vault] en de Adobe Sign-beheerdersaccount moet de beheerder een verbinding tussen de twee accounts maken met behulp van de middleware. De [!DNL Veeva Vault] en Adobe Sign-accountverbinding wordt geïnitieerd door Adobe Sign Identity en wordt vervolgens gebruikt om de Veva Vault-identiteit op te slaan.
+Voor systeembeveiliging en -stabiliteit moet de beheerder een toegewijde [!DNL Veeva Vault] systeem-/service-/utiliteitsaccount, zoals `adobe.for.veeva@xyz.com`in plaats van een persoonlijke gebruikersaccount, zoals `bob.smith@xyz.com`.
 
-Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om [!DNL Veeva Vault] met middleware te verbinden met Adobe Sign:
+Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om verbinding te maken [!DNL Veeva Vault] naar Adobe Sign met middleware:
 
-1. Ga naar de [Adobe Sign for [!DNL Veeva Vault] startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
-1. Selecteer **[!UICONTROL Aanmelden]** in de rechterbovenhoek.
+1. Ga naar de [Adobe Sign for [!DNL Veeva Vault] Startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
+1. Selecteren **[!UICONTROL Aanmelden]** in de rechterbovenhoek.
 
    ![Afbeelding van aanmeldingsgegevens voor middleware](images/middleware_login.png)
 
@@ -301,33 +297,33 @@ Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om [!DNL Vee
 
    ![Afbeelding](images/middleware_settings.png)
 
-1. Selecteer het tabblad **[!UICONTROL Instellingen]**.
+1. Selecteer de **[!UICONTROL Instellingen]** tabblad.
 
    Op de pagina Instellingen worden de beschikbare verbindingen weergegeven. In het geval van de eerste verbindingsinstellingen wordt geen verbinding weergegeven, zoals hieronder wordt weergegeven.
 
    ![Afbeelding](images/middleware_newconnection.png)
 
-1. Selecteer **[!UICONTROL Verbinding toevoegen]** om een nieuwe verbinding toe te voegen.
+1. Selecteren **[!UICONTROL Verbinding toevoegen]** om een nieuwe verbinding toe te voegen.
 
-1. Geef in het dialoogvenster Verbinding toevoegen dat wordt geopend, de vereiste gegevens op, inclusief de [!DNL Veeva Vault]-referenties.
+1. Geef in het dialoogvenster Verbinding toevoegen dat nu wordt geopend, de vereiste gegevens op, zoals [!DNL Veeva Vault] referenties.
 
    De Adobe Sign-referenties worden automatisch ingevuld vanaf de eerste Adobe Sign-aanmelding.
 
    ![Afbeelding](images/middleware_addconnection.png)
 
-1. Selecteer **[!UICONTROL Valideren]** om de accountgegevens te valideren.
+1. Selecteren **[!UICONTROL Valideren]** om de accountgegevens te valideren.
 
    Bij succesvolle validatie ziet u een melding &#39;Met succes gevalideerd door gebruiker&#39;, zoals hieronder weergegeven.
 
    ![Afbeelding](images/middleware_validated.png)
 
-1. Als u het gebruik wilt beperken tot een bepaalde Adobe Sign-groep, vouwt u de vervolgkeuzelijst **[!UICONTROL Groep]** uit en selecteert u een van de beschikbare groepen.
+1. Als u het gebruik wilt beperken tot een bepaalde Adobe Sign-groep, vouwt u de **[!UICONTROL Groep]** en selecteer een van de beschikbare groepen.
 
    ![Afbeelding](images/middleware_group.png)
 
-1. Selecteer **[!UICONTROL Opslaan]** om uw nieuwe verbinding op te slaan.
+1. Selecteren **[!UICONTROL Opslaan]** om uw nieuwe verbinding op te slaan.
 
-   De nieuwe verbinding wordt weergegeven op het tabblad Instellingen, waarin de integratie tussen [!DNL Veeva Vault] en Adobe Sign is gelukt.
+   De nieuwe verbinding wordt weergegeven op het tabblad Instellingen, waarin de integratie tussen [!DNL Veeva Vault] en Adobe Sign.
 
    ![Afbeelding](images/middleware_setup.png)
 
