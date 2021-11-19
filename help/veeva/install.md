@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 7ded835b48519cba656f160e691c697c91e2c8d0
+source-git-commit: aef70e46f24bb019b07092d84d69519fe16846e4
 workflow-type: tm+mt
-source-wordcount: '3131'
+source-wordcount: '3163'
 ht-degree: 2%
 
 ---
@@ -182,9 +182,13 @@ Voor Adobe Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodi
 
    Type: Documentdoel: Weergeven binnen vault-URL: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
+   ![Afbeelding van Adobe Sign maken](images/create-adobe-sign.png)
+
 * **Adobe Sign annuleren**: Hiermee wordt een bestaande overeenkomst in Adobe Sign geannuleerd en wordt de oorspronkelijke documentstatus hersteld.
 
    Type: Documentdoel: Weergeven binnen vault-URL: : <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
+
+   ![Afbeelding van cancel Adobe Sign](images/cancel-adobe-sign.png)
 
 ## Documentlevenscyclus bijwerken {#document-lifecycle}
 
@@ -192,12 +196,16 @@ Voor elk documenttype dat in aanmerking komt voor de Adobe-handtekening, moet de
 
 ### Levenscyclusrol {#lifecycle-role}
 
-De Adobe Sign-beheerdersrol moet worden toegevoegd aan alle levenscycli die worden gebruikt door documenten die in aanmerking komen voor Adobe-ondertekening. Deze rol moet met de volgende opties worden gemaakt:
-
-* Dynamisch toegangsbeheer inschakelen
-* Regels voor het delen van documenten die alleen Document Type Group bevatten
+Adobe Sign-beheerdersrol moet worden toegevoegd aan alle levenscycli die worden gebruikt door documenten die in aanmerking komen voor Adobe-ondertekening, zoals hieronder wordt weergegeven.
 
 ![Afbeelding van levenscyclusbeheerrollen](images/document-lifecycle-admin-role.png)
+
+De beheerdersrol moet met de volgende opties worden gemaakt:
+
+* Dynamisch toegangsbeheer ingeschakeld.
+* Regels voor het delen van documenten die alleen Document Type Group bevatten, zoals weergegeven in de onderstaande afbeelding.
+
+![Afbeelding van adobe-regel voor delen van handtekeningen](images/adobe-sign-sharing-rule.png)
 
 ### Levenscyclusstatussen {#lifecycle-states}
 
@@ -263,7 +271,9 @@ Beheerders moeten een nieuwe Document Type Group-record maken met de naam &quot;
 
 ![Afbeelding van documenttype](images/document-type.png)
 
-![Afbeelding van documenttype](images/document-edit-details.png)
+![Afbeelding van documentbewerkingsgegevens](images/document-edit-details.png)
+
+![Afbeelding van documenttypegroepen](images/document-type-groups.png)
 
 ### Gebruikersrolinstelling maken {#create-user-role-setup}
 
