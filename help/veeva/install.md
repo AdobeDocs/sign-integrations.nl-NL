@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: aef70e46f24bb019b07092d84d69519fe16846e4
+source-git-commit: 1cf95ee799d0a349636027db0c06467f4529663c
 workflow-type: tm+mt
-source-wordcount: '3163'
+source-wordcount: '3164'
 ht-degree: 2%
 
 ---
@@ -363,7 +363,7 @@ Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om verbindin
 
 **Stap 10.** Voeg de documenttypegroep &#39;Adobe Sign-document&#39; toe voor alle documentclassificaties die in aanmerking komen voor Adobe Sign-proces.
 
-**Stap 11.** Nadat alle configuraties zijn voltooid, zorgt het systeem ervoor dat de Adobe Sign Admin-gebruiker door DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor Adobe Sign-proces. Hiervoor maakt u de juiste gebruikersrolinstellingsrecord waarin de documenttypegroep wordt opgegeven als &#39;Adobe Sign-document&#39;, Toepassingsrol als &#39;Adobe Sign-beheerdersrol&#39; en een integratiegebruiker.
+**Stap 11.** Nadat alle configuraties zijn voltooid, zorgt het systeem ervoor dat de Adobe Sign Admin-gebruiker door DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor het Adobe Sign-proces. Hiervoor maakt u de juiste gebruikersrolinstellingsrecord waarin de documenttypegroep wordt opgegeven als &#39;Adobe Sign-document&#39;, Toepassingsrol als &#39;Adobe Sign-beheerdersrol&#39; en een integratiegebruiker.
 
 ### Specifieke levenscyclus van implementatie {#specific-deployment}
 
