@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 1cf95ee799d0a349636027db0c06467f4529663c
+source-git-commit: 722f39a7220d72fde19ebb1058c8c2e8dea06b46
 workflow-type: tm+mt
-source-wordcount: '3164'
+source-wordcount: '3401'
 ht-degree: 2%
 
 ---
@@ -41,14 +41,61 @@ De stappen op hoog niveau om de integratie te voltooien zijn:
 
 ## Configureer [!DNL Veeva Vault] {#configure-veeva}
 
-Om te configureren [!DNL Veeva Vault] voor integratie met Adobe Sign, maakt u bepaalde objecten waarmee u de geschiedenis van een levenscyclus van een overeenkomst in Vault kunt volgen. Beheerders moeten de volgende objecten maken:
+Om te configureren [!DNL Veeva Vault] voor integratie met Adobe Sign moet u de volgende stappen implementeren:
 
-* Handtekening
-* Handtekening
-* Handtekeninggebeurtenis
-* Procesfunctie
+**Stap 1.** Maak een nieuwe groep met de naam &#39;Adobe Sign Admin Group&#39;.
 
-### Handtekeningobject maken  {#create-signature-object}
+**Stap 2.** [Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip).
+
+**Stap 3.** Beveiligingsprofielen maken
+
+**Stap 4.** Gebruiker aanmaken
+
+**Stap 5.** Documenttypegroep configureren
+
+**Stap 6.** Instellen gebruikersrol maken
+
+**Stap 7.** Documentvelden instellen
+
+**Stap 8.** Documentuitvoeringen declareren
+
+**Stap 9.** Webacties bijwerken
+
+**Stap 10.** Documentlevenscyclus bijwerken
+
+**Stap 11.** Adobe Sign-stage toevoegen aan algemene levenscyclus in levenscyclusgroepen
+
+**Stap 12.** Machtigingen instellen voor gebruikersrol in levenscyclusstatus
+
+**Stap 13.** Automatische beveiliging instellen op basis van documentstatus en gebruikersrol
+
+**Stap 14.** Documentberichten maken voor Adobe Sign Annuleren
+
+### 1. Groep maken {#create-group}
+
+Adobe Sign configureren voor [!DNL Vault], een nieuwe groep genaamd *Adobe Sign Admin Group* wordt gemaakt. Deze groep wordt gebruikt om de beveiliging op documentveldniveau in te stellen voor Adobe Sign-gerelateerde velden en moet *Adobe Sign-integratieprofiel* standaard.
+
+![Afbeelding van details van handtekeninggebeurtenissen](images/create-admin-group.png)
+
+### 2. Het pakket implementeren {#deploy-package}
+
+[Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip) en doorloop de stappen. Na implementatie maakt het pakket:
+
+* Aangepaste objecten: Handtekeningobject, Handtekeningobject, Handtekeninggebeurtenisobject, Verwerkingskluis-object
+* Handtekeningobjectpagina-indeling
+* Handtekeninggebeurtenisobjectpagina-indeling
+* Paginalay-out van handtekeningobjecten
+* Lay-out objectpagina van Locker-proces
+* Adobe Sign Rendition-type
+* Gedeeld veld signature__c, allow_adobe_sign_user_actions__c
+* Adobe Sign Web Action
+* Adobe Sign-webhandeling annuleren
+* Machtigingenset voor Adobe Sign-beheeracties
+* Adobe Sign Integration Profile-beveiligingsprofiel
+* Toepassingsrol Adobe Sign-beheerdersrol
+* Documenttype groep &#39;Adobe Sign Document&#39;
+
+#### Handtekeningobject {#signature-object}
 
 Handtekeningobject wordt gemaakt voor het opslaan van informatie over overeenkomsten. Een handtekeningobject is een database die informatie bevat in de volgende specifieke velden:
 
@@ -69,7 +116,7 @@ Handtekeningobject wordt gemaakt voor het opslaan van informatie over overeenkom
 
 ![Afbeelding van handtekeningobjectdetails](images/signature-object-details.png)
 
-### Handtekeningenobject maken {#create-signatory-object}
+#### Handtekeningobject {#signatory-object}
 
 Handtekeningobject wordt gemaakt om informatie op te slaan die betrekking heeft op de deelnemers aan een overeenkomst. Het bevat informatie onder de volgende specifieke gebieden:
 
@@ -80,7 +127,7 @@ Handtekeningobject wordt gemaakt om informatie op te slaan die betrekking heeft 
 | email_c | E-mail | Tekenreeks (120) | Houdt de unieke overeenkomst-id van de Adobe Sign vast |
 | external_id_c | Deelnemer-id | Tekenreeks (80) | Houdt de unieke id van de Adobe Sign-deelnemer |
 | name_v | Naam | String (128) | Houdt de naam van een Adobe Sign-deelnemer vast |
-| order__c | Volgorde | Getal | Houdt het ordernummer van de Adobe Sign-overeenkomstdeelnemer |
+| order__c | Volgorde | Nummer | Houdt het ordernummer van de Adobe Sign-overeenkomstdeelnemer |
 | role_c | Rol | Tekenreeks (30) | Houdt de rol van de deelnemer aan de Adobe Sign-overeenkomst vast |
 | signature__c | Handtekening | Object (handtekening) | Bevat de verwijzing naar de bovenliggende handtekeningrecord |
 | signature_status__c | Handtekeningstatus | Tekenreeks (100) | Houdt de status van de deelnemer aan de Adobe Sign-overeenkomst |
@@ -88,7 +135,7 @@ Handtekeningobject wordt gemaakt om informatie op te slaan die betrekking heeft 
 
 ![Afbeelding van handtekeninggegevens](images/signatory-object-details.png)
 
-### Handtekeninggebeurtenisobject maken  {#create-signature-event}
+#### Signature Event-object {#signature-event}
 
 Handtekeninggebeurtenisobject wordt gemaakt om gebeurtenisgerelateerde informatie van een overeenkomst op te slaan. Het bevat informatie onder de volgende specifieke gebieden:
 
@@ -107,13 +154,19 @@ Handtekeninggebeurtenisobject wordt gemaakt om gebeurtenisgerelateerde informati
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/signature-event-object-details.png)
 
-### Proces-Locker-object maken  {#create-process-locker}
+#### Object Process Locker {#process-locker}
 
 Er wordt een Process Locker-object gemaakt om het Adobe Sign-integratieproces te vergrendelen. Er zijn geen aangepaste velden voor nodig.
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/process-locker-details.png)
 
-## Beveiligingsprofielen maken{#security-profiles}
+#### Toepassingsrol {#create-application-roles}
+
+U moet de toepassingsrol creëren geroepen *Adobe Sign-beheerdersrol*. Deze rol moet worden gedefinieerd in de levenscyclus van elk documenttype dat in aanmerking komt voor Adobe-ondertekening. Voor elke specifieke levenscyclusstatus van Adobe Sign wordt de Adobe Sign Admin Role toegevoegd en geconfigureerd met de juiste machtigingen.
+
+![Afbeelding van toepassingsrollen maken](images/create-application-roles.png)
+
+### 3. Beveiligingsprofielen instellen {#security-profiles}
 
 Voor een succesvolle integratie van de vault wordt een nieuw beveiligingsprofiel *Adobe Sign-integratieprofiel* wordt gemaakt en is ingesteld op *Adobe Sign-beheeracties*. Het Adobe Sign Integration Profile wordt toegewezen aan het systeemaccount en wordt door de integratie gebruikt bij het aanroepen van Vault API&#39;s. Dit profiel staat machtigingen toe voor:
 
@@ -126,13 +179,7 @@ Voor beveiligingsprofielen van gebruikers die toegang tot de geschiedenis van Ad
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/set-permissions.png)
 
-## Groep maken {#create-group}
-
-Adobe Sign configureren voor [!DNL Vault], een nieuwe groep genaamd *Adobe Sign Admin Group* wordt gemaakt. Deze groep wordt gebruikt om de beveiliging op documentveldniveau in te stellen voor Adobe Sign-gerelateerde velden en moet *Adobe Sign-integratieprofiel* standaard.
-
-![Afbeelding van details van handtekeninggebeurtenissen](images/create-admin-group.png)
-
-## Gebruiker aanmaken {#create-user}
+## 4. Gebruiker maken {#create-user}
 
 De gebruiker van de Vault-systeemaccount voor Adobe Sign-integratie moet:
 
@@ -141,40 +188,84 @@ De gebruiker van de Vault-systeemaccount voor Adobe Sign-integratie moet:
 * Heb Specifiek veiligheidsbeleid dat wachtwoordafloop onbruikbaar maakt
 * Word lid van de Adobe Sign Admin Group.
 
-Als u er zeker van wilt zijn dat de gebruiker van de systeemaccount behoort tot de Adobe Sign Admin Group voor de specifieke levenscyclus van het document, moet u records voor de gebruikersrolinstelling maken.
+Als u er zeker van wilt zijn dat de gebruiker van de systeemaccount behoort tot de Adobe Sign Admin Group voor de specifieke levenscyclus van het document, moet u records voor de gebruikersrolinstelling maken. Dat doet u als volgt:
 
-## Toepassingsrollen maken {#create-application-roles}
+1. Maak een Vault-systeemaccount voor gebruikers van de Adobe Sign-integratie.
 
-U moet de toepassingsrol creëren geroepen *Adobe Sign-beheerdersrol*. Deze rol moet worden gedefinieerd in de levenscyclus van elk documenttype dat in aanmerking komt voor Adobe-ondertekening. Voor elke specifieke levenscyclusstatus van Adobe Sign wordt de Adobe Sign Admin Role toegevoegd en geconfigureerd met de juiste machtigingen.
+   ![Afbeelding van details van handtekeninggebeurtenissen](images/create-user.png)
 
-![Afbeelding van toepassingsrollen maken](images/create-application-roles.png)
+2. Voeg de gebruiker toe aan de Adobe Sign Admin Group.
 
-## Documentvelden maken {#create-fields}
+   ![Afbeelding van details van handtekeninggebeurtenissen](images/add-user.png)
 
-Beheerders moeten de volgende twee nieuwe gedeelde documentvelden maken om integratie met Adobe Sign tot stand te brengen:
+### 5. Groep documenttype maken {#create-document-type-group}
+
+Wanneer u het Adobe Sign-pakket implementeert, wordt er een Document Type Group-record gemaakt met de naam &#39;Adobe Sign Document&#39;.
+
+![Afbeelding van documenttypegroepen](images/document-type-groups.png)
+
+U moet deze documenttypegroep toevoegen voor alle documentclassificaties die in aanmerking komen voor het Adobe Sign-proces. Aangezien de documenttype groepseigenschap niet van het type naar het subtype of van het subtype naar het classificatieniveau wordt overgeërfd, moet deze worden ingesteld voor de indeling van elk document die in aanmerking komt voor Adobe Sign.
+
+![Afbeelding van documentbewerkingsgegevens](images/document-edit-details.png)
+
+![Afbeelding van documenttype](images/document-type.png)
+
+**Opmerking:** Als het instellingsobject van de gebruikersrol niet het veld bevat dat verwijst naar het object Groep documenttype, moet u het veld toevoegen.
+
+### 6. Gebruikersrolinstelling maken {#create-user-role-setup}
+
+Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zorgen dat de Adobe Sign Admin-gebruiker door DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor Adobe Sign-proces. Dit wordt gedaan door het aangewezen verslag van de Opstelling van de Rol van de Gebruiker te creëren dat specificeert:
+
+* Document Type Group als &#39;Adobe Sign Document&#39;,
+* Toepassingsrol als &#39;Adobe Sign-beheerdersrol&#39; en
+* Integratiegebruiker.
+
+![Afbeelding van gebruikersrolinstellingen](images/user-role-setup.png)
+
+**Opmerking:** Als het instellingsobject van de gebruikersrol niet het veld bevat dat verwijst naar het object Groep documenttype, moet u het veld toevoegen. Ga hiertoe naar Object > Rolinstellingen gebruiker > Velden en voer de vereiste stappen uit, zoals weergegeven in de onderstaande afbeelding.
+
+![Afbeelding van gebruikersrolinstellingen](images/create-setup-field.png)
+
+### 7. Documentvelden instellen {#create-fields}
+
+Voor integratie met Adobe Sign zijn de volgende twee nieuwe velden voor gedeelde documenten vereist:
 
 * Handtekening (handtekening__c)
 * Adobe Sign-gebruikersacties toestaan (allow_adobe_sign_user_actions__c)
 
 ![Afbeelding van documentdetails](images/create-document-fields.png)
 
-Deze gedeelde velden moeten worden toegevoegd aan alle documenttypen die in aanmerking komen voor Adobe-ondertekening. Beide velden moeten een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign Admin Group hun waarden kunnen bijwerken.
+Documentvelden instellen:
 
-![Afbeelding van details van handtekeningvelden](images/signature-field-details.png)
+1. Ga naar het tabblad Configuratie en selecteer **Documentvelden** > **Gedeelde velden**.
+1. Selecteer Weergavesectie maken in het veld Weergavesectie en wijs een Adobe-handtekening toe als sectielabel.
 
-Beheerders moeten het bestaande gedeelde veld toevoegen *Vault-overlays uitschakelen (disable_vault_overlays__v)* en stel deze in op Actief voor alle documenttypen die in aanmerking komen voor Adobe-ondertekening. Optioneel kan het veld een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign-beheerdersgroep hun waarde kunnen bijwerken.
+   ![Afbeelding van documentdetails](images/create-display-section.png)
 
-![Afbeelding van gebruikersacties voor Adobe Sign toestaan](images/allow-adobe-sign-user-actions.png)
+1. Voor de twee gedeelde documentvelden (signature__c en allow_adobe_sign_user_actions__c) werkt u de UI-sectie bij met het sectielabel &#39;Adobe handtekening&#39;.
+1. Voeg de drie gedeelde velden toe aan alle documenttypen die in aanmerking komen voor Adobe-ondertekening. Selecteer hiertoe op de pagina Basisdocument de optie **Toevoegen** > **Bestaand gedeeld veld** in de rechterbovenhoek.
 
-## Documentuitvoeringen maken {#create-renditions}
+   ![Afbeelding van documentdetails](images/add-existing-fields.png)
 
-Beheerders moeten een nieuw weergavetype maken met de naam *Adobe Sign Rendition (adobe_sign_rendition__c)*, die wordt gebruikt door Vault-integratie voor het uploaden van ondertekende PDF-documenten naar Adobe Sign. De Adobe Sign-uitvoering moet worden gedeclareerd voor elk documenttype dat in aanmerking komt voor Adobe-ondertekening.
+   ![Afbeelding van documentdetails](images/use-shared-fields.png)
+
+1. Houd er rekening mee dat beide velden een specifieke beveiliging moeten hebben waarmee alleen leden van de Adobe Sign Admin Group hun waarden kunnen bijwerken.
+
+   ![Afbeelding van documentdetails](images/security-overrides.png)
+
+1. Beheerders moeten het bestaande gedeelde veld toevoegen *Vault-overlays uitschakelen (disable_vault_overlays__v)* en stel deze in op Actief voor alle documenttypen die in aanmerking komen voor Adobe-ondertekening. Optioneel kan het veld een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign-beheerdersgroep hun waarde kunnen bijwerken.
+
+   ![Afbeelding van gebruikersacties voor Adobe Sign toestaan](images/allow-adobe-sign-user-actions.png)
+
+### 8. Documentuitvoeringen declareren {#declare-renditions}
+
+Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c) wordt gebruikt door Vault-integratie om ondertekende PDF-documenten te uploaden naar Adobe Sign. De Adobe Sign-uitvoering moet worden gedeclareerd voor elk documenttype dat in aanmerking komt voor Adobe-ondertekening.
 
 ![Afbeelding van weergavetypen](images/rendition-type.png)
 
 ![Afbeelding van weergavetypen](images/edit-details-clinical-type.png)
 
-## Webacties configureren {#web-actions}
+### 9. Webacties bijwerken {#web-actions}
 
 Voor Adobe Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodig:
 
@@ -190,35 +281,46 @@ Voor Adobe Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodi
 
    ![Afbeelding van cancel Adobe Sign](images/cancel-adobe-sign.png)
 
-## Documentlevenscyclus bijwerken {#document-lifecycle}
+### 10. Documentlevenscyclus bijwerken {#document-lifecycle}
 
 Voor elk documenttype dat in aanmerking komt voor de Adobe-handtekening, moet de bijbehorende levenscyclus van het document worden bijgewerkt door nieuwe levenscyclusrol en -statussen toe te voegen.
 
-### Levenscyclusrol {#lifecycle-role}
-
-Adobe Sign-beheerdersrol moet worden toegevoegd aan alle levenscycli die worden gebruikt door documenten die in aanmerking komen voor Adobe-ondertekening, zoals hieronder wordt weergegeven.
-
-![Afbeelding van levenscyclusbeheerrollen](images/document-lifecycle-admin-role.png)
-
-De beheerdersrol moet met de volgende opties worden gemaakt:
-
-* Dynamisch toegangsbeheer ingeschakeld.
-* Regels voor het delen van documenten die alleen Document Type Group bevatten, zoals weergegeven in de onderstaande afbeelding.
-
-![Afbeelding van adobe-regel voor delen van handtekeningen](images/adobe-sign-sharing-rule.png)
-
-### Levenscyclusstatussen {#lifecycle-states}
-
 De levenscyclus van Adobe Sign-overeenkomsten heeft de volgende statussen:
 
-* CONCEPT
-* AUTHORING OF DOCUMENTS_NOT_YET_PROCESSED
-* OUT_FOR_SIGNATURE of OUT_FOR_APPROVAL
-* ONDERTEKEND OF GOEDGEKEURD
-* GEANNULEERD
-* VERLOPEN
+    * CONCEPT
+    * AUTHORING or DOCUMENTS_NOT_YET_PROCESSED
+    * OUT_FOR_SIGNATURE of OUT_FOR_APPROVAL
+    * ONDERTEKEND OF GOEDGEKEURD
+    * GEANNULEERD
+    * VERLOPEN
 
-Wanneer een Vault-document naar Adobe Sign wordt verzonden, moet de status overeenkomen met de status van de overeenkomst. Hiervoor voegt u de volgende statussen toe in elke levenscyclus die wordt gebruikt door documenten die in aanmerking komen voor Adobe-ondertekening:
+Volg onderstaande stappen om de levenscyclus van documenten bij te werken:
+
+1. Lifecycle-rol toevoegen
+
+   Adobe Sign-beheerdersrol moet worden toegevoegd aan alle levenscycli die worden gebruikt door documenten die in aanmerking komen voor Adobe-ondertekening, zoals hieronder wordt weergegeven.
+
+   ![Afbeelding van levenscyclusbeheerrollen](images/document-lifecycle-admin-role.png)
+
+   De beheerdersrol moet met de volgende opties worden gemaakt:
+
+   * Dynamisch toegangsbeheer ingeschakeld.
+   * Regels voor het delen van documenten die alleen Document Type Group bevatten, zoals weergegeven in de onderstaande afbeelding.
+
+   ![Afbeelding van adobe-regel voor delen van handtekeningen](images/adobe-sign-sharing-rule.png)
+
+2. Maak levenscyclusstaten. Ga hiervoor naar **Instellingen** > **Configuratie** > **Documentlevenscycli** > **Algemene levenscycli** > **Staten** > **Maken**. Maak vervolgens de volgende statussen:
+
+   * In Adobe Sign Draft
+      ![Afbeelding van adobe-regel voor delen van handtekeningen](images/create-draft-state.png)
+   * In Adobe Sign Authoring
+      ![Afbeelding van adobe-regel voor delen van handtekeningen](images/create-authoring-state.png)
+   * In Adobe-ondertekening
+      ![Afbeelding van adobe-regel voor delen van handtekeningen](images/create-signing-state.png)
+
+3. Voeg gebruikershandelingen toe aan de onderstaande statussen.
+
+   Wanneer een Vault-document naar Adobe Sign wordt verzonden, moet de status overeenkomen met de status van de overeenkomst. Hiervoor voegt u de volgende statussen toe in elke levenscyclus die wordt gebruikt door documenten die in aanmerking komen voor Adobe-ondertekening:
 
 * **Voor Adobe-handtekening** (Gereviseerd): Dit is een plaatsaanduidingsnaam voor het frame van waaruit het document naar Adobe Sign kan worden verzonden. Afhankelijk van het documenttype kan de status Concept of Gecontroleerd zijn. Het label van de documentstatus kan worden aangepast aan de vereisten van de klant. Voordat de handtekeningstatus Adobe wordt ingesteld, moeten de volgende twee gebruikersacties worden gedefinieerd:
 
@@ -263,35 +365,27 @@ In het volgende diagram worden de toewijzingen weergegeven tussen Adobe Sign-ove
 
 ![Afbeelding van Adobe Sign Vault-toewijzingen](images/sign-vault-mappings.png)
 
-## Documenttypegroep maken en Rolinstellingen gebruiker maken  {#document-type-group-user-role}
+### 11. Adobe Sign-stage toevoegen aan algemene levenscyclus in levenscyclusgroepen
 
-### Groep documenttype maken {#create-document-type-group}
+![Afbeelding van Adobe Sign Vault-toewijzingen](images/add-adobe-sign-stage.png)
 
-Beheerders moeten een nieuwe Document Type Group-record maken met de naam &quot;Adobe Sign Document&quot;. Deze documenttypegroep wordt toegevoegd voor alle documentclassificaties die in aanmerking komen voor het Adobe Sign-proces. Aangezien de documenttype groepseigenschap niet van het type naar het subtype of van het subtype naar het classificatieniveau wordt overgeërfd, moet deze worden ingesteld voor de indeling van elk document die in aanmerking komt voor Adobe Sign.
+### 12. Machtigingen instellen voor gebruikersrol in levenscyclusstatus
 
-![Afbeelding van documenttype](images/document-type.png)
+U moet de juiste machtigingen instellen voor elke gebruikersrol in de levenscyclusstatus, zoals weergegeven in de onderstaande afbeelding.
 
-![Afbeelding van documentbewerkingsgegevens](images/document-edit-details.png)
+![Afbeelding van Adobe Sign Vault-toewijzingen](images/set-user-role-permissions.png)
 
-![Afbeelding van documenttypegroepen](images/document-type-groups.png)
+### 13. Automatische beveiliging instellen op basis van documentstatus en gebruikersrol
 
-### Gebruikersrolinstelling maken {#create-user-role-setup}
+![Afbeelding van Adobe Sign Vault-toewijzingen](images/set-atomic-security.png)
 
-Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zorgen dat de Adobe Sign Admin-gebruiker door DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor Adobe Sign-proces. Dit wordt gedaan door het aangewezen verslag van de Opstelling van de Rol van de Gebruiker te creëren dat specificeert:
+### 14. Documentberichten maken voor Adobe Sign Annuleren
 
-* Document Type Group als &#39;Adobe Sign Document&#39;,
-* Toepassingsrol als &#39;Adobe Sign-beheerdersrol&#39; en
-* Integratiegebruiker.
-
-![Afbeelding van gebruikersrolinstellingen](images/user-role-setup.png)
-
->[!NOTE]
->
->Als het instellingsobject voor gebruikersrollen niet het veld bevat dat verwijst naar het object Groep documenttype, moet dit veld worden toegevoegd.
+![Afbeelding van Adobe Sign Vault-toewijzingen](images/create-cancel-message.png)
 
 ## Verbinden [!DNL Veeva Vault] naar Adobe Sign met behulp van middleware {#connect-middleware}
 
-Nadat u de installatie voor [!DNL Veeva Vault] en de Adobe Sign-beheerdersaccount moet de beheerder een verbinding tussen de twee accounts maken met behulp van de middleware. De [!DNL Veeva Vault] en Adobe Sign-accountverbinding wordt geïnitieerd door Adobe Sign Identity en wordt vervolgens gebruikt om de Veva Vault-identiteit op te slaan.
+Nadat u de installatie voor [!DNL Veeva Vault] en de Adobe Sign-beheerdersaccount moet de beheerder een verbinding tussen de twee accounts maken met behulp van de middleware. De [!DNL Veeva Vault] en Adobe Sign-accountverbinding wordt gestart door Adobe Sign Identity en wordt vervolgens gebruikt om het[!DNL Veeva Vault]identiteit.
 Voor systeembeveiliging en -stabiliteit moet de beheerder een toegewijde [!DNL Veeva Vault] systeem-/service-/utiliteitsaccount, zoals `adobe.for.veeva@xyz.com`in plaats van een persoonlijke gebruikersaccount, zoals `bob.smith@xyz.com`.
 
 Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om verbinding te maken [!DNL Veeva Vault] naar Adobe Sign met middleware:
@@ -333,46 +427,19 @@ Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om verbindin
 
    ![Afbeelding](images/middleware_group.png)
 
+1. Als u een controlerapport wilt toevoegen aan de ondertekende uitvoering, schakelt u het selectievakje in **[!UICONTROL Controlerapport toevoegen aan ondertekende vertoning]**.
+
+   ![Afbeelding](images/add-audit-report.png)
+
+1. Schakel het selectievakje in als u automatische provisioning van gebruikers in Adobe Sign wilt toestaan **[!UICONTROL Gebruikers automatisch toewijzen]**.
+
+   **Opmerking:** Automatische provisioning van nieuwe Adobe Sign-gebruikers werkt alleen als deze optie is ingeschakeld op Adobe Sign-accountniveau in Adobe Sign en als deze optie **[!UICONTROL Gebruikers automatisch toewijzen]** voor de[!DNL Veeva Vault]Adobe Sign-integratie zoals hieronder weergegeven door de Adobe Sign-accountbeheerder.
+
+   ![Afbeelding](images/allow-auto-provisioning.png)
+
 1. Selecteren **[!UICONTROL Opslaan]** om uw nieuwe verbinding op te slaan.
 
    De nieuwe verbinding wordt weergegeven op het tabblad Instellingen, waarin de integratie tussen [!DNL Veeva Vault] en Adobe Sign.
 
    ![Afbeelding](images/middleware_setup.png)
 
-## Levenscyclus pakketimplementatie {#deployment-lifecycle}
-
-### Algemene levenscyclus van implementatie {#general-deployment}
-
-**Stap 1.** Maak een nieuwe toepassingsrol met de naam &#39;Adobe Sign-beheerdersrol&#39;.
-
-**Stap 2.** Maak een nieuwe groep documenttypen met de naam &#39;Adobe Sign-document&#39;.
-
-**Stap 3.** [Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip).
-
-**Stap 4.** Maak een nieuwe door de gebruiker beheerde groep met de naam &#39;Adobe Sign Admin Group&#39;.
-
-**Stap 5.** Maak een integratiegebruikersprofiel met het beveiligingsprofiel &quot;Adobe Sign Integration Profile&quot; en wijs dit toe aan de Adobe Sign Admin Group.
-
-**Stap 6.** Wijs reader-machtigingen voor alle beveiligingsprofielen toe aan de objecten Handtekening, Handtekening en Handtekeninggebeurtenis voor gebruikers die toegang tot de geschiedenis van Adobe Sign in Vault nodig hebben.
-
-**Stap 7.** Definieer de Adobe Sign-beheerdersrol in de levenscyclus van elk documenttype dat in aanmerking komt voor Adobe-ondertekening. Voor elke Adobe Sign-specifieke levenscyclusstatus wordt deze rol toegevoegd en geconfigureerd met de juiste machtigingen.
-
-**Stap 8.** Declareer Adobe Sign-vertoning voor elk documenttype dat in aanmerking komt voor Adobe-ondertekening.
-
-**Stap 9.** Voor elk documenttype dat in aanmerking komt voor Adobe-handtekening, werkt u de bijbehorende levenscyclus van het document bij door de nieuwe levenscyclusrol en -statussen toe te voegen.
-
-**Stap 10.** Voeg de documenttypegroep &#39;Adobe Sign-document&#39; toe voor alle documentclassificaties die in aanmerking komen voor Adobe Sign-proces.
-
-**Stap 11.** Nadat alle configuraties zijn voltooid, zorgt het systeem ervoor dat de Adobe Sign Admin-gebruiker door DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor het Adobe Sign-proces. Hiervoor maakt u de juiste gebruikersrolinstellingsrecord waarin de documenttypegroep wordt opgegeven als &#39;Adobe Sign-document&#39;, Toepassingsrol als &#39;Adobe Sign-beheerdersrol&#39; en een integratiegebruiker.
-
-### Specifieke levenscyclus van implementatie {#specific-deployment}
-
-**Stap 1.** Maak een nieuwe toepassingsrol met de naam &#39;Adobe Sign-beheerdersrol&#39;.
-
-**Stap 2.** Maak een nieuwe Document Type Group met de naam &#39;Adobe Sign Document&#39;.
-
-**Stap 3.** [Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip).
-
-**Stap 4.** Maak een nieuwe door de gebruiker beheerde groep met de naam &#39;Adobe Sign Admin Group&#39;.
-
-**Stap 5.** Maak één integratiegebruikersprofiel met het beveiligingsprofiel &#39;Adobe Sign-integratieprofiel&#39; en wijs dit toe aan de Adobe Sign Admin Group.
