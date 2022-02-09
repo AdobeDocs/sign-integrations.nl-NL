@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 722f39a7220d72fde19ebb1058c8c2e8dea06b46
+source-git-commit: f647d0573f3e44f5a7e7997a309a8d18886959be
 workflow-type: tm+mt
-source-wordcount: '3401'
+source-wordcount: '3317'
 ht-degree: 2%
 
 ---
@@ -43,41 +43,13 @@ De stappen op hoog niveau om de integratie te voltooien zijn:
 
 Om te configureren [!DNL Veeva Vault] voor integratie met Adobe Sign moet u de volgende stappen implementeren:
 
-**Stap 1.** Maak een nieuwe groep met de naam &#39;Adobe Sign Admin Group&#39;.
-
-**Stap 2.** [Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip).
-
-**Stap 3.** Beveiligingsprofielen maken
-
-**Stap 4.** Gebruiker aanmaken
-
-**Stap 5.** Documenttypegroep configureren
-
-**Stap 6.** Instellen gebruikersrol maken
-
-**Stap 7.** Documentvelden instellen
-
-**Stap 8.** Documentuitvoeringen declareren
-
-**Stap 9.** Webacties bijwerken
-
-**Stap 10.** Documentlevenscyclus bijwerken
-
-**Stap 11.** Adobe Sign-stage toevoegen aan algemene levenscyclus in levenscyclusgroepen
-
-**Stap 12.** Machtigingen instellen voor gebruikersrol in levenscyclusstatus
-
-**Stap 13.** Automatische beveiliging instellen op basis van documentstatus en gebruikersrol
-
-**Stap 14.** Documentberichten maken voor Adobe Sign Annuleren
-
-### 1. Groep maken {#create-group}
+### Stap 1. Groep maken {#create-group}
 
 Adobe Sign configureren voor [!DNL Vault], een nieuwe groep genaamd *Adobe Sign Admin Group* wordt gemaakt. Deze groep wordt gebruikt om de beveiliging op documentveldniveau in te stellen voor Adobe Sign-gerelateerde velden en moet *Adobe Sign-integratieprofiel* standaard.
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/create-admin-group.png)
 
-### 2. Het pakket implementeren {#deploy-package}
+### Stap 2. Het pakket implementeren {#deploy-package}
 
 [Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip) en doorloop de stappen. Na implementatie maakt het pakket:
 
@@ -166,7 +138,7 @@ U moet de toepassingsrol creëren geroepen *Adobe Sign-beheerdersrol*. Deze rol 
 
 ![Afbeelding van toepassingsrollen maken](images/create-application-roles.png)
 
-### 3. Beveiligingsprofielen instellen {#security-profiles}
+### Stap 3. Beveiligingsprofielen instellen {#security-profiles}
 
 Voor een succesvolle integratie van de vault wordt een nieuw beveiligingsprofiel *Adobe Sign-integratieprofiel* wordt gemaakt en is ingesteld op *Adobe Sign-beheeracties*. Het Adobe Sign Integration Profile wordt toegewezen aan het systeemaccount en wordt door de integratie gebruikt bij het aanroepen van Vault API&#39;s. Dit profiel staat machtigingen toe voor:
 
@@ -179,7 +151,7 @@ Voor beveiligingsprofielen van gebruikers die toegang tot de geschiedenis van Ad
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/set-permissions.png)
 
-## 4. Gebruiker maken {#create-user}
+### Stap 4. Gebruiker aanmaken {#create-user}
 
 De gebruiker van de Vault-systeemaccount voor Adobe Sign-integratie moet:
 
@@ -198,7 +170,7 @@ Als u er zeker van wilt zijn dat de gebruiker van de systeemaccount behoort tot 
 
    ![Afbeelding van details van handtekeninggebeurtenissen](images/add-user.png)
 
-### 5. Groep documenttype maken {#create-document-type-group}
+### Stap 5. Documenttypegroep configureren {#create-document-type-group}
 
 Wanneer u het Adobe Sign-pakket implementeert, wordt er een Document Type Group-record gemaakt met de naam &#39;Adobe Sign Document&#39;.
 
@@ -212,13 +184,13 @@ U moet deze documenttypegroep toevoegen voor alle documentclassificaties die in 
 
 **Opmerking:** Als het instellingsobject van de gebruikersrol niet het veld bevat dat verwijst naar het object Groep documenttype, moet u het veld toevoegen.
 
-### 6. Gebruikersrolinstelling maken {#create-user-role-setup}
+### Stap 6. Gebruikersrolinstelling maken {#create-user-role-setup}
 
 Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zorgen dat de Adobe Sign Admin-gebruiker door DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor Adobe Sign-proces. Dit wordt gedaan door het aangewezen verslag van de Opstelling van de Rol van de Gebruiker te creëren dat specificeert:
 
-* Document Type Group als &#39;Adobe Sign Document&#39;,
-* Toepassingsrol als &#39;Adobe Sign-beheerdersrol&#39; en
-* Integratiegebruiker.
+* Documenttypegroep als Adobe Sign-document
+* Toepassingsrol als Adobe Sign-beheerdersrol
+* Integratiegebruiker
 
 ![Afbeelding van gebruikersrolinstellingen](images/user-role-setup.png)
 
@@ -226,7 +198,7 @@ Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zo
 
 ![Afbeelding van gebruikersrolinstellingen](images/create-setup-field.png)
 
-### 7. Documentvelden instellen {#create-fields}
+### Stap 7. Documentvelden instellen {#create-fields}
 
 Voor integratie met Adobe Sign zijn de volgende twee nieuwe velden voor gedeelde documenten vereist:
 
@@ -257,7 +229,7 @@ Documentvelden instellen:
 
    ![Afbeelding van gebruikersacties voor Adobe Sign toestaan](images/allow-adobe-sign-user-actions.png)
 
-### 8. Documentuitvoeringen declareren {#declare-renditions}
+### Stap 8. Documentuitvoeringen declareren {#declare-renditions}
 
 Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c) wordt gebruikt door Vault-integratie om ondertekende PDF-documenten te uploaden naar Adobe Sign. De Adobe Sign-uitvoering moet worden gedeclareerd voor elk documenttype dat in aanmerking komt voor Adobe-ondertekening.
 
@@ -265,7 +237,7 @@ Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c) wordt ge
 
 ![Afbeelding van weergavetypen](images/edit-details-clinical-type.png)
 
-### 9. Webacties bijwerken {#web-actions}
+### Stap 9. Webhandelingen bijwerken {#web-actions}
 
 Voor Adobe Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodig:
 
@@ -281,7 +253,7 @@ Voor Adobe Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodi
 
    ![Afbeelding van cancel Adobe Sign](images/cancel-adobe-sign.png)
 
-### 10. Documentlevenscyclus bijwerken {#document-lifecycle}
+### Stap 10. Documentlevenscyclus bijwerken {#document-lifecycle}
 
 Voor elk documenttype dat in aanmerking komt voor de Adobe-handtekening, moet de bijbehorende levenscyclus van het document worden bijgewerkt door nieuwe levenscyclusrol en -statussen toe te voegen.
 
@@ -365,21 +337,21 @@ In het volgende diagram worden de toewijzingen weergegeven tussen Adobe Sign-ove
 
 ![Afbeelding van Adobe Sign Vault-toewijzingen](images/sign-vault-mappings.png)
 
-### 11. Adobe Sign-stage toevoegen aan algemene levenscyclus in levenscyclusgroepen
+### Stap 11. Adobe Sign-stage toevoegen aan algemene levenscyclus in levenscyclusgroepen
 
 ![Afbeelding van Adobe Sign Vault-toewijzingen](images/add-adobe-sign-stage.png)
 
-### 12. Machtigingen instellen voor gebruikersrol in levenscyclusstatus
+### Stap 12. Machtigingen instellen voor gebruikersrol in levenscyclusstatus
 
 U moet de juiste machtigingen instellen voor elke gebruikersrol in de levenscyclusstatus, zoals weergegeven in de onderstaande afbeelding.
 
 ![Afbeelding van Adobe Sign Vault-toewijzingen](images/set-user-role-permissions.png)
 
-### 13. Automatische beveiliging instellen op basis van documentstatus en gebruikersrol
+### Stap 13. Automatische beveiliging instellen op basis van documentstatus en gebruikersrol
 
 ![Afbeelding van Adobe Sign Vault-toewijzingen](images/set-atomic-security.png)
 
-### 14. Documentberichten maken voor Adobe Sign Annuleren
+### Stap 14. Documentberichten maken voor Adobe Sign Annuleren
 
 ![Afbeelding van Adobe Sign Vault-toewijzingen](images/create-cancel-message.png)
 
