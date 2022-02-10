@@ -9,9 +9,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: e1394c24aebd1e026eb6c5a33935149f33ef8ea4
+source-git-commit: f460f23ac3e412b527a91668561fff48ac518941
 workflow-type: tm+mt
-source-wordcount: '668'
+source-wordcount: '667'
 ht-degree: 2%
 
 ---
@@ -20,7 +20,7 @@ ht-degree: 2%
 
 [**Contact opnemen met de ondersteuning van Adobe Sign**](https://adobe.com/go/adobesign-support-center_nl)
 
-Dit document is ontworpen om [!DNL Veeva Vault] klanten leren Adobe Sign gebruiken voor [!DNL Veeva Vault] integratie om een overeenkomst te verzenden.
+Dit document is ontworpen om [!DNL Veeva Vault] klanten leren Adobe Sign gebruiken voor [!DNL Veeva Vault] integratie voor het verzenden van een overeenkomst.
 
 ## Overzicht {#overview}
 
@@ -30,7 +30,7 @@ Het verzenden van documenten ter ondertekening lijkt op het verzenden van een e-
 
 Adobe Sign-integratie met [!DNL Veeva Vault] stroomlijnt en versnelt je document- en ondertekeningsworkflows. Door de integratieworkflow te gebruiken, kunt u:
 
-* Bespaar tijd en resources die worden besteed aan slakkenpost, spoedberichten en faxen.
+* Bespaar tijd en resources die worden besteed aan slakkenmails, spoedberichten of faxen.
 * Verzend contracten ter elektronische ondertekening of goedkeuring van [!DNL Veeva Vault]hebt toegang tot real-time contractgeschiedenis en bekijkt opgeslagen contracten.
 * Volg de deals in real-time binnen uw organisatie en krijg updates wanneer overeenkomsten worden bekeken, ondertekend, geannuleerd of geweigerd.
 * eSign-ondertekening in meer dan 20 talen en ondersteuning voor terugfaxen op meer dan 50 locaties wereldwijd.
@@ -103,11 +103,11 @@ Een overeenkomst verzenden met Adobe Sign for Veeva:
 
    ![](images/iFrame-contact-administrator.png)
 
-1. Als het document is verwerkt, sleept u de handtekeningvelden naar het rechterdeelvenster en selecteert u **[!UICONTROL Verzenden]**.
+1. Als het document is verwerkt, sleept u de handtekeningvelden uit het rechterdeelvenster en selecteert u **[!UICONTROL Verzenden]**.
 
    ![](images/add-signature-fields.png)
 
-1. Het document wordt ter ondertekening naar de ontvanger gestuurd. Zodra de ontvanger de e-mail met het document ontvangt, verandert de documentstatus van [!UICONTROL Gereviseerd] aan [!UICONTROL In Adobe-ondertekening].
+1. Het document wordt ter ondertekening naar de ontvangers gestuurd. Zodra de ontvanger de e-mail met het document ontvangt, verandert de documentstatus van [!UICONTROL Gereviseerd] aan [!UICONTROL In Adobe-ondertekening].
 
    ![](images/in-adobe-signing.png)
 
