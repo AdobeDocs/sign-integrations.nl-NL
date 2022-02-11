@@ -10,10 +10,10 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: f460f23ac3e412b527a91668561fff48ac518941
+source-git-commit: c3ad36ec887230d746d8d2084127155615f1d0b9
 workflow-type: tm+mt
-source-wordcount: '3319'
-ht-degree: 2%
+source-wordcount: '3145'
+ht-degree: 3%
 
 ---
 
@@ -132,35 +132,27 @@ Er wordt een Process Locker-object gemaakt om het Adobe Sign-integratieproces te
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/process-locker-details.png)
 
-#### Toepassingsrol {#create-application-roles}
-
-U moet de toepassingsrol creëren geroepen *Adobe Sign-beheerdersrol*. Deze rol moet worden gedefinieerd in de levenscyclus van elk documenttype dat in aanmerking komt voor Adobe-ondertekening. Voor elke specifieke levenscyclusstatus van Adobe Sign wordt de Adobe Sign Admin Role toegevoegd en geconfigureerd met de juiste machtigingen.
-
-![Afbeelding van toepassingsrollen maken](images/create-application-roles.png)
-
 ### Stap 3. Beveiligingsprofielen instellen {#security-profiles}
 
-Voor een succesvolle integratie van de vault wordt een nieuw beveiligingsprofiel *Adobe Sign-integratieprofiel* wordt gemaakt en is ingesteld op *Adobe Sign-beheeracties*. Het Adobe Sign Integration Profile wordt toegewezen aan het systeemaccount en wordt door de integratie gebruikt bij het aanroepen van Vault API&#39;s. Dit profiel staat machtigingen toe voor:
+Succesvolle pakketimplementatie in Stap 2 maakt een Adobe Sign Integration-profiel. Het Adobe Sign Integration Profile wordt toegewezen aan het systeemaccount en wordt door de integratie gebruikt bij het aanroepen van Vault API&#39;s. Dit profiel staat machtigingen toe voor:
 
 * Vault-API&#39;s
 * Lezen, maken, bewerken en verwijderen: Handtekening, handtekening, handtekeninggebeurtenissen en procesklubjecten
 
+U moet de Adobe Sign Admin Group (gemaakt in Stap 1) bijwerken door het meegeleverde beveiligingsprofiel in te stellen op Adobe Sign Integration Profile, zoals weergegeven in de onderstaande afbeelding.
+
 ![Afbeelding van details van handtekeninggebeurtenissen](images/security-profiles.png)
-
-Voor beveiligingsprofielen van gebruikers die toegang tot de geschiedenis van Adobe Sign in de Vault nodig hebben, moeten leesmachtigingen gelden voor de objecten Handtekening, Handtekening en Handtekeninggebeurtenis.
-
-![Afbeelding van details van handtekeninggebeurtenissen](images/set-permissions.png)
 
 ### Stap 4. Gebruiker aanmaken {#create-user}
 
 De gebruiker van de Vault-systeemaccount voor Adobe Sign-integratie moet:
 
-* Adobe Sign-integratieprofiel hebben
+* Een Adobe Sign-integratieprofiel hebben
 * Een beveiligingsprofiel hebben
 * Heb Specifiek veiligheidsbeleid dat wachtwoordafloop onbruikbaar maakt
 * Word lid van de Adobe Sign Admin Group.
 
-Als u er zeker van wilt zijn dat de gebruiker van de systeemaccount behoort tot de Adobe Sign Admin Group voor de specifieke levenscyclus van het document, moet u records voor de gebruikersrolinstelling maken. Dat doet u als volgt:
+Volg de onderstaande stappen om dit te doen:
 
 1. Maak een Vault-systeemaccount voor gebruikers van de Adobe Sign-integratie.
 
@@ -180,9 +172,11 @@ U moet deze documenttypegroep toevoegen voor alle documentclassificaties die in 
 
 ![Afbeelding van documentbewerkingsgegevens](images/document-edit-details.png)
 
-![Afbeelding van documenttype](images/document-type.png)
+**Opmerking:** Als het instellingsobject van de gebruikersrol niet het veld bevat dat verwijst naar het object Groep documenttype, moet u het veld toevoegen. Ga hiervoor naar **[!UICONTROL Object]** > **[!UICONTROL Gebruikersrolinstelling]** > **[!UICONTROL Velden]** en voltooi de vereiste stappen, zoals weergegeven in de onderstaande afbeelding.
 
-**Opmerking:** Als het instellingsobject van de gebruikersrol niet het veld bevat dat verwijst naar het object Groep documenttype, moet u het veld toevoegen.
+![Afbeelding van gebruikersrolinstellingen](images/create-setup-field.png)
+
+![Afbeelding van documenttype](images/document-type.png)
 
 ### Stap 6. Gebruikersrolinstelling maken {#create-user-role-setup}
 
@@ -194,40 +188,36 @@ Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zo
 
 ![Afbeelding van gebruikersrolinstellingen](images/user-role-setup.png)
 
-**Opmerking:** Als het instellingsobject van de gebruikersrol niet het veld bevat dat verwijst naar het object Groep documenttype, moet u het veld toevoegen. Ga hiervoor naar **[!UICONTROL Object]** > **[!UICONTROL Gebruikersrolinstelling]** > **[!UICONTROL Velden]** en voltooi de vereiste stappen, zoals weergegeven in de onderstaande afbeelding.
-
-![Afbeelding van gebruikersrolinstellingen](images/create-setup-field.png)
-
 ### Stap 7. Documentvelden instellen {#create-fields}
 
-Voor integratie met Adobe Sign zijn de volgende twee nieuwe velden voor gedeelde documenten vereist:
+De pakketimplementatie maakt de volgende twee nieuwe gedeelde documentvelden die nodig zijn om de integratie tot stand te brengen:
 
 * Handtekening (handtekening__c)
 * Adobe Sign-gebruikersacties toestaan (allow_adobe_sign_user_actions__c)
 
-![Afbeelding van documentdetails](images/create-document-fields.png)
+![Afbeelding](images/2-document-fields.png)
 
 Documentvelden instellen:
 
 1. Ga naar het tabblad Configuratie en selecteer **[!UICONTROL Documentvelden]** > **[!UICONTROL Gedeelde velden]**.
 1. Selecteer in het veld Sectie weergeven de optie **[!UICONTROL Weergave-sectie maken]** en toewijzen **[!UICONTROL Adobe Handtekening]** als sectielabel.
 
-   ![Afbeelding van documentdetails](images/create-display-section.png)
+   ![Afbeelding](images/create-display-section.png)
 
 1. Voor de twee gedeelde documentvelden (signature__c en allow_adobe_sign_user_actions__c) werkt u de UI-sectie bij met **[!UICONTROL Adobe Handtekening]** als sectielabel.
 1. Voeg de drie gedeelde velden toe aan alle documenttypen die in aanmerking komen voor Adobe-ondertekening. Selecteer hiervoor op de pagina Basisdocument de optie **[!UICONTROL Toevoegen]** > **[!UICONTROL Bestaand gedeeld veld]** in de rechterbovenhoek.
 
-   ![Afbeelding van documentdetails](images/add-existing-fields.png)
+   ![Afbeelding](images/create-document-fields.png)
 
-   ![Afbeelding van documentdetails](images/use-shared-fields.png)
+   ![Afbeelding](images/add-existing-fields.png)
+
+   ![Afbeelding](images/use-shared-fields.png)
 
 1. Houd er rekening mee dat beide velden een specifieke beveiliging moeten hebben waarmee alleen leden van de Adobe Sign Admin Group hun waarden kunnen bijwerken.
 
-   ![Afbeelding van documentdetails](images/security-overrides.png)
+   ![Afbeelding](images/security-overrides.png)
 
-1. Beheerders moeten het bestaande gedeelde veld toevoegen *Vault-overlays uitschakelen (disable_vault_overlays__v)* en stel deze in op **[!UICONTROL Actief]** voor alle documenttypen die in aanmerking komen voor Adobe Signature. Optioneel kan het veld een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign-beheerdersgroep hun waarde kunnen bijwerken.
-
-   ![Afbeelding van gebruikersacties voor Adobe Sign toestaan](images/allow-adobe-sign-user-actions.png)
+Vault-overlays uitschakelen (disable_vault_overlays__v) is een bestaand gedeeld veld. Optioneel kan het veld een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign-beheerdersgroep hun waarde kunnen bijwerken.
 
 ### Stap 8. Documentuitvoeringen declareren {#declare-renditions}
 
@@ -299,64 +289,64 @@ Volg onderstaande stappen om de levenscyclus van documenten bij te werken:
 
    * **Voor Adobe-handtekening** (Gereviseerd): Dit is een plaatsaanduidingsnaam voor het frame van waaruit het document naar Adobe Sign kan worden verzonden. Afhankelijk van het documenttype kan de status Concept of Gecontroleerd zijn. Het label van de documentstatus kan worden aangepast aan de vereisten van de klant. Voordat de handtekeningstatus Adobe wordt ingesteld, moeten de volgende twee gebruikersacties worden gedefinieerd:
 
-   * Actie waarmee de status van het document wordt gewijzigd in *In Adobe Sign Draft* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Actie die de webactie &quot;Adobe Sign&quot; noemt. Deze status moet zijn beveiligd zodat Adobe Sign Admin Role: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
+      * Actie waarmee de status van het document wordt gewijzigd in *In Adobe Sign Draft* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Actie die de webactie &quot;Adobe Sign&quot; noemt. Deze status moet zijn beveiligd zodat Adobe Sign Admin Role: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
 
-   ![Afbeelding van levenscyclusstatus 1](images/lifecycle-state1.png)
+      ![Afbeelding van levenscyclusstatus 1](images/lifecycle-state1.png)
 
    * **In Adobe Sign Draft**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document al is geüpload naar Adobe Sign en dat de overeenkomst de status DRAFT. Het is een vereiste staat. Deze status moet de volgende vijf gebruikersacties definiëren:
 
-   * Actie waarmee de status van het document wordt gewijzigd in *In Adobe Sign Authoring* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Actie waarmee de status van het document wordt gewijzigd in *In ondertekeningsstatus Adobe*. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Actie waarmee de status van het document wordt gewijzigd in *Adobe Sign geannuleerd* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling die de webactie &quot;Adobe Sign&quot; noemt.
-   * Handeling die de webhandeling ‘Adobe Sign annuleren’ aanroept. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
+      * Actie waarmee de status van het document wordt gewijzigd in *In Adobe Sign Authoring* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Actie waarmee de status van het document wordt gewijzigd in *In ondertekeningsstatus Adobe*. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Actie waarmee de status van het document wordt gewijzigd in *Adobe Sign geannuleerd* status. De naam van deze gebruikersactie moet voor alle documenttypes voor om het even welke levenscyclus gelijk zijn. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Handeling die de webactie &quot;Adobe Sign&quot; noemt.
+      * Handeling die de webhandeling ‘Adobe Sign annuleren’ aanroept. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
 
-   ![Afbeelding van levenscyclusstatus 2](images/lifecycle-state2.png)
+      ![Afbeelding van levenscyclusstatus 2](images/lifecycle-state2.png)
 
    * **In Adobe Sign Authoring**: Dit is een tijdelijke aanduiding voor de status die aangeeft dat het document al is geüpload naar Adobe Sign en dat de overeenkomst de status AUTHORING of DOCUMENTS_NOT_YET_PROCESSED heeft. Het is een vereiste staat. Voor deze status moeten vier gebruikersacties worden gedefinieerd:
 
-   * Handeling die de status van het document wijzigt in Adobe Sign Canceled state. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling waarmee de status van het document wordt gewijzigd in In Adobe Signing-status. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling die de webactie &quot;Adobe Sign&quot; noemt
-   * Handeling die de webhandeling ‘Adobe Sign annuleren’ aanroept. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
+      * Handeling die de status van het document wijzigt in Adobe Sign Canceled state. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Handeling waarmee de status van het document wordt gewijzigd in In Adobe Signing-status. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Handeling die de webactie &quot;Adobe Sign&quot; noemt
+      * Handeling die de webhandeling ‘Adobe Sign annuleren’ aanroept. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
 
-   ![Afbeelding van levenscyclusstatus 3](images/lifecycle-state3.png)
+      ![Afbeelding van levenscyclusstatus 3](images/lifecycle-state3.png)
 
    * **In Adobe-ondertekening**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document is geüpload naar Adobe Sign en dat de overeenkomst al is verzonden naar deelnemers (status OUT_FOR_SIGNATURE of OUT_FOR_APPROVAL). Het is een vereiste staat. Voor deze status moeten vijf gebruikersacties worden gedefinieerd:
 
-   * Handeling die de status van het document wijzigt in Adobe Sign Canceled state. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling die de status van het document wijzigt in Adobe Sign Afgewezen status. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling waarmee de status van het document wordt gewijzigd in Adobe Signed state. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet echter gelijk zijn voor alle documenttypen, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
-   * Handeling die de webhandeling aanroept *Adobe Sign*.
-   * Handeling die een webhandeling aanroept *Adobe Sign annuleren*. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
+      * Handeling die de status van het document wijzigt in Adobe Sign Canceled state. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Handeling die de status van het document wijzigt in Adobe Sign Afgewezen status. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Handeling waarmee de status van het document wordt gewijzigd in Adobe Signed state. De doelstatus van deze actie kan elke klantbehoefte zijn en kan voor verschillende typen verschillen. De naam van deze gebruikersactie moet echter gelijk zijn voor alle documenttypen, ongeacht de levenscyclus. Indien nodig kunnen de criteria voor deze actie worden ingesteld op &quot;Adobe Sign-gebruikersacties toestaan is gelijk aan Ja&quot;.
+      * Handeling die de webhandeling aanroept *Adobe Sign*.
+      * Handeling die een webhandeling aanroept *Adobe Sign annuleren*. Deze status moet zijn beveiligd zodat de Adobe Sign-beheerdersrol het volgende kan doen: document weergeven, inhoud weergeven, velden bewerken, relaties bewerken, bron downloaden, zichtbare uitvoering beheren en status wijzigen.
 
-   ![Afbeelding van levenscyclusstatus 4](images/lifecycle-state4.png)
+      ![Afbeelding van levenscyclusstatus 4](images/lifecycle-state4.png)
 
-   * **Adobe ondertekend (goedgekeurd)**: Dit is een tijdelijke aanduiding voor de status die aangeeft dat het document is geüpload naar Adobe Sign en dat de overeenkomst is voltooid (ONDERTEKEND of GOEDGEKEURD). Het is een vereiste status en het kan een bestaande levenscyclusstatus zijn, zoals Goedgekeurd.
+      * **Adobe ondertekend (goedgekeurd)**: Dit is een tijdelijke aanduiding voor de status die aangeeft dat het document is geüpload naar Adobe Sign en dat de overeenkomst is voltooid (ONDERTEKEND of GOEDGEKEURD). Het is een vereiste status en het kan een bestaande levenscyclusstatus zijn, zoals Goedgekeurd.
 Voor deze status zijn geen handelingen van de gebruiker vereist. De beheerfunctie van Adobe Sign moet zijn beveiligd tegen: bekijk documenten, bekijk inhoud en bewerk velden.
 
    In het volgende diagram worden de toewijzingen weergegeven tussen Adobe Sign-overeenkomsten en vault-documentstatussen, waarbij de status ‘Voor Adobe-ondertekening’ Concept is.
 
-   ![Afbeelding van Adobe Sign Vault-toewijzingen](images/sign-vault-mappings.png)
+   ![Afbeelding](images/sign-vault-mappings.png)
 
 ### Stap 11. Adobe Sign-stage toevoegen aan algemene levenscyclus in levenscyclusgroepen
 
-![Afbeelding van Adobe Sign Vault-toewijzingen](images/add-adobe-sign-stage.png)
+![Afbeelding](images/add-adobe-sign-stage.png)
 
 ### Stap 12. Machtigingen instellen voor gebruikersrol in levenscyclusstatus
 
 U moet de juiste machtigingen instellen voor elke gebruikersrol in de levenscyclusstatus, zoals weergegeven in de onderstaande afbeelding.
 
-![Afbeelding van Adobe Sign Vault-toewijzingen](images/set-user-role-permissions.png)
+![Afbeelding](images/set-user-role-permissions.png)
 
 ### Stap 13. Automatische beveiliging instellen op basis van documentstatus en gebruikersrol
 
-![Afbeelding van Adobe Sign Vault-toewijzingen](images/set-atomic-security.png)
+![Afbeelding](images/set-atomic-security.png)
 
 ### Stap 14. Documentberichten maken voor Adobe Sign Annuleren
 
-![Afbeelding van Adobe Sign Vault-toewijzingen](images/create-cancel-message.png)
+![Afbeelding](images/create-cancel-message.png)
 
 ## Verbinden [!DNL Veeva Vault] naar Adobe Sign met behulp van middleware {#connect-middleware}
 
@@ -380,7 +370,7 @@ Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om verbindin
 
 1. Selecteer de **[!UICONTROL Instellingen]** tabblad.
 
-   Op de pagina Instellingen worden de beschikbare verbindingen weergegeven. In het geval van de eerste verbindingsinstellingen wordt geen verbinding weergegeven, zoals hieronder wordt weergegeven.
+   Op de pagina Instellingen worden de beschikbare verbindingen weergegeven en *Geen verbindingen beschikbaar* in het geval van eerste verbindingsopstelling, zoals hieronder getoond.
 
    ![Afbeelding](images/middleware_newconnection.png)
 
