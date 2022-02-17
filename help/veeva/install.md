@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: db0d9022e520e9db39254e78b66aab8b913f353a
+source-git-commit: 535c4510e876c708679d7f6a800206264a9876e2
 workflow-type: tm+mt
-source-wordcount: '3169'
+source-wordcount: '3428'
 ht-degree: 3%
 
 ---
@@ -125,13 +125,51 @@ Handtekeninggebeurtenisobject wordt gemaakt om gebeurtenisgerelateerde informati
 | participant_role__c | Rol van deelnemer | Tekenreeks | Houdt de rol van de Adobe Sign-deelnemer vast |
 | signature__c | Handtekening | Object (handtekening) | Bevat de verwijzing naar de bovenliggende handtekeningrecord |
 
-![Afbeelding van details van handtekeninggebeurtenissen](images/signature-event-object-details.png)
+![Afbeelding](images/signature-event-object-details.png)
 
 #### Object Process Locker {#process-locker}
 
 Er wordt een Process Locker-object gemaakt om het Adobe Sign-integratieproces te vergrendelen. Er zijn geen aangepaste velden voor nodig.
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/process-locker-details.png)
+
+Voor de objecten Handtekening, Handtekening, Handtekeninggebeurtenis en Proceskluis die deel uitmaken van het implementatiepakket is de eigenschap &#39;Gegevenswijzigingen voor dit object controleren&#39; standaard ingeschakeld.
+
+**Opmerking:** Als u wijzigingen in auditlogbestanden wilt opnemen in de standaardobjectrecord, schakelt u de instelling Wijzigingen in auditgegevens in. Deze instelling is standaard uitgeschakeld. Nadat u deze instelling hebt ingeschakeld en records hebt gemaakt, kunt u deze niet uitschakelen. Als deze instelling is uitgeschakeld en er records bestaan, kan alleen een Vault-eigenaar de instelling bijwerken.
+
+#### **Deelnemers en geschiedenis voor het handtekeningobject weergeven** {#display-participants-history}
+
+Het Signature-object dat als onderdeel van het implementatiepakket wordt geleverd, wordt geleverd met het [Handtekeningdetailpagina-indeling](https://vvtechpartner-adobe-rim.veevavault.com/ui/#admin/content_setup/object_schema/pagelayout?t=signature__c&amp;d=signature_detail_page_layout__c). De pagina-indeling heeft secties voor deelnemers en historie.
+
+* De *Deelnemers* heeft de sectie Verwante objecten die is geconfigureerd zoals weergegeven in de onderstaande afbeelding.
+
+   ![Afbeelding](images/edit-related-objects.png)
+
+* U kunt de kolommen bewerken die voor de deelnemers moeten worden weergegeven, zoals hieronder wordt weergegeven.
+
+   ![Afbeelding](images/set-columns-to-display.png)
+
+* De *Historie* heeft de sectie Verwante objecten die is geconfigureerd zoals weergegeven in de onderstaande afbeelding.
+
+   ![Afbeelding](images/edit-related-object-in-history.png)
+
+* U kunt de kolommen voor de Geschiedenis bewerken, zoals hieronder weergegeven.
+
+   ![Afbeelding](images/select-columns-to-display.png)
+
+#### **Deelnemers en auditgeschiedenis voor het Adobe Sign-document weergeven** {#view-participants-audit-history}
+
+* Als u Deelnemers en de auditgeschiedenis voor het Adobe Sign-document wilt weergeven, selecteert u de koppeling in de sectie &#39;Handtekening Adobe&#39; van het document.
+
+   ![Afbeelding](images/view-participants-audit-history.png)
+
+* Op de pagina die wordt geopend, worden de deelnemers en de historie voor het Adobe Sign-document weergegeven, zoals hieronder weergegeven.
+
+   ![Afbeelding](images/participants-and-history.png)
+
+* Bekijk het audiotraject ter ondertekening, zoals hieronder weergegeven.
+
+   ![Afbeelding](images/audit-trail.png)
 
 ### Stap 3. Beveiligingsprofielen instellen {#security-profiles}
 
