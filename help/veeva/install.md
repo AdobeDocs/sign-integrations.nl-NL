@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 535c4510e876c708679d7f6a800206264a9876e2
+source-git-commit: 928bbadab28f041de2d8bc17ad8383f61033a6c0
 workflow-type: tm+mt
-source-wordcount: '3428'
+source-wordcount: '3431'
 ht-degree: 3%
 
 ---
@@ -135,7 +135,7 @@ Er wordt een Process Locker-object gemaakt om het Adobe Sign-integratieproces te
 
 Voor de objecten Handtekening, Handtekening, Handtekeninggebeurtenis en Proceskluis die deel uitmaken van het implementatiepakket is de eigenschap &#39;Gegevenswijzigingen voor dit object controleren&#39; standaard ingeschakeld.
 
-**Opmerking:** Als u wijzigingen in auditlogbestanden wilt opnemen in de standaardobjectrecord, schakelt u de instelling Wijzigingen in auditgegevens in. Deze instelling is standaard uitgeschakeld. Nadat u deze instelling hebt ingeschakeld en records hebt gemaakt, kunt u deze niet uitschakelen. Als deze instelling is uitgeschakeld en er records bestaan, kan alleen een Vault-eigenaar de instelling bijwerken.
+**Opmerking:** U kunt wijzigingen in auditlogbestanden met Vault-vastlegobjecten laten vastleggen door de instelling Wijzigingen in controlegegevens in te schakelen. Deze instelling is standaard uitgeschakeld. Nadat u deze instelling hebt ingeschakeld en records hebt gemaakt, kunt u deze niet meer uitschakelen. Als deze instelling is uitgeschakeld en er records bestaan, kan alleen een Vault-eigenaar de instelling bijwerken.
 
 #### **Deelnemers en geschiedenis voor het handtekeningobject weergeven** {#display-participants-history}
 
@@ -167,7 +167,7 @@ Het Signature-object dat als onderdeel van het implementatiepakket wordt gelever
 
    ![Afbeelding](images/participants-and-history.png)
 
-* Bekijk het audiotraject ter ondertekening, zoals hieronder weergegeven.
+* Bekijk de audittrail voor handtekening zoals hieronder weergegeven.
 
    ![Afbeelding](images/audit-trail.png)
 
