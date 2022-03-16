@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 04a3e58da81c1a034318807776077d0076eec85f
+source-git-commit: ad78f32d6c418ac9c7120899831b74bec9d5620d
 workflow-type: tm+mt
-source-wordcount: '3431'
+source-wordcount: '3503'
 ht-degree: 3%
 
 ---
@@ -60,6 +60,7 @@ Adobe Sign configureren voor [!DNL Vault], een nieuwe groep genaamd *Adobe Sign 
 * Paginalay-out van handtekeningobjecten
 * Lay-out objectpagina van Locker-proces
 * Adobe Sign Rendition-type
+* Oorspronkelijk renderingstype
 * Gedeeld veld signature__c, allow_adobe_sign_user_actions__c
 * Adobe Sign Web Action
 * Adobe Sign-webhandeling annuleren
@@ -266,6 +267,10 @@ Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c)* wordt g
 
 ![Afbeelding van weergavetypen](images/edit-details-clinical-type.png)
 
+Het nieuwe weergavetype *Oorspronkelijke vertoning (original_rendition__c)* wordt door de Vault-integratie gebruikt als de naam van de vertoning die moet worden gebruikt om de oorspronkelijke weergaveweergave op te slaan als het ondertekende document wordt geïmporteerd als een weergave die kan worden weergegeven.
+
+![Afbeelding](images/original-rendition.png)
+
 ### Stap 9. Webhandelingen bijwerken {#web-actions}
 
 Voor Adobe Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodig:
@@ -440,6 +445,10 @@ Een Adobe Sign-accountbeheerder moet de onderstaande stappen volgen om verbindin
    **Opmerking:** Automatische provisioning van nieuwe Adobe Sign-gebruikers werkt alleen als deze optie is ingeschakeld op Adobe Sign-accountniveau in Adobe Sign en als deze optie **[!UICONTROL Gebruikers automatisch toewijzen]** voor de[!DNL Veeva Vault]Adobe Sign-integratie zoals hieronder weergegeven door de Adobe Sign-accountbeheerder.
 
    ![Afbeelding](images/allow-auto-provisioning.png)
+
+1. Als u wilt instellen dat de Adobe Sign-vertoning wordt weergegeven in Veva in plaats van de Originele Vertoning, schakelt u het selectievakje in **[!UICONTROL Adobe Sign-vertoning weergeven]**.
+
+   ![Afbeelding](images/edit-connection-dispplay-adobe-sign-rendition.png)
 
 1. Selecteren **[!UICONTROL Opslaan]** om uw nieuwe verbinding op te slaan.
 
