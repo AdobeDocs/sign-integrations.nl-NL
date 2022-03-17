@@ -10,7 +10,7 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: b9d0ac0cccc8785469172fd805e7b878743c7c07
+source-git-commit: c108714c960b68342539da8e37ac88622c963ed5
 workflow-type: tm+mt
 source-wordcount: '3498'
 ht-degree: 3%
@@ -265,7 +265,7 @@ Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c)* wordt g
 
 ![Afbeelding van weergavetypen](images/rendition-type.png)
 
-![Afbeelding](images/edit-details-clinical-type.png)
+![Afbeelding](images/edit-details-clinical.png)
 
 Het nieuwe weergavetype *Oorspronkelijke vertoning (original_rendition__c)* wordt door de Vault-integratie gebruikt als de naam van de vertoning die moet worden gebruikt om de oorspronkelijke weergaveweergave op te slaan als het ondertekende document wordt geïmporteerd als een weergave die kan worden weergegeven.
 
