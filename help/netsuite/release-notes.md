@@ -2,11 +2,11 @@
 title: Opmerkingen bij de release van Adobe Sign for NetSuite
 description: Lees meer over de nieuwe functies en wijzigingen die zijn opgenomen in de huidige versie van de Adobe Sign-integratie voor NetSuite.
 type: Documentation
-solution: Adobe Sign
+solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 6317723e-447a-4506-a621-4d967bdd6561
-source-git-commit: f8d0bc748872e675dc1c638eb4050efe9e3147ef
+source-git-commit: b326a9afa2c16333d390cac3b30a2c7c741a4360
 workflow-type: tm+mt
 source-wordcount: '849'
 ht-degree: 5%
@@ -31,8 +31,8 @@ Het Adobe Sign-pictogram is bijgewerkt naar de nieuwe afbeelding.
 
 ### Adobe Sign for NetSuite 4.0.2
 
-Opnieuw gebrandd tot **Adobe Sign** (van *Adobe Document Cloud eSign-services*)\
-U ziet nu *Adobe Sign* waar u eerder *eSign Services voor Adobe hebt gezien* als bewijs van de herbranding.
+Opnieuw gebrandmerkt naar **Adobe Sign** (van *Adobe Document Cloud eSign-services*)\
+U ziet nu *Adobe Sign* waar u eerder hebt gezien *eSign-services voor Adobe* als bewijs van de herbranding.
 
 ### Adobe Sign for NetSuite 4.0.1
 
@@ -80,13 +80,13 @@ Directe herinnering verzenden aan huidige ondertekenaar
 
 **Geavanceerd handtekeningverificatiebeleid**
 
-* **Verificatie op basis van kennis:vragen** beantwoorden om identiteit van ondertekenaar te verifiëren
+* **Verificatie op basis van kennis:** Vragen beantwoorden om de identiteit van de ondertekenaar te verifiëren
    * Ondertekenaars moeten hun identiteit bewijzen door vragen te beantwoorden uit honderden openbare en commerciële databases
    * Naam ter ondertekening is overgenomen van de geverifieerde naam van de gebruiker en kan niet worden gewijzigd op het moment van ondertekening
    * Aangedreven door RSA
    * Het KBA-gebruik is beperkt per account, per maand. Neem contact op met Sales voor meer informatie.
 
-* **Webidentiteit:** Meld u aan met Facebook, LinkedIn, Google of een andere externe webservice voordat u zich aanmeldt.
+* **Webidentiteit:** Meld u aan bij de Facebook, LinkedIn, Google of een andere externe webservice voordat u zich aanmeldt.
 
    * Ondertekenaars kunnen alleen ondertekenen nadat ze hun identiteit hebben geverifieerd met een webservice van derden.
    * Naam ter ondertekening is afkomstig van de webservice-professional van de gebruiker!le en kan niet worden gewijzigd op het moment van ondertekening
@@ -104,7 +104,7 @@ Directe herinnering verzenden aan huidige ondertekenaar
 
 **Transactiebestanden**
 
-U kunt bestanden die u wilt bijvoegen, selecteren in de huidige transactie met de nieuwe vervolgkeuzelijst Transactiebestanden.
+U kunt bestanden die u wilt bijvoegen, selecteren in de huidige transactie met de nieuwe vervolgkeuzelijst &quot;Transactiebestanden&quot;.
 
 **Adobe PDF-certificatie voor alle EchoSign-documenten**
 

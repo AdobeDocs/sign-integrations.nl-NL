@@ -4,14 +4,14 @@ description: Leer hoe u Adobe Sign-integraties instelt
 audience: External
 products: Adobe Sign
 type: Documentation
-solution: Adobe Sign
+solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: b2fa280d-894c-47da-bbf5-8b4d0c6b6165
-source-git-commit: 27610773d47a947dbfa1deb3f594667406a9aefb
+source-git-commit: b326a9afa2c16333d390cac3b30a2c7c741a4360
 workflow-type: tm+mt
-source-wordcount: '127'
-ht-degree: 25%
+source-wordcount: '121'
+ht-degree: 26%
 
 ---
 
@@ -19,7 +19,7 @@ ht-degree: 25%
 
 ![banner](images/sign-banner.png)
 
-Leer hoe u [!DNL Adobe Sign]-oplossingen installeert, integreert en gebruikt voor de bestaande systemen, processen en toepassingen van uw organisatie.
+Leer hoe je installeert, integreert en gebruikt [!DNL Adobe Sign] oplossingen voor de bestaande systemen, processen en toepassingen van uw organisatie.
 
 ## Aanbevolen artikelen
 
@@ -42,7 +42,7 @@ Leer hoe u [!DNL Adobe Sign]-oplossingen installeert, integreert en gebruikt voo
     <div>
     <a href="workday/tutorial-video.md"><strong>Adobe Sign integreren met [!DNL Workday]</strong></a>
     </div>
-    <em>Leer hoe u Adobe Sign zo configureert dat deze binnen [!DNL Workday] werkt voor het beheren van al uw documenten</em>
+    <em>Leer hoe u Adobe Sign configureert voor gebruik binnen [!DNL Workday] voor het beheren van al uw documenten</em>
   </td>
   <td>
     <a href="https://community.adobe.com/t5/adobe-sign/bd-p/adobe-sign?page=1&amp;sort=latest_replies&amp;filter=all">

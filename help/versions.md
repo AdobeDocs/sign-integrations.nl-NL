@@ -4,11 +4,11 @@ description: Meer informatie over Adobe Sign Integrations-versies en de levenscy
 audience: External
 products: Adobe Sign
 type: Documentation
-solution: Adobe Sign
+solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: c1f22848-7951-4066-84d4-f8cf6c2f3a6f
-source-git-commit: 30cb79b6856c7b623dc5118b4aa40193bf749220
+source-git-commit: b326a9afa2c16333d390cac3b30a2c7c741a4360
 workflow-type: tm+mt
 source-wordcount: '530'
 ht-degree: 40%
@@ -21,7 +21,7 @@ De versieovereenkomst van Adobe Sign en de steunlevenscyclus voor de geïntegree
 
 ## Versienummers
 
-De pakketversie geeft aan de hand van een uit drie delen bestaand nummer het sequentiële buildnummer van de uitgebrachte versie en het relatieve belang van de upgrade in termen van nieuwe of veranderde inhoud aan.
+De pakketversie geeft aan de hand van een uit drie delen bestaand nummer het sequentiële buildnummer van de uitgebrachte versie en het relatieve belang van de upgrade in termen van nieuwe of veranderde content aan.
 
 Het versienummer volgt dit patroon: N.m.p
 
