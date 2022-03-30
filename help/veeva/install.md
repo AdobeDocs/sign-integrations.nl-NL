@@ -10,9 +10,9 @@ solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 1eafeb73f7b7055fa958b15a02148898f7c9d406
+source-git-commit: 2c2d7ebe427166222cc62c5ab8f867275a97cce9
 workflow-type: tm+mt
-source-wordcount: '3573'
+source-wordcount: '3568'
 ht-degree: 2%
 
 ---
@@ -222,7 +222,7 @@ U moet deze documenttypegroep toevoegen voor alle documentclassificaties die in 
 
 ### Stap 6. Gebruikersrolinstelling maken {#create-user-role-setup}
 
-Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zorgen dat de Adobe Sign Admin-gebruiker door de DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor het Adobe Acrobat Sign-proces. Dit wordt gedaan door het aangewezen verslag van de Opstelling van de Rol van de Gebruiker te creëren dat specificeert:
+Als de levenscyclus correct is (zijn) geconfigureerd, moet het systeem ervoor zorgen dat de Adobe Sign Admin-gebruiker door DAC wordt toegevoegd voor alle documenten die in aanmerking komen voor het Adobe Acrobat Sign-proces. Dit wordt gedaan door het aangewezen verslag van de Opstelling van de Rol van de Gebruiker te creëren dat specificeert:
 
 * Documenttypegroep als Adobe Sign-document
 * Toepassingsrol als Adobe Sign-beheerdersrol
@@ -247,7 +247,7 @@ Documentvelden instellen:
    ![Afbeelding](images/create-display-section.png)
 
 1. Voor de twee gedeelde documentvelden (signature__c en allow_adobe_sign_user_actions__c) werkt u de UI-sectie bij met **[!UICONTROL Adobe Handtekening]** als sectielabel.
-1. Voeg de drie gedeelde velden toe aan alle documenttypen die in aanmerking komen voor Adobe Acrobat Signature. Selecteer hiervoor op de pagina Basisdocument de optie **[!UICONTROL Toevoegen]** > **[!UICONTROL Bestaand gedeeld veld]** in de rechterbovenhoek.
+1. Voeg de drie gedeelde velden toe aan alle documenttypen die in aanmerking komen voor Adobe Acrobat Signature. Selecteer hiertoe op de pagina Basisdocument de optie **[!UICONTROL Toevoegen]** > **[!UICONTROL Bestaand gedeeld veld]** in de rechterbovenhoek.
 
    ![Afbeelding](images/create-document-fields.png)
 
@@ -255,7 +255,7 @@ Documentvelden instellen:
 
    ![Afbeelding](images/use-shared-fields.png)
 
-1. Houd er rekening mee dat beide velden een specifieke beveiliging moeten hebben waarmee alleen leden van de Adobe Sign Admin Group hun waarden kunnen bijwerken.
+1. Beide velden moeten een specifieke beveiliging hebben waarmee alleen leden van de Adobe Sign Admin Group hun waarden kunnen bijwerken.
 
    ![Afbeelding](images/security-overrides.png)
 

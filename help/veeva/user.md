@@ -9,7 +9,7 @@ solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 1eafeb73f7b7055fa958b15a02148898f7c9d406
+source-git-commit: 2c2d7ebe427166222cc62c5ab8f867275a97cce9
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
@@ -56,7 +56,7 @@ Een overeenkomst verzenden met Adobe Acrobat Sign voor Veva:
 
    ![](images/choose-document-type.png)
 
-1. Selecteren **[!UICONTROL OK]** om het dialoogvenster te sluiten.
+1. Als u het dialoogvenster wilt sluiten, selecteert u **[!UICONTROL OK]**.
 
 1. Selecteren **[!UICONTROL Volgende]**.
 
@@ -117,11 +117,11 @@ Een overeenkomst verzenden met Adobe Acrobat Sign voor Veva:
 
 1. Zodra alle handtekeningen zijn vastgelegd en ingevuld in Adobe Acrobat Sign, verandert de documentstatus in Vault in [!UICONTROL Goedgekeurd].
 
-1. Selecteren **[!UICONTROL Documentbestanden]** en breid de **[!UICONTROL Uitvoeringen]** in Vault. Er wordt automatisch een nieuwe Vertoning met de naam &#39;Adobe Sign Rendition&#39; gemaakt als het document de status Goedgekeurd heeft.
+1. Selecteren **[!UICONTROL Documentbestanden]** en breid de **[!UICONTROL Uitvoeringen]** in Vault. Er wordt automatisch een Vertoning met de naam &#39;Adobe Sign Rendition&#39; gemaakt als het document de status Goedgekeurd heeft.
 
    ![](images/document-files.png)
 
-1. Download de Adobe Sign-vertoning voor het valideren van de ontvanger.
+1. Download de Adobe Sign-vertoning voor het valideren van de handtekening van de ontvanger.
 
    ![](images/verify-signature.png)
 
