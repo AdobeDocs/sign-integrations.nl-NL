@@ -24,7 +24,7 @@ ht-degree: 30%
 
 ## Overzicht {#overview}
 
-Dit document is ontworpen om [!DNL Workday] beheerders begrijpen hoe ze de [!DNL Workday] Bedrijfsprocessen om Adobe Sign op te nemen voor het verkrijgen van elektronische handtekeningen. To use Adobe Sign within [!DNL Workday], you must know how to create and modify [!DNL Workday] items such as:
+Dit document is ontworpen om [!DNL Workday] beheerders begrijpen hoe ze de [!DNL Workday] Bedrijfsprocessen om Adobe Sign op te nemen voor het verkrijgen van elektronische handtekeningen. Adobe Sign gebruiken in [!DNL Workday], moet u weten hoe u kunt maken en wijzigen [!DNL Workday] items zoals:
 
 * [!UICONTROL Business Process Framework]
 * Instelling en configuratie van de tenant
@@ -32,28 +32,28 @@ Dit document is ontworpen om [!DNL Workday] beheerders begrijpen hoe ze de [!DNL
 
 ## Toegang tot Adobe Sign vanuit [!DNL Workday] {#access-adobe-sign}
 
-[!UICONTROL Adobe Sign electronic signature capability] is surfaced as [!UICONTROL Review Document Step] action within the [!UICONTROL Business Process Framework (BPF)] and as a Distribute Documents task.
+[!UICONTROL Adobe Sign-functie voor elektronische ondertekening] wordt weergegeven als [!UICONTROL Documentstap controleren] actie binnen de [!UICONTROL Business Process Framework (BPF)] en als taak Documenten distribueren.
 
 ## [!UICONTROL De stap Review Document (Document bekijken)] {#review-document-step}
 
 Adobe Sign for [!DNL Workday] wordt blootgesteld via de [!UICONTROL Documentstap controleren] die u kunt toevoegen aan elk van de meer dan 400 bedrijfsprocessen binnen [!DNL Workday], inclusief [!UICONTROL Aanbieding], [!UICONTROL Documenten en taken distribueren], [!UICONTROL Compenseren voorstellen]en meer.
 
-You may refer to the [[!DNL Workday] community articles on [!UICONTROL Review Document Step]](https://doc.workday.com/#/reader/3DMnG~27o049IYFWETFtTQ/TboWWKQemecNipWgxLAjqg).
+U kunt verwijzen naar de [[!DNL Workday] communautaire artikelen over [!UICONTROL Documentstap controleren]](https://doc.workday.com/#/reader/3DMnG~27o049IYFWETFtTQ/TboWWKQemecNipWgxLAjqg).
 
-Er is een 1:1-relatie tussen [!UICONTROL [!UICONTROL Documentstap controleren]s] en factureerbare transacties met Adobe Sign. You can combine multiple documents within a single [!UICONTROL Review Document Step] and they are presented as a single package for signature.
+Er is een 1:1-relatie tussen [!UICONTROL [!UICONTROL Documentstap controleren]s] en factureerbare transacties met Adobe Sign. U kunt meerdere documenten combineren binnen één [!UICONTROL Documentstap controleren] en worden ter ondertekening aangeboden als één pakket.
 
-**Note**: Only a single *Dynamic* document can be referenced within a specific [!UICONTROL Review Document Step].
+**Opmerking**: Slechts één *Dynamisch* kan binnen een specifiek document naar dit document worden verwezen [!UICONTROL Documentstap controleren].
 
 Een functie definiëren [!UICONTROL Documentstap controleren]:
 
-1. Insert a [!UICONTROL Review Document Step].
+1. Een [!UICONTROL Documentstap controleren].
 1. Geef de groepen (rollen) op die kunnen reageren op de [!UICONTROL Documentstap controleren].
 
 ![De stappen voor bedrijfsprocessen](images/insert-review-doc-steptornm-575.png)
 
 Om het [!UICONTROL Documentstap controleren]:
 
-1. Specify the *[!UICONTROL eSignature Integration type]* as *[!UICONTROL eSign by Adobe]*.
+1. Geef de *[!UICONTROL Type eSignature Integration]* als *[!UICONTROL Elektronisch ondertekenen door Adobe]*.
 
 1. Voeg rijen toe aan het handtekeningenraster.
 
@@ -68,21 +68,21 @@ Om het [!UICONTROL Documentstap controleren]:
 
    ![De stap Review Document (Document bekijken) configureren](images/configure-rd-stepsmaller-575.png)
 
-1. Optionally, add a ‘redirect user’ for capturing ‘decline to sign’ actions. When users decline, [!DNL Workday] reroutes the documents to a configured security group for review.
+1. Voeg desgewenst een ‘omleidingsgebruiker’ toe voor het vastleggen van ‘weigeren om te ondertekenen’-handelingen. Wanneer gebruikers weigeren [!DNL Workday] Hiermee worden de documenten ter controle doorgestuurd naar een geconfigureerde beveiligingsgroep.
 
-Via het menu Gerelateerde handelingen van een [!UICONTROL Documentstap controleren]selecteert u **[!UICONTROL Bedrijfsproces]** > **[!UICONTROL Omleiden behouden]**. Next, select one of the following:
+Via het menu Gerelateerde handelingen van een [!UICONTROL Documentstap controleren]selecteert u **[!UICONTROL Bedrijfsproces]** > **[!UICONTROL Omleiden behouden]**. Selecteer vervolgens een van de volgende opties:
 
 * **[!UICONTROL Naar achtergrond]**: Om de leden van de veiligheidsgroep toe te laten om een stap terug naar een vroegere stap in het bedrijfsproces te verzenden. Het bedrijfsproces wordt vanaf deze stap opnieuw gestart.
 * **[!UICONTROL Ga naar volgende stap]**: Om de leden van de veiligheidsgroep toe te laten om een stap naar de volgende stap in het bedrijfsproces vooruit te gaan.
-* **[!UICONTROL Security Groups]**: To redirect steps in the business process flow. De groepen van de veiligheid die bij deze herinnering tonen worden geselecteerd in het bedrijfsprocesveiligheidsbeleid in de Redirect sectie.
+* **[!UICONTROL Beveiligingsgroepen]**: Om stappen in de bedrijfsprocesstroom om te leiden. De groepen van de veiligheid die bij deze herinnering tonen worden geselecteerd in het bedrijfsprocesveiligheidsbeleid in de Redirect sectie.
 
 ## Opmerkingen bij de stappen in het bedrijfsproces {#business-process-step-notes}
 
-[!UICONTROL The Business Process Framework] is powerful; however, you must ensure that:
+[!UICONTROL The Business Process Framework] krachtig is; u moet er echter voor zorgen dat :
 
 * Elk bedrijfsproces moet een voltooiingsstap hebben, die idealiter aan het eind van het bedrijfsproces is.
 
-* Er wordt een voltooiingsstap ingesteld in het menu met verwante handelingen van het zoekpictogram. This is possible only while “viewing” the BP and not while “editing” it.
+* Er wordt een voltooiingsstap ingesteld in het menu met verwante handelingen van het zoekpictogram. Dit is alleen mogelijk tijdens het &quot;weergeven&quot; van het BP en niet tijdens het &quot;bewerken&quot; ervan.
 
 * Elke stap van het bedrijfsproces wordt achtereenvolgens uitgevoerd.
 
@@ -90,27 +90,27 @@ Via het menu Gerelateerde handelingen van een [!UICONTROL Documentstap controler
 
 ### Voorbeeld: aanbieden {#example-offer}
 
-The Offer BP is a sub process of the [!UICONTROL Job Application Dynamic BP] that must be configured to execute the Offer BP. Deze wordt geactiveerd wanneer de status Taaktoepassing wordt verplaatst naar &quot;[!UICONTROL Aanbieding]&quot; of &quot;[!UICONTROL Aanbieding maken]&quot;.
+De BP van de Aanbieding is een subproces van het [!UICONTROL Dynamische BP van taaktoepassing] dat moet worden geconfigureerd om de BP van de Aanbieding uit te voeren. Deze wordt geactiveerd wanneer de status Taaktoepassing wordt verplaatst naar &quot;[!UICONTROL Aanbieding]&quot; of &quot;[!UICONTROL Aanbieding maken]&quot;.
 
-In the below example, a [!UICONTROL Review Document Step] is using a Dynamic Document step for both North America and Japan.
+In het onderstaande voorbeeld wordt een [!UICONTROL Documentstap controleren] gebruikt een stap Dynamisch document voor zowel Noord-Amerika als Japan.
 
-![Example of a [!DNL Workday] Business Process](images/bp-for-offersmaller-575.png)
+![Voorbeeld van een [!DNL Workday] Bedrijfsproces](images/bp-for-offersmaller-575.png)
 
 Dit bedrijfsproces doet het volgende:
 
-* Asks the initiator of the BP to propose compensation for the candidate (step b).
-* Uses a step condition to test whether the current country is NOT Japan.
+* Verzoekt de initiatiefnemer van de BP om een compensatie voor de kandidaat voor te stellen (stap b).
+* Gebruikt een stapvoorwaarde om te testen of het huidige land GEEN Japan is.
 
    Indien waar (true), wordt stap &#39;ba&#39; uitgevoerd, waarbij een Engelstalig document wordt gebruikt.
 
    Indien onwaar, voert het stap &quot;bb&quot;uit die een Japans taaldocument gebruikt.
 
-* Defines the signature process in the [!UICONTROL Review Document Step] “bc”.
+* Definieert het ondertekeningsproces in het dialoogvenster [!UICONTROL Documentstap controleren] &quot;bc&quot;.
 * Definieert het beslissingspunt om een aanbieding te doen in de vereiste voltooiingsstap &quot;d&quot;.
 
-Het dynamische document dat in stap &quot;ba&quot; wordt gegenereerd, krijgt de naam [!UICONTROL Offer Letter] (Werkaanbod) en bevat één tekstblok met de naam [!UICONTROL Rapid Offer] (Snel aanbod). You can add multiple text blocks such as header, salutation, compensation, stock, closing, terms, and more as required.
+Het dynamische document dat in stap &quot;ba&quot; wordt gegenereerd, krijgt de naam [!UICONTROL Offer Letter] (Werkaanbod) en bevat één tekstblok met de naam [!UICONTROL Rapid Offer] (Snel aanbod). U kunt desgewenst meerdere tekstblokken toevoegen, zoals koptekst, aanhef, compensatie, voorraad, sluiten, voorwaarden en meer.
 
-![[!DNL Workday] view document page](images/offer-letter-575.png)
+![[!DNL Workday] documentpagina weergeven](images/offer-letter-575.png)
 
 De onderstaande dynamische aanbiedingsbrief wordt gemaakt in de [!DNL Workday] rijke teksteditor. De items gemarkeerd in *grijs* zijn [!DNL Workday] verschafte objecten die verwijzen naar contextuele gegevens.
 
@@ -118,19 +118,19 @@ Items in {{brackets}} zijn [Adobe-tekstlabels](https://adobe.com/go/adobesign_te
 
 ![Voorbeeld van dynamisch formulier](images/script.png)
 
-Within the [!UICONTROL Review Document Step], the dynamic document is referenced from the previous step and defines the sequential signature process via two signing groups.
+Binnen de [!UICONTROL Documentstap controleren]wordt vanaf de vorige stap naar het dynamische document verwezen en wordt het opeenvolgende ondertekeningsproces via twee ondertekeningsgroepen gedefinieerd.
 
-The behavior illustrated below routes the dynamically generated document first to the Hiring Manager, and then to the Candidate.
+Het gedrag dat hieronder wordt geïllustreerd leidt het dynamisch geproduceerde document eerst aan de Manager van de Helling, en dan aan de Kandidaat.
 
-![[!DNL Workday] signing groups being defined](images/configure-rd-stepsmaller-575.png)
+![[!DNL Workday] ondertekeningsgroepen die worden gedefinieerd](images/configure-rd-stepsmaller-575.png)
 
 ### Voorbeeld: Documenten distribueren {#example-distribute-documents}
 
-Geïntroduceerd in [!DNL Workday] 30. Met de taak Mass Distribute Documents or Tasks kunt u één document naar een grote groep (&lt;20K) afzonderlijke ondertekenaars verzenden. Dit is beperkt tot één handtekening per document. Creation of a distribution is performed by accessing the ‘[!UICONTROL Create Distribute Documents or Tasks]’ action from the search bar.
+Geïntroduceerd in [!DNL Workday] 30. Met de taak Mass Distribute Documents or Tasks kunt u één document naar een grote groep (&lt;20K) afzonderlijke ondertekenaars verzenden. Dit is beperkt tot één handtekening per document. Het maken van een distributie wordt uitgevoerd door de opdracht ‘[!UICONTROL Verspreide documenten of taken maken]van de zoekbalk.
 
 Voorbeeld: Verzend een formulier voor de keuze van een werknemer naar alle managers met [!UICONTROL Wereldwijde moderne services]. Desgewenst kunt u het filter verder filteren op individuele managers.
 
-You can also access the **View Distribute Documents or Tasks** report to track the progress of the distribution.
+U kunt ook de **Documenten of taken distribueren weergeven** verslag uit om de voortgang van de verspreiding te volgen.
 
 ![](images/create-distributedocumentsortasks.png)
 
@@ -152,15 +152,15 @@ U ziet het volgende:
 
 ![Voorbeeld van een [!DNL Workday] Rapport met drie objecten](images/workday-reportsmaller-575.png)
 
-## Signed documents {#signed-documents}
+## Ondertekende documenten {#signed-documents}
 
-The [!DNL Workday] signature cycle suppresses all email notifications by Adobe Sign. Users are informed of pending actions within their [!DNL Workday] inbox.
+De [!DNL Workday] handtekeningencyclus onderdrukt alle e-mailmeldingen van Adobe Sign. Gebruikers worden op de hoogte gesteld van lopende handelingen binnen hun [!DNL Workday] inbox.
 
-Once a document is signed by all Signature Groups, a copy of the signed document is distributed to all the members of the Signature Group via email.
+Zodra een document is ondertekend door alle handtekeninggroepen, wordt een kopie van het ondertekende document via e-mail verspreid onder alle leden van de handtekeninggroep.
 
 Als u dit gedrag wilt onderdrukken, kunt u contact opnemen met uw [!UICONTROL Adobe Sign Success Manager] of de [Adobe Sign-ondersteuningsteam](https://adobe.com/go/adobesign-support-center).
 
-Within [!DNL Workday], you can access the signed documents on the full process record. U kunt vinden:
+Within [!DNL Workday], hebt u toegang tot de ondertekende documenten in de volledige procesrecord. U kunt vinden:
 
 * De documenten van de arbeider op het Profiel van de Arbeider, en
 * Kandidaatdocumenten (aanbiedingsbrieven) op het kandidaatprofiel.
@@ -182,7 +182,7 @@ De [!DNL Workday] community heeft verschillende goede artikelen over het oplosse
 * [Dynamisch documenten genereren](https://community.workday.com/node/176443)
 * [Configuratietips voor het genereren van documenten met een werkaanbod](https://community.workday.com/node/183242)
 
-### Adobe Sign support {#adobe-sign-support}
+### Adobe Sign-ondersteuning {#adobe-sign-support}
 
 Adobe Sign is de integratiepartner en u dient contact op te nemen met Adobe Sign als de integratie geen handtekeningen kan verkrijgen of als de kennisgeving voor handtekeningen in de wachtrij mislukt.
 
