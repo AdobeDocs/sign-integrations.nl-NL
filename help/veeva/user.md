@@ -9,7 +9,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
+source-git-commit: 076c575d179f576366c1d9a76be0a582154574b1
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
@@ -86,7 +86,7 @@ Een overeenkomst verzenden met Adobe Acrobat Sign voor Veva:
 
    ![](images/select-adobe-sign.png)
 
-1. Als de UMG-functie (Gebruikers in meerdere groepen) is ingeschakeld in het Adobe Acrobat Sign-account en de afzender tot meerdere groepen behoort, ziet u een dialoogvenster zoals hieronder weergegeven. Selecteer in het dialoogvenster de groep en selecteer vervolgens **[!UICONTROL OK]**.
+1. Als de UMG-functie (Gebruikers in meerdere groepen) is ingeschakeld in het Adobe Acrobat Sign-account en de afzender tot meerdere groepen behoort, ziet u een dialoogvenster zoals hieronder weergegeven. Selecteer in het dialoogvenster de groep en selecteer vervolgens **[!UICONTROL Volgende]**.
 
    ![](images/umg-dialog.png)
 
