@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 5481293e84bd72e09df2c2f4b5ce27c5fdea28d0
+source-git-commit: 6b06bb8562ea7464fdbc23a25a4be3572eccdd1e
 workflow-type: tm+mt
 source-wordcount: '3909'
 ht-degree: 3%
@@ -77,7 +77,7 @@ Handtekeningobject wordt gemaakt voor het opslaan van informatie over overeenkom
 
 **Handtekeningobjectvelden**
 
-| Veld | Label | Type | Beschrijving |
+| Veld | Label | Type | Beschrijving         |
 |:---|:---|:---|:------- | 
 | external_id_c | Overeenkomst-id | Tekenreeks (100) | Houdt de unieke overeenkomst-id van Adobe Acrobat Sign bij |
 | file_hash__c | Bestandshash | Tekenreeks (50) | Bevat de md5-controlesom van het bestand dat naar Adobe Acrobat Sign is verzonden |
@@ -105,7 +105,7 @@ Handtekeningobject wordt gemaakt om informatie op te slaan die betrekking heeft 
 | email_c | E-mail | Tekenreeks (120) | Houdt de unieke overeenkomst-id van Adobe Acrobat Sign bij |
 | external_id_c | Deelnemer-id | Tekenreeks (80) | Houdt de unieke id van de Adobe Acrobat Sign-deelnemer |
 | name_v | Naam | String (128) | Houdt de naam van de Adobe Acrobat Sign-deelnemer vast |
-| order__c | Volgorde | Getal | Houdt het ordernummer van Adobe Acrobat Sign-deelnemers bij |
+| order__c | Volgorde | Getal | Houdt het ordernummer van de Adobe Acrobat Sign-overeenkomstdeelnemer |
 | role_c | Rol | Tekenreeks (30) | Houdt de rol van de deelnemer aan de Adobe Acrobat Sign-overeenkomst vast |
 | signature__c | Handtekening | Object (handtekening) | Bevat de verwijzing naar de bovenliggende handtekeningrecord |
 | signature_status__c | Handtekeningstatus | Tekenreeks (100) | Houdt de status van de deelnemer aan de Adobe Acrobat Sign-overeenkomst |
@@ -128,7 +128,7 @@ Handtekeninggebeurtenisobjectvelden
 | event_type__c | Het type Event | Tekenreeks | Houdt het type Adobe Acrobat Sign-gebeurtenis vast |
 | name_v | Naam | Tekenreeks | Automatisch gegenereerde gebeurtenisnaam |
 | participant_comment_c | Opmerking deelnemer | Tekenreeks | Bevat de eventuele opmerking van de Adobe Acrobat Sign-deelnemer |
-| participant_email_c | E-mail deelnemer | Tekenreeks | Bevat e-mail van de Adobe Acrobat Sign-deelnemer |
+| participant_email_c | E-mail deelnemer | Tekenreeks | Bevat het e-mailadres van de Adobe Acrobat Sign-deelnemer |
 | participant_role__c | Rol van deelnemer | Tekenreeks | Houdt de rol van de Adobe Acrobat Sign-deelnemer vast |
 | signature__c | Handtekening | Object (handtekening) | Bevat de verwijzing naar de bovenliggende handtekeningrecord |
 | external_id_c | Externe id | Tekst (200) | Houdt Agreement-gebeurtenis-id die is gegenereerd door Adobe Sign. |
@@ -299,7 +299,7 @@ Het nieuwe weergavetype *Oorspronkelijke vertoning (original_rendition__c)* word
 
 ### Stap 9. Webhandelingen bijwerken {#web-actions}
 
-Voor de integratie van Adobe Acrobat Sign en Vault moet u de volgende twee webhandelingen maken en configureren:
+Voor Adobe Acrobat Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodig:
 
 * **Adobe Sign maken**: Er wordt een Adobe Acrobat Sign-overeenkomst gemaakt of weergegeven.
 
@@ -447,7 +447,7 @@ Voor systeembeveiliging en -stabiliteit moet de beheerder een toegewijde [!DNL V
 
 Een Adobe Acrobat Sign-accountbeheerder moet de onderstaande stappen volgen om verbinding te maken [!DNL Veeva Vault] naar Adobe Acrobat Sign met behulp van middleware:
 
-1. Ga naar de [Adobe Acrobat Sign voor [!DNL Veeva Vault] Startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
+1. Ga naar de [Adobe Acrobat Sign for [!DNL Veeva Vault] Startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
 1. Selecteren **[!UICONTROL Aanmelden]** in de rechterbovenhoek.
 
    ![Afbeelding van aanmeldingsgegevens voor middleware](images/middleware_login.png)
@@ -494,7 +494,7 @@ Een Adobe Acrobat Sign-accountbeheerder moet de onderstaande stappen volgen om v
 
    ![Afbeelding](images/allow-auto-provisioning.png)
 
-1. Als u wilt instellen dat de Adobe Sign-vertoning wordt weergegeven in Veva in plaats van de Originele Vertoning, schakelt u het selectievakje in **[!UICONTROL Acrobat Sign-uitvoering weergeven]**.
+1. Als u wilt instellen dat de Adobe Sign-vertoning wordt weergegeven in Veva in plaats van de Originele Vertoning, schakelt u het selectievakje in **[!UICONTROL Acrobat Sign-vertoning weergeven]**.
 
    ![Afbeelding](images/edit-connection-dispplay-adobe-sign-rendition.png)
 
