@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 1026d696587b898b6e1132ca1a69642d799dcf1d
+source-git-commit: c6c0257204ab45776450f77a5a95291a99371063
 workflow-type: tm+mt
 source-wordcount: '3909'
 ht-degree: 3%
@@ -34,7 +34,7 @@ De stappen op hoog niveau om de integratie te voltooien zijn:
 * Maak documentvelden en uitvoeringen.
 * Webacties configureren en de levenscyclus van het document bijwerken.
 * Documenttype instellen voor gebruiker en gebruikersrol.
-* Gebruik middleware om Veeva Vault aan Adobe Acrobat Sign te koppelen.
+* Verbind Veeva Vault met Adobe Acrobat Sign met behulp van middleware.
 
 >[!NOTE]
 >
@@ -104,11 +104,11 @@ Handtekeningobject wordt gemaakt om informatie op te slaan die betrekking heeft 
 | --- | --- | ---| --- | 
 | email_c | E-mail | Tekenreeks (120) | Houdt de unieke overeenkomst-id van Adobe Acrobat Sign bij |
 | external_id_c | Deelnemer-id | Tekenreeks (80) | Houdt de unieke id van de Adobe Acrobat Sign-deelnemer |
-| name_v | Naam | String (128) | Houdt de naam van een Adobe Acrobat Sign-deelnemer vast |
+| name_v | Naam | String (128) | Houdt de naam van de Adobe Acrobat Sign-deelnemer vast |
 | order__c | Volgorde | Getal | Houdt het ordernummer van de Adobe Acrobat Sign-overeenkomstdeelnemer |
 | role_c | Rol | Tekenreeks (30) | Houdt de rol van de deelnemer aan de Adobe Acrobat Sign-overeenkomst vast |
 | signature__c | Handtekening | Object (handtekening) | Bevat de verwijzing naar de bovenliggende handtekeningrecord |
-| signature_status__c | Handtekeningstatus | Tekenreeks (100) | Houdt de status van de deelnemer aan de Adobe Acrobat Sign-overeenkomst |
+| signature_status__c | Handtekeningstatus | Tekenreeks (100) | Houdt de status van de Adobe Acrobat Sign-overeenkomstdeelnemer vast |
 | user_c | Gebruiker | Object (gebruiker) | Bevat de verwijzing naar de gebruikersrecord van de ondertekenaar als deelnemer een Vault-gebruiker is |
 
 ![Afbeelding van handtekeninggegevens](images/signatory-object-details.png)
@@ -150,11 +150,11 @@ AgreementsEventsProcessingJob: Deze taak zorgt ervoor dat alle documenten met ac
 Objectvelden voor Adobe Sign Integration-taaklog
 
 | Veld | Label | Type | Beschrijving |
-|---|---|---|---| 
+|:--|:--|:--|:---------| 
 | start_date__c | Startdatum | DateTime | Begindatum van taak |
 | end_date__c | Einddatum | DateTime | Einddatum taak |
-| task_status__c | Taakstatus | Keuzelijst | Houdt taakstatus: Voltooid (task_completed__c) Voltooid met fouten (task_completed_with_errors__c) Mislukt (task_failed__c) |
-| task_type__c | Taaktype | Keuzelijst | Houdt taaktype: Overeenkomsten Synchronisatie van gebeurtenissen (agreements_events_synchronisatie__c) Overeenkomsten Verwerking van gebeurtenissen (agreements_events_processing__c) |
+| task_status__c | Taakstatus | Keuzelijst | Houdt taakstatus: <br><br> Voltooid (task_completed__c) <br><br> Voltooid met fouten (task_completed_with_errors__c) <br><br> Mislukt (task_failed__c) |
+| task_type__c | Taaktype | Keuzelijst | Houdt taaktype: <br><br> Synchronisatie van overeenkomstengebeurtenissen (agreements_events_synchronisatie__c) <br><br> Overeenkomsten verwerken (agreements_events_processing__c) |
 | messages_c | Bericht | Lang (32000) | Bevat taakbericht |
 
 ![Afbeelding van objectgegevens in het taaklogbestand](images/task-log.png)
@@ -212,7 +212,7 @@ U moet de Adobe Sign Admin Group (gemaakt in Stap 1) bijwerken door het meegelev
 
 ### Stap 4. Gebruiker aanmaken {#create-user}
 
-De gebruiker van de Vault-systeemaccount voor Adobe Acrobat Sign-integratie moet:
+De gebruiker van de Vault-systeemaccount voor de Adobe Acrobat Sign-integratie moet:
 
 * Een Adobe Sign-integratieprofiel hebben
 * Een beveiligingsprofiel hebben
@@ -235,7 +235,7 @@ Wanneer u het Adobe Acrobat Sign-pakket implementeert, wordt er een Document Typ
 
 ![Afbeelding van documenttypegroepen](images/document-type-groups.png)
 
-U moet deze documenttypegroep toevoegen voor alle documentclassificaties die in aanmerking komen voor het Adobe Acrobat Sign-proces. Omdat de documenttype groepseigenschap niet van het type naar het subtype of van het subtype naar het classificatieniveau wordt overgeërfd, moet deze worden ingesteld voor de indeling van elk document die in aanmerking komt voor Adobe Acrobat Sign.
+U moet deze documenttypegroep toevoegen voor alle documentclassificaties die in aanmerking komen voor het Adobe Acrobat Sign-proces. Aangezien de documenttype groepseigenschap niet van het type naar het subtype of van het subtype naar het classificatieniveau wordt overgeërfd, moet deze worden ingesteld voor de indeling van elk document die in aanmerking komt voor Adobe Acrobat Sign.
 
 ![Afbeelding van documentbewerkingsgegevens](images/document-edit-details.png)
 
@@ -299,7 +299,7 @@ Het nieuwe weergavetype *Oorspronkelijke vertoning (original_rendition__c)* word
 
 ### Stap 9. Webhandelingen bijwerken {#web-actions}
 
-Voor Adobe Acrobat Sign- en Vault-integratie hebt u de volgende twee webhandelingen nodig:
+Voor de integratie van Adobe Acrobat Sign en Vault moet u de volgende twee webhandelingen maken en configureren:
 
 * **Adobe Sign maken**: Er wordt een Adobe Acrobat Sign-overeenkomst gemaakt of weergegeven.
 
@@ -386,7 +386,7 @@ Volg onderstaande stappen om de levenscyclus van documenten bij te werken:
 
       ![Afbeelding](images/atomic-security.png)
 
-   * **In Adobe Sign Authoring**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document al is geüpload naar Adobe Acrobat Sign en dat de overeenkomst de status AUTHORING of DOCUMENTS_NOT_YET_PROCESSED heeft. Het is een vereiste staat. Voor deze status moeten vier gebruikersacties worden gedefinieerd:
+   * **In Adobe Sign Authoring**: Dit is een tijdelijke aanduiding voor de status die aangeeft dat het document al is geüpload naar Adobe Acrobat Sign en dat de overeenkomst de status AUTHORING of DOCUMENTS_NOT_YET_PROCESSED heeft. Het is een vereiste staat. Voor deze status moeten vier gebruikersacties worden gedefinieerd:
 
       * Handeling die de status van het document wijzigt in Adobe Sign Canceled state. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus.
       * Handeling waarmee de status van het document wordt gewijzigd in In Adobe Signing-status. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus.
@@ -415,7 +415,7 @@ Volg onderstaande stappen om de levenscyclus van documenten bij te werken:
 
       ![Afbeelding](images/in-adobe-signing-2.png)
 
-      * **Adobe ondertekend (goedgekeurd)**: Dit is een tijdelijke aanduiding voor de status die aangeeft dat het document is geüpload naar Adobe Acrobat Sign en dat de overeenkomst is voltooid (ONDERTEKEND of GOEDGEKEURD). Het is een vereiste status en het kan een bestaande levenscyclusstatus zijn, zoals Goedgekeurd.
+      * **Adobe ondertekend (goedgekeurd)**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document wordt geüpload naar Adobe Acrobat Sign en dat de overeenkomst is voltooid (ONDERTEKEND of GOEDGEKEURD). Het is een vereiste status en het kan een bestaande levenscyclusstatus zijn, zoals Goedgekeurd.
 Voor deze status zijn geen handelingen van de gebruiker vereist. De beheerfunctie van Adobe Sign moet zijn beveiligd tegen: bekijk documenten, bekijk inhoud en bewerk velden.
 
    In het volgende diagram worden de toewijzingen weergegeven tussen de Adobe Acrobat Sign-overeenkomst en de vault-documentstatussen, waarbij de status ‘Voor ondertekening’ Concept is.
@@ -447,7 +447,7 @@ Voor systeembeveiliging en -stabiliteit moet de beheerder een toegewijde [!DNL V
 
 Een Adobe Acrobat Sign-accountbeheerder moet de onderstaande stappen volgen om verbinding te maken [!DNL Veeva Vault] naar Adobe Acrobat Sign met behulp van middleware:
 
-1. Ga naar de [Adobe Acrobat Sign voor [!DNL Veeva Vault] Startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
+1. Ga naar de [Adobe Acrobat Sign for [!DNL Veeva Vault] Startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
 1. Selecteren **[!UICONTROL Aanmelden]** in de rechterbovenhoek.
 
    ![Afbeelding van aanmeldingsgegevens voor middleware](images/middleware_login.png)
@@ -488,7 +488,7 @@ Een Adobe Acrobat Sign-accountbeheerder moet de onderstaande stappen volgen om v
 
    ![Afbeelding](images/add-audit-report.png)
 
-1. Schakel het selectievakje in als u automatische provisioning van gebruikers in Adobe Acrobat Sign wilt toestaan **[!UICONTROL Gebruikers automatisch toewijzen]**.
+1. Schakel het selectievakje in om automatische provisioning van gebruikers in Adobe Acrobat Sign toe te staan **[!UICONTROL Gebruikers automatisch toewijzen]**.
 
    **Opmerking:** Automatische provisioning van nieuwe Adobe Acrobat Sign-gebruikers werkt alleen als deze optie is ingeschakeld op Adobe Acrobat Sign-accountniveau in Adobe Acrobat Sign en als deze optie **[!UICONTROL Gebruikers automatisch toewijzen]** voor de[!DNL Veeva Vault] Adobe Acrobat Sign-integratie zoals hieronder weergegeven door de Adobe Acrobat Sign-accountbeheerder.
 
