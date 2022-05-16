@@ -8,9 +8,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: 0577f30c35a348174bed27c6eb309fce43f03eca
+source-git-commit: c54f848d7832e831dc10c8069ac572226f0b31e8
 workflow-type: tm+mt
-source-wordcount: '4871'
+source-wordcount: '4873'
 ht-degree: 1%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 1%
 
 Adobe Sign for [!DNL NetSuite] biedt een volledige integratie van e-handtekeningen met [!DNL NetSuite]. U kunt Adobe Sign gebruiken voor [!DNL NetSuite] integratie om overeenkomsten zoals contracten, offertes en andere documenten, waarvoor elektronische handtekeningen vereist zijn, rechtstreeks naar ontvangers te verzenden vanuit [!DNL NetSuite]. U kunt Adobe Sign-overeenkomsten maken en verzenden van klanten, leads, offertes en andere [!DNL NetSuite] records. Adobe Sign-updates [!DNL NetSuite] met de status van overeenkomsten en slaat de overeenkomsten op met de bijbehorende [!DNL NetSuite] records zodra ze volledig zijn uitgevoerd. U kunt de geschiedenis bekijken van alle overeenkomsten die zijn verzonden vanuit [!DNL NetSuite] vanuit het product.
 
-Raadpleeg de [Adobe Sign for [!DNL NetSuite] Opmerkingen bij release](https://experienceleague.adobe.com/docs/sign-integrations/using/netsuite/release-notes.html?lang=en) voor meer informatie.
+Raadpleeg de [Opmerkingen bij de release van Adobe Sign for NetSuite](https://experienceleague.adobe.com/docs/sign-integrations/using/netsuite/release-notes.html?lang=en) voor meer informatie.
 
 ## Installeer de bundel en configureer OAuth {#install}
 
@@ -66,7 +66,7 @@ Zie [Een Adobe Sign-overeenkomst maken](#createagreement) voor meer informatie o
 
 1. Als u al een Adobe Sign-klantaccount hebt, voert u de volgende stappen uit:  [OAuth configureren na installatie of upgrade](#oauth).
 
-   Als u geen Adobe Sign-account hebt, kunt u [inschrijven voor een proefversie voor ondernemingen](https://esign.adobe.com/adobe-sign-[!DNL NetSuite]-trial-registration.html) om het systeem te testen. Volg de online registratiestappen om uw Adobe Sign-account in te schakelen.
+   Als u geen Adobe Sign-account hebt, kunt u [inschrijven voor een proefversie voor ondernemingen](https://esign.adobe.com/adobe-sign-DNL) om het systeem te testen. Volg de online registratiestappen om uw Adobe Sign-account in te schakelen.
 
 ## OAuth configureren na installatie of upgrade {#oauth}
 
@@ -123,7 +123,7 @@ De [!DNL NetSuite] beheerder die OAuth configureert, moet ook beheerderstoegang 
    >Aan:
    >
    >
-   >systeem.**sandbox.**[!DNL NetSuite].com/app/site/hosting/scriptlet.nl?script=745&amp;distribueren=1&amp;web_access_point=https://echosign.com
+   >systeem.**sandbox.** netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
 
 ## De bundel (bestaande gebruikers) bijwerken
 
@@ -355,7 +355,7 @@ Meeste [!DNL NetSuite] rollen moeten toestemming hebben om Adobe Sign te gebruik
 
    >[!NOTE]
    >
-   >Zie de *[Een machtigingenlijst instellen voor een aangepast recordtype](https://system.[!DNL NetSuite].com/app/help/helpcenter.nl?fid=section_N2879931.html)* in het Help Center voor meer informatie
+   >Zie de *[Een machtigingenlijst instellen voor een aangepast recordtype](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N2879931.html)* in het Help Center voor meer informatie
 
    1. Selecteer de rol in het menu *Rol* lijst.
    1. Instellen *Niveau* aan **[!UICONTROL Volledig]**.
@@ -573,7 +573,7 @@ Nadat de overeenkomst is ondertekend:
 
 ## De bundel verwijderen
 
-Volg de stappen in het dialoogvenster [!DNL NetSuite] Help. Zie de *[Een bundel verwijderen](https://docs.oracle.com/cloud/latest/[!DNL NetSuite]cs_gs/NSBDL/NSBDL.pdf)* in het [!DNL NetSuite] Help Center voor meer informatie.
+Volg de stappen in het dialoogvenster [!DNL NetSuite] Help. Zie de *[Een bundel verwijderen](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_N3400972.html)* in het [!DNL NetSuite] Help Center voor meer informatie.
 
 Wanneer u de bundel verwijdert, worden de niet-ondertekende overeenkomsten verwijderd. Dit heeft geen invloed op de ondertekende PDF-overeenkomsten en de bijbehorende auditbestanden.
 
