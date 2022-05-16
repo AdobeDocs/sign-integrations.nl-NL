@@ -8,9 +8,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: c54f848d7832e831dc10c8069ac572226f0b31e8
+source-git-commit: 581b336b4a3610cfe3fd0d92f2a4eebe55b89b27
 workflow-type: tm+mt
-source-wordcount: '4873'
+source-wordcount: '4870'
 ht-degree: 1%
 
 ---
@@ -66,7 +66,7 @@ Zie [Een Adobe Sign-overeenkomst maken](#createagreement) voor meer informatie o
 
 1. Als u al een Adobe Sign-klantaccount hebt, voert u de volgende stappen uit:  [OAuth configureren na installatie of upgrade](#oauth).
 
-   Als u geen Adobe Sign-account hebt, kunt u [inschrijven voor een proefversie voor ondernemingen](https://esign.adobe.com/adobe-sign-DNL) om het systeem te testen. Volg de online registratiestappen om uw Adobe Sign-account in te schakelen.
+   Als u geen Adobe Sign-account hebt, kunt u [inschrijven voor een proefversie voor ondernemingen](https://esign.adobe.com/adobe-sign-netsuite-trial-registration.html) account om het systeem te testen. Volg de online registratiestappen om uw Adobe Sign-account in te schakelen.
 
 ## OAuth configureren na installatie of upgrade {#oauth}
 
@@ -111,13 +111,13 @@ De [!DNL NetSuite] beheerder die OAuth configureert, moet ook beheerderstoegang 
    >Bij het configureren van OAuth in uw Sandbox-account kan de fout &#39;&#39;Kon de samenstelling van de klant niet bepalen&#39;&#39; optreden wanneer de verificatie is voltooid.
    >
    >
-   >Als u wilt doorgaan, moet u het gedeelte van het accountdomein van de URL (systeem) wijzigen.[!DNL NetSuite].com) in uw browser om terug naar de [!DNL NetSuite] Sandbox als hieronder:
+   >Als u wilt doorgaan, moet u het accountdomeingedeelte van de URL (system.netsuite.com) in uw browser wijzigen om terug te verwijzen naar de [!DNL NetSuite] Sandbox als hieronder:
    >
    >
    >Wijzigen:
    >
    >
-   >systeem.[!DNL NetSuite].com/app/site/hosting/scriptlet.nl?script=745&amp;distribueren=1&amp;web_access_point=https://echosign.com
+   >system.netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
    >
    >
    >Aan:
@@ -581,7 +581,7 @@ Verwijder de bundel NIET als u de niet-ondertekende overeenkomsten moet behouden
 
 ## Problemen oplossen
 
-### De voortgang van de update bepalen
+### De voortgang van de update bepalen  {#determineprogress}
 
 Als de update langer lijkt te duren dan is aangegeven, kunt u op het subtabblad Uitvoeringslogboek van het installatiescript voor Adobe Sign Bundle als volgt de voortgang van uw update bepalen:
 
