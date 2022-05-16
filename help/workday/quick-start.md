@@ -11,10 +11,10 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 8b6fa8b4-e240-4ebe-ae2a-8807d75a6c69
-source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
+source-git-commit: 2cc0ea55ee7dca3682896c61c85eec29a555339c
 workflow-type: tm+mt
-source-wordcount: '1348'
-ht-degree: 30%
+source-wordcount: '1347'
+ht-degree: 29%
 
 ---
 
@@ -78,7 +78,7 @@ Via het menu Gerelateerde handelingen van een [!UICONTROL Documentstap controler
 
 ## Opmerkingen bij de stappen in het bedrijfsproces {#business-process-step-notes}
 
-[!UICONTROL The Business Process Framework] krachtig is; u moet er echter voor zorgen dat :
+De [!UICONTROL Business Process Framework] krachtig is; u moet er echter voor zorgen dat :
 
 * Elk bedrijfsproces moet een voltooiingsstap hebben, die idealiter aan het eind van het bedrijfsproces is.
 
@@ -186,7 +186,7 @@ De [!DNL Workday] community heeft verschillende goede artikelen over het oplosse
 
 Adobe Sign is de integratiepartner en u dient contact op te nemen met Adobe Sign als de integratie geen handtekeningen kan verkrijgen of als de kennisgeving voor handtekeningen in de wachtrij mislukt.
 
-Adobe Sign-klanten moeten contact opnemen met hun Customer Success-manager voor ondersteuning. Alternatief, [!UICONTROL Adobe Technische ondersteuning] telefonisch bereikbaar: 1-866-318-4100, wacht op productlijst dan ga binnen: 4 en vervolgens 2 (naar wens).
+Adobe Sign-klanten moeten contact opnemen met hun [!UICONTROL Customer Success Manager] voor ondersteuning. Alternatief, [!UICONTROL Adobe Technische ondersteuning] telefonisch bereikbaar: 1-866-318-4100, wacht op productlijst dan ga binnen: 4 en vervolgens 2 (naar wens).
 
 * [Adobe-tekstlabels toevoegen aan documenten](https://www.adobe.com/go/adobesign_text_tag_guide)
 
