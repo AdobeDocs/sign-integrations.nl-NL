@@ -8,7 +8,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: 581b336b4a3610cfe3fd0d92f2a4eebe55b89b27
+source-git-commit: 568d001a05bd0e642036b4a73067689e987c02ba
 workflow-type: tm+mt
 source-wordcount: '4870'
 ht-degree: 1%
@@ -243,7 +243,7 @@ Met de Adobe Sign-integratiebundel kunt u automatisch updates ontvangen in [!DNL
 
    * Schakel in de sectie SuiteScript de optie **[!UICONTROL Client SuiteScript]** en **[!UICONTROL Server SuiteScript]** en ga akkoord met de servicevoorwaarden voor beide.
 
-1. Selecteren **[!UICONTROL Opslaan]**.
+1. Selecteer **[!UICONTROL Opslaan]**.
 
    Uw opties worden ingesteld zoals weergegeven in de afbeelding.
 
@@ -312,7 +312,7 @@ Om het *Overeenkomsten* subtab en de *Send for Signature* knop voor de juiste re
 
    * Met de **[!UICONTROL Doelgroep]** subtab actief (standaard actief), selecteert u de specifieke rollen of gebruikers aan wie u toegang wilt verlenen. Als u toegang wilt verlenen tot alle rollen en gebruikers, schakelt u de respectievelijke **[!UICONTROL Alles selecteren]** opties.
 
-   * Selecteren **[!UICONTROL Opslaan]**. Selecteer **[!UICONTROL Terug]**.
+   * Selecteer **[!UICONTROL Opslaan]**. Selecteer **[!UICONTROL Terug]**.
 
 
 1. selecteren **[!UICONTROL Lijst]** boven aan de pagina Scriptimplementatie om terug te gaan naar de *Scripts* lijstpagina.
@@ -581,7 +581,7 @@ Verwijder de bundel NIET als u de niet-ondertekende overeenkomsten moet behouden
 
 ## Problemen oplossen
 
-### De voortgang van de update bepalen  {#determineprogress}
+### De voortgang van de update bepalen {#determineprogress}
 
 Als de update langer lijkt te duren dan is aangegeven, kunt u op het subtabblad Uitvoeringslogboek van het installatiescript voor Adobe Sign Bundle als volgt de voortgang van uw update bepalen:
 
