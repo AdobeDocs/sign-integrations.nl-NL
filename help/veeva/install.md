@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: c60fd19fa52fb203fd19da69d58792ef6fb88eec
+source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '3931'
 ht-degree: 3%
@@ -23,18 +23,18 @@ ht-degree: 3%
 
 ## Overzicht {#overview}
 
-In dit document wordt uitgelegd hoe u de integratie van Adobe Acrobat Sign met [!DNL Veeva Vault] platform. [!DNL Veeva Vault] is een ECM-platform (Enterprise Content Management) dat is ontwikkeld voor biowetenschappen. Een &quot;Vault&quot; is een content- en dataopslagplaats met een typisch gebruik voor archivering van regelgeving, rapportering over onderzoek, subsidieaanvragen, algemene contracten en meer. Een enkele onderneming kan meerdere &#39;waarden&#39; hebben die afzonderlijk moeten worden onderhouden.
+In dit document wordt uitgelegd hoe u Adobe Acrobat Sign kunt integreren met [!DNL Veeva Vault] platform. [!DNL Veeva Vault] is een ECM-platform (Enterprise Content Management) dat is ontwikkeld voor biowetenschappen. Een &quot;Vault&quot; is een content- en dataopslagplaats met een typisch gebruik voor archivering van regelgeving, rapportering over onderzoek, subsidieaanvragen, algemene contracten en meer. Een enkele onderneming kan meerdere &#39;waarden&#39; hebben die afzonderlijk moeten worden onderhouden.
 
 De stappen op hoog niveau om de integratie te voltooien zijn:
 
 * Activeer uw beheeraccount in Adobe Acrobat Sign (alleen voor nieuwe klanten).
 * Maak objecten om de geschiedenis van een levenscyclus van een overeenkomst in de Vault bij te houden.
 * Maak een nieuw beveiligingsprofiel.
-* Configureer een groep in Adobe Acrobat Sign om de [!DNL Veeva Vault] integratiegebruiker.
+* Configureer een groep in Adobe Acrobat Sign die de [!DNL Veeva Vault] integratiegebruiker.
 * Maak documentvelden en uitvoeringen.
 * Webacties configureren en de levenscyclus van het document bijwerken.
 * Documenttype instellen voor gebruiker en gebruikersrol.
-* Verbind Veeva Vault met Adobe Acrobat Sign met behulp van middleware.
+* Gebruik middleware om Veeva Vault aan Adobe Acrobat Sign te koppelen.
 
 >[!NOTE]
 >
@@ -46,13 +46,13 @@ Om te configureren [!DNL Veeva Vault] voor integratie met Adobe Acrobat Sign moe
 
 ### Stap 1. Groep maken {#create-group}
 
-Adobe Acrobat Sign configureren voor [!DNL Vault], een nieuwe groep genaamd *Adobe Sign Admin Group* wordt gemaakt. Deze groep wordt gebruikt om de beveiliging op documentveldniveau in te stellen voor aan Adobe Acrobat Sign gerelateerde velden en moet *Adobe Sign-integratieprofiel* standaard.
+Adobe Acrobat Sign configureren voor [!DNL Vault], een nieuwe groep genaamd *Adobe Sign Admin Group* wordt gemaakt. Deze groep wordt gebruikt om de beveiliging op documentveldniveau in te stellen voor Adobe Acrobat Sign-gerelateerde velden en moet *Adobe Sign-integratieprofiel* standaard.
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/create-admin-group.png)
 
 ### Stap 2. Het pakket implementeren {#deploy-package}
 
-[Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip) en doorloop de stappen. Na implementatie maakt het pakket:
+[Het pakket implementeren](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration-veeva.zip) en doorloop de stappen. Na implementatie maakt het pakket:
 
 * Aangepaste objecten: Handtekeningobject, Handtekeningobject, Handtekeninggebeurtenisobject, Verwerkingskluis-object
 * Handtekeningobjectpagina-indeling
@@ -79,7 +79,7 @@ Handtekeningobject wordt gemaakt voor het opslaan van informatie over overeenkom
 
 | Veld | Label | Type | Beschrijving |
 |:---|:---|:---|:------- | 
-| external_id_c | Overeenkomst-id | Tekenreeks (100) | Houdt de unieke overeenkomst-id van Adobe Acrobat Sign bij |
+| external_id_c | Overeenkomst-id | Tekenreeks (100) | Houdt de unieke overeenkomst-id van de Adobe Acrobat Sign vast |
 | file_hash__c | Bestandshash | Tekenreeks (50) | Bevat de md5-controlesom van het bestand dat naar Adobe Acrobat Sign is verzonden |
 | name_v | Naam | String (128) | Bevat de overeenkomstnaam |
 | sender_c | Afzender | Object (gebruiker) | Bevat de verwijzing naar de Vault-gebruiker die de overeenkomst heeft gemaakt |
@@ -102,9 +102,9 @@ Handtekeningobject wordt gemaakt om informatie op te slaan die betrekking heeft 
 
 | Veld | Label | Type | Beschrijving |
 |:---|:---|:---|:------- | 
-| email_c | E-mail | Tekenreeks (120) | Houdt de unieke overeenkomst-id van Adobe Acrobat Sign bij |
+| email_c | E-mail | Tekenreeks (120) | Houdt de unieke overeenkomst-id van de Adobe Acrobat Sign vast |
 | external_id_c | Deelnemer-id | Tekenreeks (80) | Houdt de unieke id van de Adobe Acrobat Sign-deelnemer |
-| name_v | Naam | String (128) | Houdt de naam van de Adobe Acrobat Sign-deelnemer vast |
+| name_v | Naam | String (128) | Houdt de naam van een Adobe Acrobat Sign-deelnemer vast |
 | order__c | Volgorde | Getal | Houdt het ordernummer van de Adobe Acrobat Sign-overeenkomstdeelnemer |
 | role_c | Rol | Tekenreeks (30) | Houdt de rol van de deelnemer aan de Adobe Acrobat Sign-overeenkomst vast |
 | signature__c | Handtekening | Object (handtekening) | Bevat de verwijzing naar de bovenliggende handtekeningrecord |
@@ -212,7 +212,7 @@ U moet de Adobe Sign Admin Group (gemaakt in Stap 1) bijwerken door het meegelev
 
 ### Stap 4. Gebruiker aanmaken {#create-user}
 
-De gebruiker van de Vault-systeemaccount voor de Adobe Acrobat Sign-integratie moet:
+De gebruiker van de Vault-systeemaccount voor Adobe Acrobat Sign-integratie moet:
 
 * Een Adobe Sign-integratieprofiel hebben
 * Een beveiligingsprofiel hebben
@@ -287,7 +287,7 @@ Vault-overlays uitschakelen (disable_vault_overlays__v) is een bestaand gedeeld 
 
 ### Stap 8. Documentuitvoeringen declareren {#declare-renditions}
 
-Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c)* wordt gebruikt door Vault-integratie om ondertekende PDF-documenten te uploaden naar Adobe Acrobat Sign. U moet de Adobe Sign-uitvoering declareren voor elk documenttype dat in aanmerking komt voor Adobe Acrobat-ondertekening.
+Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c)* wordt gebruikt door Vault-integratie voor het uploaden van ondertekende PDF-documenten naar Adobe Acrobat Sign. U moet de Adobe Sign-uitvoering declareren voor elk documenttype dat in aanmerking komt voor Adobe Acrobat-ondertekening.
 
 ![Afbeelding van weergavetypen](images/rendition-type.png)
 
@@ -386,7 +386,7 @@ Volg onderstaande stappen om de levenscyclus van documenten bij te werken:
 
       ![Afbeelding](images/atomic-security.png)
 
-   * **In Adobe Sign Authoring**: Dit is een plaatsaanduidingsnaam voor de status die aangeeft dat het document al is geüpload naar Adobe Acrobat Sign en dat de overeenkomst de status AUTHORING of DOCUMENTS_NOT_YET_PROCESSED heeft. Het is een vereiste staat. Voor deze status moeten vier gebruikersacties worden gedefinieerd:
+   * **In Adobe Sign Authoring**: Dit is een tijdelijke aanduiding voor de status die aangeeft dat het document al is geüpload naar Adobe Acrobat Sign en dat de overeenkomst de status AUTHORING of DOCUMENTS_NOT_YET_PROCESSED heeft. Het is een vereiste staat. Voor deze status moeten vier gebruikersacties worden gedefinieerd:
 
       * Handeling die de status van het document wijzigt in Adobe Sign Canceled state. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus.
       * Handeling waarmee de status van het document wordt gewijzigd in In Adobe Signing-status. De naam van deze gebruikersactie moet voor alle documenttypen gelijk zijn, ongeacht de levenscyclus.
@@ -445,7 +445,7 @@ U moet de juiste machtigingen instellen voor elke gebruikersrol in de levenscycl
 Nadat u de installatie voor [!DNL Veeva Vault] en de Adobe Acrobat Sign-beheerdersaccount moet de beheerder een verbinding tussen de twee accounts maken met behulp van de middleware. De [!DNL Veeva Vault] en Adobe Acrobat Sign-accountverbinding wordt gestart door Adobe Acrobat Sign Identity en wordt vervolgens gebruikt om het[!DNL Veeva Vault] identiteit.
 Voor systeembeveiliging en -stabiliteit moet de beheerder een toegewijde [!DNL Veeva Vault] systeem-/service-/utiliteitsaccount, zoals `adobe.for.veeva@xyz.com`in plaats van een persoonlijke gebruikersaccount, zoals `bob.smith@xyz.com`.
 
-Een Adobe Acrobat Sign-accountbeheerder moet de onderstaande stappen volgen om verbinding te maken [!DNL Veeva Vault] naar Adobe Acrobat Sign met behulp van middleware:
+Een Adobe Acrobat Sign-accountbeheerder moet de onderstaande stappen volgen om verbinding te maken [!DNL Veeva Vault] naar Adobe Acrobat Sign met middleware:
 
 1. Ga naar de [Adobe Acrobat Sign for [!DNL Veeva Vault] Startpagina](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
 1. Selecteren **[!UICONTROL Aanmelden]** in de rechterbovenhoek.
@@ -492,7 +492,7 @@ Een Adobe Acrobat Sign-accountbeheerder moet de onderstaande stappen volgen om v
 
    ![Afbeelding](images/add-audit-report.png)
 
-1. Schakel het selectievakje in om automatische provisioning van gebruikers in Adobe Acrobat Sign toe te staan **[!UICONTROL Gebruikers automatisch toewijzen]**.
+1. Schakel het selectievakje in als u automatische provisioning van gebruikers in Adobe Acrobat Sign wilt toestaan **[!UICONTROL Gebruikers automatisch toewijzen]**.
 
    **Opmerking:** Automatische provisioning van nieuwe Adobe Acrobat Sign-gebruikers werkt alleen als deze optie is ingeschakeld op Adobe Acrobat Sign-accountniveau in Adobe Acrobat Sign en als deze optie **[!UICONTROL Gebruikers automatisch toewijzen]** voor de[!DNL Veeva Vault] Adobe Acrobat Sign-integratie zoals hieronder weergegeven door de Adobe Acrobat Sign-accountbeheerder.
 

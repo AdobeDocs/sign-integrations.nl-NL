@@ -9,18 +9,18 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 076c575d179f576366c1d9a76be0a582154574b1
+source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
 
 ---
 
-# Adobe Acrobat Sign voor [!DNL Veeva Vault]: Handboek {#veeva-vault-user-guide}
+# Adobe Acrobat Sign for [!DNL Veeva Vault]: Handboek {#veeva-vault-user-guide}
 
 [**Contact opnemen met Adobe Acrobat Sign-ondersteuning**](https://adobe.com/go/adobesign-support-center_nl)
 
-Dit document is ontworpen om [!DNL Veeva Vault] klanten leren hoe ze Adobe Acrobat Sign kunnen gebruiken voor [!DNL Veeva Vault] integratie voor het verzenden van een overeenkomst.
+Dit document is ontworpen om [!DNL Veeva Vault] klanten leren Adobe Acrobat Sign gebruiken voor [!DNL Veeva Vault] integratie voor het verzenden van een overeenkomst.
 
 ## Overzicht {#overview}
 
@@ -38,7 +38,7 @@ Adobe Acrobat Sign-integratie met [!DNL Veeva Vault] stroomlijnt en versnelt je 
 
 ## Een overeenkomst verzenden met Adobe Acrobat Sign voor [!DNL Veeva Vault] {#send-sign-vault-agreement}
 
-Een overeenkomst verzenden met Adobe Acrobat Sign voor Veva:
+Een overeenkomst verzenden met Adobe Acrobat Sign for Veeva:
 
 1. Ga naar de [[!DNL Veeva Vault] aanmeldingspagina](https://login.veevavault.com/) en voer uw gebruikersnaam en wachtwoord in. De startpagina van uw Vault wordt geopend, zoals hieronder wordt weergegeven.
 
@@ -54,11 +54,12 @@ Een overeenkomst verzenden met Adobe Acrobat Sign voor Veva:
 
 1. Selecteer in het dialoogvenster dat verschijnt **[!UICONTROL Type]** als *[!UICONTROL Klinisch]* en selecteer vervolgens een **[!UICONTROL Subtype]** en **[!UICONTROL Classificatie]**, indien nodig.
 
+
    ![](images/choose-document-type.png)
 
 1. Als u het dialoogvenster wilt sluiten, selecteert u **[!UICONTROL OK]**.
 
-1. Selecteren **[!UICONTROL Volgende]**.
+1. Selecteer **[!UICONTROL Volgende]**.
 
 1. Vul in het weergegeven venster alle vereiste velden in de sectie Metagegevens in en selecteer **[!UICONTROL Opslaan]**.
 
@@ -94,16 +95,16 @@ Een overeenkomst verzenden met Adobe Acrobat Sign voor Veva:
 
    ![](images/iframe.png)
 
-   **Opmerking:** Als er geen Adobe Acrobat Sign-gebruikersaccount voor de e-mail van de afzender bestaat, wordt in het iFrame-venster een bericht weergegeven, zoals hieronder weergegeven. Het stuurt de gebruiker ook een e-mail met de instructies om het account te activeren.
+   **Opmerking:** Als er geen Adobe Acrobat Sign-gebruikersaccount voor de e-mail van de afzender bestaat, wordt in het iFrame-venster een bericht weergegeven, zoals hieronder wordt weergegeven. Het stuurt de gebruiker ook een e-mail met de instructies om het account te activeren.
 
    ![](images/iFrame-registration-message.png)
 
    ![](images/iFrame-confirm-email.png)
 
-   Als *Gebruikers automatisch toewijzen* -functie is uitgeschakeld, mislukt het maken van Adobe Acrobat Sign-gebruikers en verschijnt in het iFrame-venster een bericht waarin de gebruiker wordt gevraagd contact op te nemen met de Adobe Acrobat Sign-accountbeheerder. De Adobe Acrobat Sign-accountbeheerder kan een van de volgende handelingen uitvoeren:
+   Als *Gebruikers automatisch toewijzen* -functie is uitgeschakeld, het maken van Adobe Acrobat Sign-gebruikers mislukt en het iFrame-venster toont een bericht waarin de gebruiker wordt gevraagd contact op te nemen met de Adobe Acrobat Sign-accountbeheerder. De Adobe Acrobat Sign-accountbeheerder kan een van de volgende handelingen uitvoeren:
 
    * Schakel het *Gebruikers automatisch toewijzen* voor het account.
-   * Maak een gebruiker in Adobe Acrobat Sign voordat u de Veva Vault Adobe Acrobat Sign-integratie gebruikt.
+   * Maak een gebruiker in Adobe Acrobat Sign voordat u de Veva Vault Adobe Acrobat Sign Integration gebruikt.
 
    ![](images/iFrame-contact-administrator.png)
 
@@ -125,7 +126,7 @@ Een overeenkomst verzenden met Adobe Acrobat Sign voor Veva:
 
    ![](images/verify-signature.png)
 
-## Een overeenkomst annuleren met Adobe Acrobat Sign voor [!DNL Veeva Vault] {#cancel-sign-vault-agreement}
+## Een overeenkomst annuleren met Adobe Acrobat Sign for [!DNL Veeva Vault] {#cancel-sign-vault-agreement}
 
 1. Ga naar de [[!DNL Veeva Vault] aanmeldingspagina](https://login.veevavault.com/) en voer uw gebruikersnaam en wachtwoord in. De startpagina van uw Vault wordt geopend, zoals hieronder wordt weergegeven.
 
