@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 08d55f79fd4fff8f13dc23b9d155e501ca038be1
+source-git-commit: c09759f2455b476fd1093d845cee4f5c3c3601d7
 workflow-type: tm+mt
 source-wordcount: '4169'
 ht-degree: 3%
@@ -289,13 +289,13 @@ Vault-overlays uitschakelen (disable_vault_overlays__v) is een bestaand gedeeld 
 
 Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c)* wordt gebruikt door Vault-integratie voor het uploaden van ondertekende PDF-documenten naar Adobe Acrobat Sign. U moet de Adobe Sign-uitvoering declareren voor elk documenttype dat in aanmerking komt voor Adobe Acrobat-ondertekening.
 
-U moet de oorspronkelijke uitvoering declareren voor elk documenttype dat in aanmerking komt voor Adobe Acrobat Signature.
-
 ![Afbeelding van weergavetypen](images/rendition-type.png)
 
 ![Afbeelding](images/edit-details-clinical.png)
 
 Het nieuwe weergavetype *Oorspronkelijke vertoning* (original_rendition__c) wordt door de Vault-integratie gebruikt als de naam van de vertoning die moet worden gebruikt om de oorspronkelijke weergaveerbare vertoning op te slaan als het ondertekende document wordt geïmporteerd als een zichtbare vertoning.
+
+U moet de oorspronkelijke uitvoering declareren voor elk documenttype dat in aanmerking komt voor Adobe Acrobat Signature.
 
 ![Afbeelding](images/original-rendition.png)
 
