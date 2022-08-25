@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 163c74a2e03aeaa0627d972b791166d4ea4e66a6
+source-git-commit: 08d55f79fd4fff8f13dc23b9d155e501ca038be1
 workflow-type: tm+mt
-source-wordcount: '3933'
+source-wordcount: '4169'
 ht-degree: 3%
 
 ---
@@ -289,13 +289,40 @@ Vault-overlays uitschakelen (disable_vault_overlays__v) is een bestaand gedeeld 
 
 Het nieuwe weergavetype *Adobe Sign Rendition (adobe_sign_rendition__c)* wordt gebruikt door Vault-integratie voor het uploaden van ondertekende PDF-documenten naar Adobe Acrobat Sign. U moet de Adobe Sign-uitvoering declareren voor elk documenttype dat in aanmerking komt voor Adobe Acrobat-ondertekening.
 
+U moet de oorspronkelijke uitvoering declareren voor elk documenttype dat in aanmerking komt voor Adobe Acrobat Signature.
+
 ![Afbeelding van weergavetypen](images/rendition-type.png)
 
 ![Afbeelding](images/edit-details-clinical.png)
 
-Het nieuwe weergavetype *Oorspronkelijke vertoning (original_rendition__c)* wordt door de Vault-integratie gebruikt als de naam van de vertoning die moet worden gebruikt om de oorspronkelijke weergaveweergave op te slaan als het ondertekende document wordt geïmporteerd als een weergave die kan worden weergegeven.
+Het nieuwe weergavetype *Oorspronkelijke vertoning* (original_rendition__c) wordt door de Vault-integratie gebruikt als de naam van de vertoning die moet worden gebruikt om de oorspronkelijke weergaveerbare vertoning op te slaan als het ondertekende document wordt geïmporteerd als een zichtbare vertoning.
 
 ![Afbeelding](images/original-rendition.png)
+
+Optioneel kan de Adobe Audittrail Rendition (adobe_audit_trail_rendition__c) een nieuw weergavetype voor de zijn. Dit wordt gebruikt door de Vault-integratie voor het opslaan van het controlerapport van de Adobe.
+
+Voer de onderstaande stappen uit om de Adobe-audittrail-uitvoering in te stellen:
+
+1. Ga naar **Type vertoning** > **Nieuw renderingstype maken**.
+Maak het nieuwe Vertoningstype als Audit Trail Rendition (adobe_audit_trail_rendition__c).
+
+   ![Afbeelding](images/audit-trail-rendition-setup-1.png)
+
+1. Als u de Adobe-audittrail-uitvoering voor het document wilt weergeven en downloaden, moet u declareren *Adobe-uitvoering audittrail* voor elk documenttype dat in aanmerking komt voor Adobe Acrobat Signature.
+
+   ![Afbeelding](images/audit-trail-rendition-setup-2.png)
+
+**Opmerking**: U kunt het controlerapport aan de ondertekende uitvoering koppelen door **[!UICONTROL Controlerapport toevoegen aan ondertekende vertoning]** en geeft ook de vertoning weer door ****[!UICONTROL Acrobat Sign-vertoning weergeven]**** in de UI-instellingen voor beheerders.
+
+![Afbeelding](images/audit-trail-rendition-setup-3.png)
+
+Wanneer een gebruiker kiest voor een digitale-handtekeningovereenkomst met de bovenstaande instellingen, wordt een bericht (zoals hieronder weergegeven) weergegeven waarin wordt aangegeven dat Adobe Acrobat Sign PDF Portfolio gebruikt voor het combineren van digitaal ondertekende PDF- en audittrailrapporten met.
+
+Als u de documentinhoud wilt weergeven samen met de digitale handtekening en de audittrail, schakelt u &#39;Controlerapport aan ondertekende vertoning koppelen&#39; in de beheerdersinterface niet in voor digitale ondertekening met &#39;Acrobat Sign-vertoning weergeven&#39;.
+
+U kunt het audittrail van de Adobe downloaden of weergeven als een afzonderlijke uitvoering van de ondertekende uitvoering.
+
+![Afbeelding](images/audit-trail-rendition-setup-4.png)
 
 ### Stap 9. Webhandelingen bijwerken {#web-actions}
 
