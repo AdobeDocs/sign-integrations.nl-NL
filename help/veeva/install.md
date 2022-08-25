@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: c09759f2455b476fd1093d845cee4f5c3c3601d7
+source-git-commit: 00db62c894df93abac31bf8196730382d54e8fa0
 workflow-type: tm+mt
-source-wordcount: '4169'
+source-wordcount: '4176'
 ht-degree: 3%
 
 ---
@@ -320,7 +320,7 @@ Wanneer een gebruiker kiest voor een digitale-handtekeningovereenkomst met de bo
 
 Als u de documentinhoud wilt weergeven samen met de digitale handtekening en de audittrail, schakelt u &#39;Controlerapport aan ondertekende vertoning koppelen&#39; in de beheerdersinterface niet in voor digitale ondertekening met &#39;Acrobat Sign-vertoning weergeven&#39;.
 
-U kunt het audittrail van de Adobe downloaden of weergeven als een afzonderlijke uitvoering van de ondertekende uitvoering.
+U kunt de audittrail van de Adobe downloaden of bekijken als een aparte uitvoering van de ondertekende uitvoering met de functie &#39;audittrail-uitvoering Adobe&#39;.
 
 ![Afbeelding](images/audit-trail-rendition-setup-4.png)
 
