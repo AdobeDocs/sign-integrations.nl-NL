@@ -1,7 +1,7 @@
 ---
-source-git-commit: 8cb918e2d0d438d39a9f14f719c28b5981ff2656
+source-git-commit: 85743a2442808fa200a39d2e9bc27d4853dd2360
 workflow-type: tm+mt
-source-wordcount: '296'
+source-wordcount: '294'
 ht-degree: 0%
 
 ---
@@ -13,32 +13,24 @@ Hieronder volgt een reeks richtlijnen voor het bijdragen aan dit project.
 
 ## Gedragscode
 
-Dit project voldoet aan de Adobe [gedragscode](code-of-conduct.md). Door deel te nemen,
-wordt verwacht dat u deze code behoudt. Meld onacceptabel gedrag aan
+Dit project voldoet aan de Adobe [gedragscode](code-of-conduct.md). Door deel te nemen, moet u deze code handhaven. Meld onacceptabel gedrag aan
 [Grp-opensourceoffice@adobe.com](mailto:Grp-opensourceoffice@adobe.com).
 
 ## Documentatie handleiding voor bijdragers
 
-Zie de [Bijdragergids](https://docs.adobe.com/content/help/en/contributor/contributor-guide/introduction.html).
+Zie de [Bijdragergids](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html).
 
 ## Heb je een vraag?
 
-Begin met het indienen van een probleem. De bestaande commissies voor dit project werken aan
-consensus over projectrichting en probleemoplossingen binnen themarigmenten
-(indien van toepassing).
+Begin met het indienen van een probleem. De bestaande commissies voor dit project werken aan consensus over de richting van het project en geven oplossingen aan binnen de themabranche (indien van toepassing).
 
 ## Licentieovereenkomst voor bijdragers
 
-Alle bijdragen van derden aan dit project moeten vergezeld gaan van een ondertekende contribuant
-licentieovereenkomst. Dit geeft Adobe toestemming om uw bijdragen opnieuw te verdelen
-als onderdeel van het project. [Onderteken onze CLA](http://opensource.adobe.com/cla.html). U
-hoeft u slechts één keer een Adobe CLA in te dienen, dus als u eerder een CLA hebt verzonden,
-je bent klaar om te gaan !
+Alle bijdragen van derden aan dit project moeten vergezeld gaan van een ondertekende bijdragerslicentieovereenkomst. Dit geeft Adobe toestemming om uw bijdragen te herverdelen als onderdeel van het project. [Onze CLA ondertekenen](http://opensource.adobe.com/cla.html). U hoeft slechts één keer een Adobe CLA in te dienen, dus als u al een CLA hebt verzonden, kunt u het beste gaan!
 
 ## Codebeoordelingen
 
-Alle inzendingen moeten de vorm aannemen van verzoeken om terugtrekking en moeten worden herzien
-door projectmedeplichtigen. Lees [documentatie van het trekkingsverzoek van GitHub](https://help.github.com/articles/about-pull-requests/)
+Alle inzendingen moeten de vorm aannemen van pull-verzoeken en moeten door de projectaanvragers worden herzien. Lezen [De documentatie van het trekkingsverzoek van GitHub](https://help.github.com/articles/about-pull-requests/)
 voor meer informatie over het verzenden van pull-aanvragen.
 
 <!--
@@ -48,13 +40,8 @@ submitting a pull request!
 
 ## Van bijdrager aan comité
 
-We houden van bijdragen van onze gemeenschap! Als je een stap verder wilt gaan dan bijdrager
-en wordt een comitante met volledige schrijftoegang en inspraak in het project, moet je
-worden uitgenodigd voor het project. De bestaande comités gebruiken een interne benoeming
-proces dat moet leiden tot luie consensus (stilte is goedkeuring) vóór uitnodigingen
-worden uitgegeven. Als u zich gekwalificeerd voelt en dieper betrokken wilt raken,
-u kunt contact opnemen met de bestaande opdrachtgevers om hierover te praten .
+We houden van bijdragen van onze gemeenschap! Als u een stap verder wilt gaan dan de medewerker en een medewerker met volledige schrijftoegang en inspraak in het project wilt worden, moet u worden uitgenodigd voor het project. De bestaande commissies hanteren een intern benoemingsproces dat een lui consensus moet bereiken (stilte is goedkeuring) voordat uitnodigingen worden gepubliceerd. Als je het gevoel hebt dat je gekwalificeerd bent en dieper betrokken wilt raken, kun je contact opnemen met bestaande bedrijven om daarover te praten.
 
 ## Beveiligingsproblemen
 
-Beveiligingsproblemen moeten niet worden gemeld bij deze probleemoplossing. In plaats daarvan [dient u een probleem in bij onze beveiligingsexperts](https://helpx.adobe.com/security/alertus.html)
+Beveiligingsproblemen moeten niet worden gemeld bij deze probleemoplossing. In plaats daarvan: [een probleem indienen bij onze beveiligingsexperts](https://helpx.adobe.com/security/alertus.html)
