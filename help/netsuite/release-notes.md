@@ -9,7 +9,7 @@ exl-id: 6317723e-447a-4506-a621-4d967bdd6561
 source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
 workflow-type: tm+mt
 source-wordcount: '849'
-ht-degree: 5%
+ht-degree: 0%
 
 ---
 
@@ -21,7 +21,7 @@ ht-degree: 5%
 
 Het Adobe Sign-pictogram is bijgewerkt naar de nieuwe afbeelding.
 
-## Vorige versies
+## Eerdere versies
 
 ### Adobe Sign for NetSuite 4.0.4
 
@@ -56,7 +56,7 @@ U ziet nu Adobe Document Cloud eSign Services (of Adobe eSign Services voor kort
 
 **Uitgebreide beveiliging met OAuth**
 
-Om de gegevensbeveiliging te verbeteren, maken eSign-services nu gebruik van OAuth 2.0 om uw Adobe Document Cloud eSign-serviceaccount binnen NetSuite te verifiëren. Met dit nieuwe protocol kan NetSuite communiceren met eSign-services zonder dat u een wachtwoord voor uw eSign-services hoeft in te voeren. Aangezien gevoelige informatie niet rechtstreeks tussen de apps gedeeld wordt, is het minder waarschijnlijk dat derden toegang tot uw account krijgen. Deze verbetering heeft geen invloed op uw implementatie, maar u moet wel een eenmalige installatie uitvoeren om uw NetSuite-pakket te autoriseren voor communicatie met de Adobe Document Cloud. Dit gebeurt tijdens het installatieproces. Voor klanten die een upgrade uitvoeren vanaf een eerdere versie van het pakket, v3.5.9 en ouder, wordt de eerder gebruikte API-sleutel vervangen door een OAuth-token dat tijdens het autorisatieproces wordt gegenereerd.
+Om de gegevensbeveiliging te verbeteren, maken eSign-services nu gebruik van OAuth 2.0 om uw Adobe Document Cloud eSign-serviceaccount binnen NetSuite te verifiëren. Met dit nieuwe protocol kan NetSuite communiceren met eSign-services zonder dat u een wachtwoord voor uw eSign-services hoeft in te voeren. Aangezien gevoelige informatie niet rechtstreeks tussen de apps wordt gedeeld, is het minder waarschijnlijk dat uw account in gevaar wordt gebracht. Deze verbetering heeft geen invloed op uw implementatie, maar u moet wel een eenmalige installatie uitvoeren om uw NetSuite-pakket te autoriseren voor communicatie met de Adobe Document Cloud. Dit gebeurt tijdens het installatieproces. Voor klanten die een upgrade uitvoeren vanaf een eerdere versie van het pakket, v3.5.9 en ouder, wordt de eerder gebruikte API-sleutel vervangen door een OAuth-token dat tijdens het autorisatieproces wordt gegenereerd.
 
 **De eSign-services zijn gemigreerd van SOAP-API&#39;s naar REST-API&#39;s**
 
@@ -106,7 +106,7 @@ Directe herinnering verzenden aan huidige ondertekenaar
 
 U kunt bestanden die u wilt bijvoegen, selecteren in de huidige transactie met de nieuwe vervolgkeuzelijst &quot;Transactiebestanden&quot;.
 
-**Adobe PDF-certificatie voor alle EchoSign-documenten**
+**Adobe PDF-certificering voor alle EchoSign-documenten**
 
 * Alle PDF-bestanden die vanuit EchoSign worden verzonden of gedownload, zijn gecertificeerd met een Adobe EchoSign Digital Certificate
 * Acrobat of Reader geeft de certificering weer die garandeert dat er niet met het document is geknoeid om het vertrouwen en de gemoedsrust te vergroten
@@ -123,7 +123,7 @@ U kunt bestanden die u wilt bijvoegen, selecteren in de huidige transactie met d
 * Voorwaarden kunnen worden uitgeschakeld via de gebruikersinterface voor het schrijven van formulieren via slepen en neerzetten of via tekstlabels
 * De ondertekenaar krijgt de juiste velden te zien wanneer hij een document ondertekent op basis van de &#39;de!ned&#39;-voorwaarden
 
-**Overige verbeteringen in EchoSign-formuliervelden**
+**Aanvullende verbeteringen voor EchoSign-formuliervelden**
 
 * Vervolgkeuzemenu&#39;s
 * Veldmaskering

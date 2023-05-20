@@ -11,7 +11,7 @@ exl-id: c1f22848-7951-4066-84d4-f8cf6c2f3a6f
 source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
 workflow-type: tm+mt
 source-wordcount: '530'
-ht-degree: 40%
+ht-degree: 0%
 
 ---
 
@@ -21,7 +21,7 @@ De versieovereenkomst van Adobe Sign en de steunlevenscyclus voor de geïntegree
 
 ## Versienummers
 
-De pakketversie geeft aan de hand van een uit drie delen bestaand nummer het sequentiële buildnummer van de uitgebrachte versie en het relatieve belang van de upgrade in termen van nieuwe of veranderde content aan.
+De pakketversie gebruikt een nummeringssysteem met drie delen om het opeenvolgende buildnummer van de vrijgegeven versie en de relatieve import van de upgrade in termen van nieuwe of veranderende inhoud te identificeren.
 
 Het versienummer volgt dit patroon: N.m.p
 
@@ -37,7 +37,7 @@ Terwijl engineers nieuwe &#39;builds&#39; van het pakket ontwikkelen, verhogen z
 
 * Belangrijke wijzigingen van de versie omvatten een belangrijke toevoeging aan functies of een belangrijke wijziging in de kernsystemen.
 * Kleine versie-updates bevatten kleinere functie-updates en beveiligingspatches. Adobe Sign kan een upgrade naar de nieuwste patchversie vereisen in het geval van beveiligingsupdates of om een gemeld item te verhelpen.
-* Patchversies bevatten bijna uitsluitend gecorrigeerde bugs en aanpassingen van de interface
+* Patchversies zijn vrijwel uitsluitend oplossingen voor problemen en UI-aanpassingen
 
 >[!NOTE]
 >
@@ -49,31 +49,31 @@ De beheerders moeten hun versie up-to-date houden om ervoor te zorgen dat het ac
 
 De levenscyclus van versieondersteuning van een Adobe Sign-integratieproduct wordt gedefinieerd op basis van de hoofdversie van het pakket en geeft het tijdsbestek aan waarin Adobe Sign de afzonderlijke versie van de integratie actief ondersteunt.
 
-Adobe Sign ondersteunt de huidige versie van een pakket en de vorige twee hoofdversies (inclusief alle bijbehorende kleine en patchupdates). Hoofdversies worden als volgt uitgedrukt:
+Adobe Sign ondersteunt de huidige versie van een pakket en de vorige twee hoofdversies (inclusief alle bijbehorende kleine en patchupdates). De belangrijkste versies worden als volgt uitgedrukt:
 
-* Huidige versie (N): de nieuwste hoofdversie van het pakket
-* Vorige versie (N-1): de hoofdversie voorafgaand aan de huidige versie
-* Laatst ondersteunde versie (N-2): de twee hoofdversies voorafgaand aan de huidige versie
+* Huidige versie (N): De nieuwste hoofdversie van het pakket
+* Vorige versie (N-1): Eén grote versie achter de nieuwste versie
+* Laatste ondersteunde versie (N-2): Twee belangrijke versies achter de huidige versie
 
 Als de huidige beschikbare versie van het pakket bijvoorbeeld 23.2.1 is, geldt het volgende:
 
 * Huidige hoofdversie (N) is 23
 * De vorige hoofdversie (N-1) van dit pakket is 22
-* De laatste ondersteunde hoofdversie (N-2) van dit pakket is 21
-* Versies ouder dan 21.0.0 worden niet ondersteund
+* Laatste ondersteunde hoofdversie (N-2) van dit pakket is 21
+* Elke versie ouder dan 21.0.0 wordt niet ondersteund
 
-![Versiegrafiek](images/version_chart.png)
+![Versiesdiagram](images/version_chart.png)
 
 ## Levenscyclus versieservice
 
-De levenscyclus voor de service van een productversie definieert het volledige bereik waarin de service kan worden gebruikt. De tijdlijn komt overeen met de levenscyclus voor de ondersteuning van de productversie, inclusief een coulanceperiode van 90 dagen waarin klanten hun upgrade kunnen voltooien.
+De levenscyclus van de versiedienst bepaalt het volledige werkingsgebied van wanneer de dienst bruikbaar is. De tijdlijn komt overeen met de levenscyclus van versieondersteuning en voegt een respijtperiode van 90 dagen toe waarmee klanten hun upgrade kunnen voltooien.
 
-* Tijdens de coulanceperiode van een niet-ondersteunde versie, geldt de ondersteuning alleen voor de upgrade naar een nieuwere versie, niet voor onderhoud aan een niet-ondersteunde versie
+* Tijdens de evaluatieperiode van een niet-ondersteunde versie wordt alleen ondersteuning geboden voor het uitvoeren van een upgrade naar een nieuwere versie, niet voor het onderhouden van een niet-ondersteunde versie
 * Na de respijtperiode is de versie niet meer beschikbaar
 
-* Adobe Sign accepteert geen verzoeken voor versies waarvoor de service niet meer geldt
-* Nadat de integratie is bijgewerkt naar de huidige versie, wordt alle communicatie tussen Adobe Sign en de integratie normaal hervat
+* Adobe Sign accepteert geen aanvragen van versies die niet meer in gebruik zijn
+* Zodra de integratie is bijgewerkt naar de huidige versie, worden de communicatie tussen Adobe Sign en de integratie normaal hervat
 
-![Sluitingperiode](images/shutdown_period.png)
+![Afsluitperiode](images/shutdown_period.png)
 
-Neem bij vragen contact op met uw verkoper of de klantenondersteuning.
+Neem contact op met uw leverancier of klantenondersteuning als u vragen hebt.

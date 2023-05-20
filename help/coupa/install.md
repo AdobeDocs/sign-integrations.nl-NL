@@ -12,20 +12,20 @@ topic: Integrations
 exl-id: 12c91be5-afec-4918-a8fc-ceb33bedf98b
 source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
 workflow-type: tm+mt
-source-wordcount: '823'
-ht-degree: 7%
+source-wordcount: '819'
+ht-degree: 0%
 
 ---
 
-# [!DNL Coupa] Installatiegids{#coupa-installation-guide}
+# [!DNL Coupa] Installatiehandleiding{#coupa-installation-guide}
 
-[**Contact opnemen met de ondersteuning van Adobe Sign**](https://adobe.com/go/adobesign-support-center_nl)
+[**Contact opnemen met Adobe Sign-ondersteuning**](https://adobe.com/go/adobesign-support-center)
 
 ## Overzicht {#overview}
 
 In dit document wordt uitgelegd hoe u uw Adobe Sign-account kunt configureren voor integratie [!DNL Coupa BSM Suite] -instantie voor het ophalen van handtekeningen.
 
-Vereisten:
+Voorwaarden:
 
 * Abonnement op Adobe Sign Enterprise; [Adobe Sign Developer Edition](https://www.adobe.com/sign/developer-form.html), of [Proefversie Adobe Sign Enterprise](https://www.adobe.com/sign/business.html)
 * Toegang tot Adobe Sign-beheerder
@@ -45,7 +45,7 @@ Een specifiek gebruik van Adobe Sign voor [!DNL Coupa] binnen een organisatie mo
 
 Een gebruiker maken in Adobe Sign:
 
-1. Meld u als accountbeheerder aan bij Adobe Sign.
+1. Meld u aan bij Adobe Sign als accountbeheerder.
 1. Navigeren naar **[!UICONTROL Account]** > **[!UICONTROL Gebruikers]**.
 1. Als u een nieuwe gebruiker wilt maken, klikt u op de knop ![afbeelding met plusteken](images/icon_plus.png) pictogram.
 1. Geef in het dialoogvenster dat wordt geopend de nieuwe gebruikersgegevens op:
@@ -71,8 +71,8 @@ Een gebruiker maken in Adobe Sign:
 1. Het e-mailadres verifiëren:
    1. Meld u aan bij de e-mail van de nieuwe gebruiker.
    2. Zoek de e-mail &quot;Welkom bij Adobe Sign&quot;. Controleer indien nodig de spam- en junkmappen.
-   3. Klik op **[!UICONTROL Klik hier om uw wachtwoord in te stellen]**
-   4. Het wachtwoord instellen.
+   3. Klik op de plaats waar de tekst staat **[!UICONTROL Klik hier om uw wachtwoord in te stellen]**
+   4. Stel het wachtwoord in.
 
    Nadat u het e-mailadres hebt geverifieerd, verandert de status van de gebruiker in [!UICONTROL GEMAAKT] aan [!UICONTROL ACTIEF].
 
@@ -84,14 +84,14 @@ Als u een groep en een gebruiker in die groep hebt gemaakt, moet u van de gebrui
 
 Om de nieuwe gebruiker te promoten in de [!DNL Coupa BSM Suite] groep:
 
-1. Navigeer naar de pagina [!UICONTROL Gebruikers] (als deze nog niet wordt afgebeeld).
+1. Navigeer naar de [!UICONTROL Gebruikers] pagina (indien nog niet aanwezig).
 2. Dubbelklik op de gebruiker.
 
    Het opent een [!UICONTROL Bewerken] pagina voor de gebruikersmachtigingen.
 
 3. Selecteer onder de sectie Groepslidmaatschap de optie **[!UICONTROL Groepsbeheerder]** en **[!UICONTROL Kan verzenden]** opties.
 4. Deselecteer de **[!UICONTROL Gebruiker is een accountbeheerder]** en **[!UICONTROL Gebruiker kan documenten ondertekenen]** opties.
-5. Klik op **[!UICONTROL Opslaan]**.
+5. Klikken **[!UICONTROL Opslaan]**.
 
    ![Afbeelding van gebruikersinstellingen](images/user-settings.png)
 
@@ -104,7 +104,7 @@ Om het [!DNL Coupa BSM Suite]:
 1. Verbind uw [!DNL Coupa BSM Suite] -exemplaar naar uw Adobe Sign-serviceaccount dat u hierboven hebt gemaakt.
 1. Maak een Adobe Sign-webhook-instantie om uw Coupa BSM Suite-instantie op de hoogte te stellen van updates van overeenkomsten.
 
-Voor meer informatie over hoe u de [!DNL Coupa BSM Suite] en hoe u webhook maakt en registreert, raadpleegt u [Ondersteuningsdocumentatie voor Adobe Sign Coupa BSM Suite-instantie](https://success.coupa.com/Support/Docs/Power_Apps/CLM_Standard/Signing_and_Approvals/Enable_E-Signatures_Through_Adobe_Sign_and_DocuSign){target=&quot;_blank&quot;}.
+Voor meer informatie over hoe u de [!DNL Coupa BSM Suite] en hoe u webhook maakt en registreert, raadpleegt u [Ondersteuningsdocumentatie voor Adobe Sign Coupa BSM Suite-instantie](https://success.coupa.com/Support/Docs/Power_Apps/CLM_Standard/Signing_and_Approvals/Enable_E-Signatures_Through_Adobe_Sign_and_DocuSign){target="_blank"}.
 
 ## Maken [!DNL Webhook] in Adobe Sign {#create-webhook}
 
@@ -136,7 +136,7 @@ Webhook maken in Adobe Sign:
 
 [!DNL Coupa BSM Suite ] is de eigenaar van de integratie en moet uw eerste contactpunt zijn voor vragen over de reikwijdte van de integratie, functieverzoeken of problemen in het dagelijks functioneren van de integratie.
 
-Neem voor alle query&#39;s contact op met [Coupa-ondersteuning](https://success.coupa.com/Support/Welcome_to_Coupa_Support){target=&quot;_blank&quot;}.
+Neem voor alle query&#39;s contact op met [Coupa-ondersteuning](https://success.coupa.com/Support/Welcome_to_Coupa_Support){target="_blank"}.
 
 ### Adobe Sign-ondersteuning {#adobe-sign-support}
 

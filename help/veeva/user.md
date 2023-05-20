@@ -12,13 +12,13 @@ exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
 source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '721'
-ht-degree: 2%
+ht-degree: 0%
 
 ---
 
 # Adobe Acrobat Sign for [!DNL Veeva Vault]: Handboek {#veeva-vault-user-guide}
 
-[**Contact opnemen met Adobe Acrobat Sign-ondersteuning**](https://adobe.com/go/adobesign-support-center_nl)
+[**Contact opnemen met Adobe Acrobat Sign-ondersteuning**](https://adobe.com/go/adobesign-support-center)
 
 Dit document is ontworpen om [!DNL Veeva Vault] klanten leren Adobe Acrobat Sign gebruiken voor [!DNL Veeva Vault] integratie voor het verzenden van een overeenkomst.
 
@@ -33,7 +33,7 @@ Adobe Acrobat Sign-integratie met [!DNL Veeva Vault] stroomlijnt en versnelt je 
 * Bespaar tijd en resources die worden besteed aan slakkenmails, spoedberichten of faxen.
 * Verzend contracten ter elektronische ondertekening of goedkeuring van [!DNL Veeva Vault]hebt toegang tot real-time contractgeschiedenis en bekijkt opgeslagen contracten.
 * Volg de deals in real-time binnen uw organisatie en krijg updates wanneer overeenkomsten worden bekeken, ondertekend, geannuleerd of geweigerd.
-* eSign-ondertekening in meer dan 20 talen en ondersteuning voor terugfaxen op meer dan 50 locaties wereldwijd.
+* eSign in meer dan 20 talen en ondersteuning voor terugfaxen in meer dan 50 landinstellingen wereldwijd.
 * Maak herbruikbare overeenkomstsjablonen voor verzendopties.
 
 ## Een overeenkomst verzenden met Adobe Acrobat Sign voor [!DNL Veeva Vault] {#send-sign-vault-agreement}
@@ -59,7 +59,7 @@ Een overeenkomst verzenden met Adobe Acrobat Sign for Veeva:
 
 1. Als u het dialoogvenster wilt sluiten, selecteert u **[!UICONTROL OK]**.
 
-1. Selecteer **[!UICONTROL Volgende]**.
+1. Selecteren **[!UICONTROL Volgende]**.
 
 1. Vul in het weergegeven venster alle vereiste velden in de sectie Metagegevens in en selecteer **[!UICONTROL Opslaan]**.
 

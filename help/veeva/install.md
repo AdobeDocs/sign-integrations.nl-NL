@@ -13,13 +13,13 @@ exl-id: 5d61a428-06e4-413b-868a-da296532c964
 source-git-commit: 76f1be575130e89d96dfe45f7343382b3a519903
 workflow-type: tm+mt
 source-wordcount: '4171'
-ht-degree: 3%
+ht-degree: 0%
 
 ---
 
 # [!DNL Veeva Vault] Installatiehandleiding{#veeva-installation-guide}
 
-[**Contact opnemen met Adobe Acrobat Sign-ondersteuning**](https://adobe.com/go/adobesign-support-center_nl)
+[**Contact opnemen met Adobe Acrobat Sign-ondersteuning**](https://adobe.com/go/adobesign-support-center)
 
 ## Overzicht {#overview}
 
@@ -40,7 +40,7 @@ De stappen op hoog niveau om de integratie te voltooien zijn:
 >
 >Adobe Sign-beheerder moet de Adobe Acrobat Sign-installatiestappen uitvoeren in Adobe Acrobat Sign.
 
-## Configureer [!DNL Veeva Vault] {#configure-veeva}
+## Configureren [!DNL Veeva Vault] {#configure-veeva}
 
 Om te configureren [!DNL Veeva Vault] voor integratie met Adobe Acrobat Sign moet u de onderstaande stappen implementeren.
 
@@ -85,10 +85,10 @@ Handtekeningobject wordt gemaakt voor het opslaan van informatie over overeenkom
 | sender_c | Afzender | Object (gebruiker) | Bevat de verwijzing naar de Vault-gebruiker die de overeenkomst heeft gemaakt |
 | signature_status__c | Handtekeningstatus | Tekenreeks (75) | Houdt de status van de overeenkomst vast in Adobe Acrobat Sign |
 | signature_type__c | Handtekeningtype | Tekenreeks (20) | Houdt het handtekeningtype van de overeenkomst vast in Adobe Acrobat Sign (SCHRIFTELIJK of ESIGN) |
-| start_date__c | Startdatum | DateTime | Datum waarop de overeenkomst ter ondertekening is verzonden |
+| start_date__c | Begindatum | DateTime | Datum waarop de overeenkomst ter ondertekening is verzonden |
 | cancelation_date__c | Annuleringsdatum | DateTime | Houdt de datum vast waarop de overeenkomst is geannuleerd. |
 | completion_date__c | Voltooiingsdatum | DateTime | Houdt de datum vast waarop de overeenkomst is voltooid. |
-| viewable_rendition_used__c | Gebruikte zichtbare vertoning | Booleaanse waarde | Markering die aangeeft of de zichtbare vertoning ter ondertekening is verzonden. (standaard is dit waar) |
+| viewable_rendition_used__c | Gebruikte zichtbare vertoning | Boolean | Markering die aangeeft of de zichtbare vertoning ter ondertekening is verzonden. (standaard is dit waar) |
 | plugin_version__c | Plugin-versie | Tekst (10) | Deze wordt gebruikt om de juiste verwerking mogelijk te maken van alle overeenkomsten die zijn gemaakt voordat een nieuwe versie 4.0 wordt geïmplementeerd. Opmerking: Nadat een aangepaste webtoepassingsversie van 4.0 is geïmplementeerd, wordt dit veld ingesteld op 4.0, elke keer dat een handtekeningrecord wordt gemaakt. |
 | external_environment__c | Externe omgeving | Tekst (20) | Houdt de omgevingsnaam van de Adobe Sign waarin de overeenkomst is gemaakt. |
 
@@ -121,7 +121,7 @@ Handtekeninggebeurtenisobjectvelden
 
 | Veld | Label | Type | Beschrijving |
 |:---|:---|:---|:-------- | 
-| acting_user_email_c | E-mail waarnemend gebruiker | Tekenreeks | Bevat het e-mailadres van de Adobe Acrobat Sign-gebruiker die de handeling heeft uitgevoerd die ertoe heeft geleid dat de gebeurtenis is gegenereerd |
+| acting_user_email_c | E-mailadres van gebruiker activeren | Tekenreeks | Bevat het e-mailadres van de Adobe Acrobat Sign-gebruiker die de handeling heeft uitgevoerd die ertoe heeft geleid dat de gebeurtenis is gegenereerd |
 | acting_user_name__c | Handelsnaam | Tekenreeks | Houdt de naam vast van de Adobe Acrobat Sign-gebruiker die de handeling heeft uitgevoerd die ertoe heeft geleid dat de gebeurtenis is gegenereerd |
 | description_c | Beschrijving | Tekenreeks | Bevat de beschrijving van de Adobe Acrobat Sign-gebeurtenis |
 | event_date__c | Gebeurtenisdatum | DateTime | Houdt de datum en tijd van de Adobe Acrobat Sign-gebeurtenis vast |
@@ -129,7 +129,7 @@ Handtekeninggebeurtenisobjectvelden
 | name_v | Naam | Tekenreeks | Automatisch gegenereerde gebeurtenisnaam |
 | participant_comment_c | Opmerking deelnemer | Tekenreeks | Bevat de eventuele opmerking van de Adobe Acrobat Sign-deelnemer |
 | participant_email_c | E-mail deelnemer | Tekenreeks | Bevat het e-mailadres van de Adobe Acrobat Sign-deelnemer |
-| participant_role__c | Rol van deelnemer | Tekenreeks | Houdt de rol van de Adobe Acrobat Sign-deelnemer vast |
+| participant_role__c | Deelnemerrol | Tekenreeks | Houdt de rol van de Adobe Acrobat Sign-deelnemer vast |
 | signature__c | Handtekening | Object (handtekening) | Bevat de verwijzing naar de bovenliggende handtekeningrecord |
 | external_id_c | Externe id | Tekst (200) | Houdt Agreement-gebeurtenis-id die is gegenereerd door Adobe Sign. |
 
@@ -151,7 +151,7 @@ Objectvelden voor Adobe Sign Integration-taaklog
 
 | Veld | Label | Type | Beschrijving |
 |:--|:--|:--|:---------| 
-| start_date__c | Startdatum | DateTime | Begindatum van taak |
+| start_date__c | Begindatum | DateTime | Begindatum van taak |
 | end_date__c | Einddatum | DateTime | Einddatum taak |
 | task_status__c | Taakstatus | Keuzelijst | Houdt taakstatus: <br /> Voltooid (task_completed__c) Voltooid met fouten (task_completed_with_errors__c) Mislukt (task_failed__c) |
 | task_type__c | Taaktype | Keuzelijst | Houdt taaktype: <br><br> Overeenkomsten Synchronisatie van gebeurtenissen (agreements_events_synchronisatie__c) Overeenkomsten Verwerking van gebeurtenissen (agreements_events_processing__c) |
@@ -210,7 +210,7 @@ U moet de Adobe Sign Admin Group (gemaakt in Stap 1) bijwerken door het meegelev
 
 ![Afbeelding van details van handtekeninggebeurtenissen](images/security-profiles.png)
 
-### Stap 4. Gebruiker aanmaken {#create-user}
+### Stap 4. Gebruiker maken {#create-user}
 
 De gebruiker van de Vault-systeemaccount voor Adobe Acrobat Sign-integratie moet:
 

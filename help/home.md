@@ -11,7 +11,7 @@ exl-id: b2fa280d-894c-47da-bbf5-8b4d0c6b6165
 source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
 workflow-type: tm+mt
 source-wordcount: '121'
-ht-degree: 26%
+ht-degree: 0%
 
 ---
 
@@ -32,7 +32,7 @@ Leer hoe je installeert, integreert en gebruikt [!DNL Adobe Sign] oplossingen vo
     <div>
     <a href="versions.md"><strong>Versies en levenscycli</strong></a>
     </div>
-    <em>Versiebeheer en levenscyclus van Adobe Sign-integratieproducten.</em>
+    <em>Adobe Sign-integratieproducten, versiebeheer en levenscyclus.</em>
     <br>
   </td>
   <td>

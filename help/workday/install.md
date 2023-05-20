@@ -1,6 +1,6 @@
 ---
-title: Installatiegids Workday
-description: Installatiegids voor het inschakelen van de integratie van Adobe Sign met Workday
+title: Workday-installatiegids
+description: Installatiehandleiding voor het inschakelen van de Adobe Sign-integratie met Workday
 uuid: 56478222-fe66-4fa5-aac3-0ecdf2863197
 product: Adobe Sign
 topic-tags: EchoSign/Integrations
@@ -14,14 +14,14 @@ topic: Integrations
 exl-id: 8f12b524-2123-45d4-98d5-b2b23580a5ea
 source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
 workflow-type: tm+mt
-source-wordcount: '1133'
-ht-degree: 25%
+source-wordcount: '1131'
+ht-degree: 0%
 
 ---
 
-# [!DNL Workday] Installatiegids{#workday-installation-guide}
+# [!DNL Workday] Installatiehandleiding{#workday-installation-guide}
 
-[**Contact opnemen met de ondersteuning van Adobe Sign**](https://adobe.com/go/adobesign-support-center_nl)
+[**Contact opnemen met Adobe Sign-ondersteuning**](https://adobe.com/go/adobesign-support-center)
 
 ## Overzicht {#overview}
 
@@ -43,11 +43,11 @@ Bestaande klanten met een vaste account kunnen overslaan naar de [Adobe Sign con
 
 Voor klanten die nog geen ervaring hebben met Adobe Sign en die nog niet eerder zijn aangemeld, kan een Adobe on-boarding-specialist uw account (in Adobe Sign) voorzien van [!DNL Workday]. Na voltooiing ontvangt u een bevestigingsbericht zoals hieronder getoond.
 
-![Afbeelding van de welkomste-mail van Adobe Sign](images/welcome-email-2020.png)
+![Afbeelding van de welkomstmail van Adobe Sign](images/welcome-email-2020.png)
 
 U moet de aanwijzingen in de e-mail volgen om uw account te initialiseren en toegang te krijgen tot uw Adobe Sign [!UICONTROL Home] pagina.
 
-![De pagina met het dashboard van Adobe Sign](images/classic-home.png)
+![De Adobe Sign-dashboardpagina](images/classic-home.png)
 
 ## Adobe Sign configureren voor [!DNL Workday] {#config}
 
@@ -61,22 +61,22 @@ Adobe Sign configureren voor [!DNL Workday]moet u de volgende twee speciale obje
 
 Een gebruiker maken in Adobe Sign:
 
-1. Meld u als accountbeheerder aan bij Adobe Sign.
+1. Meld u aan bij Adobe Sign als accountbeheerder.
 1. Navigeren naar **[!UICONTROL Account]** > **[!UICONTROL Gebruikers]**.
 1. Klik op ![afbeelding met plusteken](images/icon_plus.png) om een nieuwe gebruiker te maken.
 
-   ![Afbeelding van het navigatiepad voor het maken van een nieuwe gebruiker](images/navigate-to-group-unbranded.png)
+   ![Afbeelding van het navigatiepad om een nieuwe gebruiker te maken](images/navigate-to-group-unbranded.png)
 
 1. Geef in het dialoogvenster dat wordt geopend de nieuwe gebruikersgegevens op:
 
    * Geef een functionele e-mail die u kunt openen.
-   * Voer een toepasselijke waarde in voor de voor- en achternaam.
+   * Voer de juiste waarde voor Voornaam en Achternaam in.
    * Selecteren **[!UICONTROL Een nieuwe groep maken voor deze gebruiker]** in de gebruikersgroep.
    * Geef de **[!UICONTROL Nieuwe groepsnaam]** met een intuïtieve naam zoals *[!DNL Workday]*.
 
    ![Het deelvenster Gebruiker maken](images/create-user.png)
 
-1. Klik op **[!UICONTROL Opslaan]**.
+1. Klikken **[!UICONTROL Opslaan]**.
 
    Het brengt je terug naar de [!UICONTROL Gebruikers] pagina met een lijst van de nieuwe gebruiker met een **[!UICONTROL GEMAAKT]** status.
 
@@ -86,8 +86,8 @@ Het e-mailadres van de gebruiker verifiëren met de status &quot;Gemaakt&quot;:
 
 1. Meld u aan bij de e-mail van de nieuwe gebruiker.
 2. Zoek de e-mail &quot;Welkom bij Adobe Sign&quot;.
-3. Klik op **[!UICONTROL Klik hier om uw wachtwoord in te stellen]**.
-4. Het wachtwoord instellen.
+3. Klik op de plaats waar de tekst staat **[!UICONTROL Klik hier om uw wachtwoord in te stellen]**.
+4. Stel het wachtwoord in.
 
 Nadat u het e-mailadres hebt geverifieerd, verandert de status van de gebruiker in [!UICONTROL GEMAAKT] aan [!UICONTROL ACTIEF].
 
@@ -97,13 +97,13 @@ Nadat u het e-mailadres hebt geverifieerd, verandert de status van de gebruiker 
 
 Om de nieuwe gebruiker te promoten in de [!DNL Workday] groep:
 
-1. Navigeer naar de pagina [!UICONTROL Gebruikers] (als deze nog niet wordt afgebeeld).
+1. Navigeer naar de [!UICONTROL Gebruikers] pagina (indien nog niet aanwezig).
 2. Dubbelklik op de gebruiker in het dialoogvenster [!DNL Workday] groep.
 
    Dit opent een [!UICONTROL Bewerken] pagina voor de gebruikersmachtigingen.
 
 3. Controleer de **[!UICONTROL Groepsbeheerder]**.
-4. Klik op **[!UICONTROL Opslaan]**.
+4. Klikken **[!UICONTROL Opslaan]**.
 
 ![](images/user-permissions-edit1-575.png)
 
@@ -119,7 +119,7 @@ De vertrouwde relatie tot stand brengen:
 
 1. Meld u aan bij [!DNL Workday] als accountbeheerder.
 1. Open de **[!UICONTROL Tenant instellen bewerken - Bedrijfsprocessen]** pagina.
-1. Zoek de sectie [!UICONTROL Configuratie elektronische handtekening]:
+1. Zoek de [!UICONTROL Configuratie van e-handtekeningen] sectie:
 
    ![](images/esignature_configurations.png)
 
@@ -134,7 +134,7 @@ De vertrouwde relatie tot stand brengen:
 >
 >Zorg ervoor dat u zich volledig afmeldt bij een andere Adobe Sign-instantie voordat u verdergaat.
 
-Als de verbinding tot stand is gebracht, is het selectievakje Adobe-configuratie ingeschakeld geselecteerd en kunt u Adobe Sign gebruiken met [!DNL Workday].
+Nadat de Adobe-configuratie is ingeschakeld, is het selectievakje ingesteld en kunt u Adobe Sign gebruiken met [!DNL Workday].
 
 ### De stap Review Document Step configureren {#configure-review}
 
@@ -144,17 +144,17 @@ Het document voor de stap Review Document Step kan een van de volgende zijn:
 * Een document dat is gegenereerd door een stap Document genereren binnen hetzelfde bedrijfsproces
 * Een opgemaakt rapport dat is gemaakt met de [!DNL Workday] Rapportontwerper
 
-U kunt al deze documenten toevoegen met [Adobe-tekstlabels](https://adobe.com/go/adobesign_text_tag_guide_nl) om het uiterlijk en de positie van de specifieke componenten voor ondertekening door de Adobe te bepalen. De documentbron moet zijn opgegeven in de definitie van het bedrijfsproces. Het is niet mogelijk om een ad-hocdocument te uploaden terwijl het bedrijfsproces wordt uitgevoerd.
+U kunt al deze documenten toevoegen met [Adobe-tekstlabels](https://adobe.com/go/adobesign_text_tag_guide) om het uiterlijk en de positie van de specifieke componenten voor ondertekening door de Adobe te bepalen. De documentbron moet worden opgegeven binnen de definitie van het bedrijfsproces. Het is niet mogelijk om een ad-hocdocument te uploaden terwijl het bedrijfsproces wordt uitgevoerd.
 
-Uniek aan het gebruik van Adobe Sign met een stap Document bekijken is de mogelijkheid om ondertekenaarsgroepen met serienummering te hebben. Op deze manier kunt u functiegebonden groepen opgeven die documenten op volgorde ondertekenen. Adobe Sign ondersteunt geen parallelle ondertekeningsgroepen.
+Uniek aan het gebruik van Adobe Sign met een stap Document bekijken is de mogelijkheid om ondertekenaarsgroepen met serienummering te hebben. Hiermee kunt u op rollen gebaseerde groepen opgeven die zich op volgorde aanmelden. Adobe Sign ondersteunt geen parallelle ondertekeningsgroepen.
 
-Voor hulp bij het configureren van de stap Review Document Step, raadpleegt u de [Gids Aan de slag](https://adobe.com//go/adobesign_workday_quick_start){target=&quot;_blank&quot;}.
+Voor hulp bij het configureren van de stap Review Document Step, raadpleegt u de [Gids Aan de slag](https://adobe.com//go/adobesign_workday_quick_start){target="_blank"}.
 
 ## Ondersteuning {#support}
 
 ### [!DNL Workday] ondersteuning {#workday-support}
 
-[!DNL Workday] is de eigenaar van de integratie en fungeert als uw eerste contactpunt voor vragen over het bereik van de integratie, voor verzoeken om functies of in geval van problemen met het dagelijks functioneren van de integratie.
+[!DNL Workday] is de eigenaar van de integratie en moet uw eerste contactpunt zijn voor vragen over de reikwijdte van de integratie, functieverzoeken of problemen in het dagelijks functioneren van de integratie.
 
 U kunt naar het volgende verwijzen [!DNL Workday] communityartikelen over het oplossen van problemen met de integratie en het genereren van documenten:
 
@@ -165,9 +165,9 @@ U kunt naar het volgende verwijzen [!DNL Workday] communityartikelen over het op
 
 ### Adobe Sign-ondersteuning {#adobe-sign-support}
 
-Adobe Sign is de integratiepartner en u dient contact op te nemen met Adobe Sign als de integratie geen handtekeningen kan verkrijgen of als de kennisgeving voor handtekeningen in de wachtrij mislukt.
+Adobe Sign is de integratiepartner en moet worden benaderd als de integratie geen handtekeningen krijgt of als het melden van handtekeningen in behandeling mislukt.
 
-Klanten van Adobe Sign dienen contact op te nemen met hun CSM (Customer Success Manager) voor ondersteuning. U kunt ook de technische ondersteuning van Adobe bellen: 1-866-318-4100, wachten tot de lijst met producten wordt opgesomd en bij de aanwijzingen eerst op 4 en dan op 2 drukken.
+Adobe Sign-klanten moeten contact opnemen met hun Customer Success Manager (CSM) voor ondersteuning. U kunt ook telefonisch bij Technische ondersteuning voor Adobe terecht komen: 1-866-318-4100, wacht op productlijst dan ga binnen: 4 en vervolgens 2 (naar wens).
 
 * [Adobe-tekstcodes toevoegen aan documenten](https://adobe.com/go/adobesign_text_tag_guide)
 * [Documentconfiguratie en voorbeelden bekijken](https://www.adobe.com//go/adobesign_workday_quick_start)

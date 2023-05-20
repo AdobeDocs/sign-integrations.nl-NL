@@ -11,7 +11,7 @@ exl-id: 378cac01-87c9-4288-8839-482121d49402
 source-git-commit: 568d001a05bd0e642036b4a73067689e987c02ba
 workflow-type: tm+mt
 source-wordcount: '4870'
-ht-degree: 1%
+ht-degree: 0%
 
 ---
 
@@ -72,7 +72,7 @@ Zie [Een Adobe Sign-overeenkomst maken](#createagreement) voor meer informatie o
 
 Adobe Sign gebruikt OAuth 2.0 om uw Adobe Sign-account te verifiëren binnen [!DNL NetSuite].
 
-Met dit protocol wordt uw geïnstalleerde [!DNL NetSuite] om te communiceren met Adobe Sign zonder om uw wachtwoord te vragen. Aangezien gevoelige informatie niet rechtstreeks tussen de apps gedeeld wordt, is het minder waarschijnlijk dat derden toegang tot uw account krijgen.
+Met dit protocol wordt uw geïnstalleerde [!DNL NetSuite] om te communiceren met Adobe Sign zonder om uw wachtwoord te vragen. Aangezien gevoelige informatie niet rechtstreeks tussen de apps wordt gedeeld, is het minder waarschijnlijk dat uw account in gevaar wordt gebracht.
 
 Deze verificatie heeft geen invloed op uw implementatie, maar u moet een eenmalige configuratie uitvoeren nadat u de bundel hebt geïnstalleerd of bijgewerkt in uw productie- of Sandbox-account.
 
@@ -84,7 +84,7 @@ De [!DNL NetSuite] beheerder die OAuth configureert, moet ook beheerderstoegang 
 
 1. Selecteer op de pagina Zoekresultaten de optie **Weergave** voor de *Adobe Sign Config* opnemen.
 
-   ![Zoek naar Adobe Sign](images/search-for-adobesignconfig.png)
+   ![Zoeken naar Adobe Sign](images/search-for-adobesignconfig.png)
 
 1. Selecteer op de pagina Adobe Sign Config de optie **[!UICONTROL Weergave]** voor de *OAuth gebruiken om toegang te krijgen tot Adobe Sign API&#39;s* opnemen.
 
@@ -92,7 +92,7 @@ De [!DNL NetSuite] beheerder die OAuth configureert, moet ook beheerderstoegang 
 
 1. Selecteer op de pagina Adobe Sign Config de optie **[!UICONTROL Aanmelden met Adobe Sign]**
 
-   ![Meld u aan ](images/log-in-with-adobesign.png)
+   ![Aanmelden ](images/log-in-with-adobesign.png)
 
 1. Voer op de Adobe Sign-aanmeldingspagina die verschijnt uw referenties in en selecteer **[!UICONTROL Aanmelden]**.
 
@@ -100,7 +100,7 @@ De [!DNL NetSuite] beheerder die OAuth configureert, moet ook beheerderstoegang 
 
 1. Selecteer op de pagina Toegang bevestigen (voor OAuth) die wordt weergegeven de optie **[!UICONTROL Toegang toestaan]**
 
-   ![Toegang verschaffen](images/confirm-access.png)
+   ![Toegang toestaan](images/confirm-access.png)
 
 1. Wanneer de autorisatie is voltooid, wordt u teruggeleid naar de Adobe Sign Config-pagina in [!DNL NetSuite], zoals hieronder weergegeven.
 
@@ -243,7 +243,7 @@ Met de Adobe Sign-integratiebundel kunt u automatisch updates ontvangen in [!DNL
 
    * Schakel in de sectie SuiteScript de optie **[!UICONTROL Client SuiteScript]** en **[!UICONTROL Server SuiteScript]** en ga akkoord met de servicevoorwaarden voor beide.
 
-1. Selecteer **[!UICONTROL Opslaan]**.
+1. Selecteren **[!UICONTROL Opslaan]**.
 
    Uw opties worden ingesteld zoals weergegeven in de afbeelding.
 
@@ -261,7 +261,7 @@ Als de overeenkomst is gemaakt op basis van een transactierecord, is het eerste 
 
 Onder Aangepaste voorkeuren kunt u ook de opdracht **[!UICONTROL Gebruik Trans. Contact opnemen als eerste ondertekenaar]** als u wilt dat de primaire transactielink automatisch wordt toegevoegd als de eerste ondertekenaar. Als dit aan een transactierecord is gekoppeld, wordt het **[!UICONTROL Overeenkomsten]** en de **[!UICONTROL Send for Signature]** knoppen.
 
-![Citaat](images/quote.png)
+![Offerte](images/quote.png)
 
 ## Entiteitsrecords {#entity-records}
 
@@ -312,7 +312,7 @@ Om het *Overeenkomsten* subtab en de *Send for Signature* knop voor de juiste re
 
    * Met de **[!UICONTROL Doelgroep]** subtab actief (standaard actief), selecteert u de specifieke rollen of gebruikers aan wie u toegang wilt verlenen. Als u toegang wilt verlenen tot alle rollen en gebruikers, schakelt u de respectievelijke **[!UICONTROL Alles selecteren]** opties.
 
-   * Selecteer **[!UICONTROL Opslaan]**. Selecteer **[!UICONTROL Terug]**.
+   * Selecteren **[!UICONTROL Opslaan]**. Selecteer **[!UICONTROL Terug]**.
 
 
 1. selecteren **[!UICONTROL Lijst]** boven aan de pagina Scriptimplementatie om terug te gaan naar de *Scripts* lijstpagina.
@@ -647,4 +647,4 @@ U kunt ook de implementatielogboeken bekijken voor scripts die niet te maken heb
 
 ## Ondersteuning {#support}
 
-Ga naar de [Adobe Sign Support Portal](https://adobe.com/go/adobesign-support-center_nl) om toegang te krijgen tot veelgestelde vragen, documentatie, artikelen op basis van kennis of om contact op te nemen met Adobe Support.
+Ga naar de [Adobe Sign Support Portal](https://adobe.com/go/adobesign-support-center) om toegang te krijgen tot veelgestelde vragen, documentatie, artikelen op basis van kennis of om contact op te nemen met Adobe Support.
